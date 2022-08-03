@@ -1,0 +1,19 @@
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-right: 2rem;
+}
+
+.link a{
+    text-decoration: none;
+    margin: 0 2rem;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.link a:hover{
+    /* font-weight: 600; */
+    color: var(--gray);
+}
