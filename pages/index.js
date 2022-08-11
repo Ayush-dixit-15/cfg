@@ -33,21 +33,28 @@ function Home({ consoles }) {
                 <div className={styles.grid}>
                     {consoles.data.map((item) => {
                         return (
-                            <Link href={`/consoles/${item.attributes.slug}`}>
-                                <div className={styles.card}>
-                                    <img
-                                        src={
-                                            `http://localhost:1337` +
-                                            item.attributes.mainImage.data
-                                                .attributes.url
-                                        }
-                                        height={180}
-                                        width={180}
-                                    />
-                                    <h2>{item.attributes.title}</h2>
-                                    <span>From {item.attributes.plan1}</span>
-                                </div>
-                            </Link>
+                            <div key={item.attributes.slug}>
+                                <Link
+                                    href={`/consoles/${item.attributes.slug}`}
+                                >
+                                    <div className={styles.card}>
+                                        <img
+                                            src={
+                                                process.env
+                                                    .NEXT_PUBLIC_STRAPI_HOST +
+                                                item.attributes.mainImage.data
+                                                    .attributes.url
+                                            }
+                                            height={180}
+                                            width={180}
+                                        />
+                                        <h2>{item.attributes.title}</h2>
+                                        <span>
+                                            From {item.attributes.plan1}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         );
                     })}
                 </div>
@@ -75,21 +82,28 @@ function Home({ consoles }) {
                 <div className={styles.grid}>
                     {consoles.data.map((item) => {
                         return (
-                            <Link href={`/consoles/${item.attributes.slug}`}>
-                                <div className={styles.card}>
-                                    <img
-                                        src={
-                                            `http://localhost:1337` +
-                                            item.attributes.mainImage.data
-                                                .attributes.url
-                                        }
-                                        height={180}
-                                        width={180}
-                                    />
-                                    <h2>{item.attributes.title}</h2>
-                                    <span>From {item.attributes.plan1}</span>
-                                </div>
-                            </Link>
+                            <div key={item.attributes.slug}>
+                                <Link
+                                    href={`/consoles/${item.attributes.slug}`}
+                                >
+                                    <div className={styles.card}>
+                                        <img
+                                            src={
+                                                process.env
+                                                    .NEXT_PUBLIC_STRAPI_HOST +
+                                                item.attributes.mainImage.data
+                                                    .attributes.url
+                                            }
+                                            height={180}
+                                            width={180}
+                                        />
+                                        <h2>{item.attributes.title}</h2>
+                                        <span>
+                                            From {item.attributes.plan1}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
                         );
                     })}
                 </div>
@@ -144,9 +158,12 @@ export async function getServerSideProps(context) {
     };
     // console.log(process.env.NEXT_PUBLIC_STRAPI_URL);
     // let url =process.env.NEXT_PUBLIC_STRAPI_URL+"/api/products?populate=*";
-    let data = await fetch("http://localhost:1337/api/consoles?populate=*", {
-        headers: headers,
-    });
+    let data = await fetch(
+        process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/consoles?populate=*`,
+        {
+            headers: headers,
+        }
+    );
     let consoles = await data.json();
     return {
         props: { consoles }, // will be passed to the page component as props
