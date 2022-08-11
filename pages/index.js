@@ -8,8 +8,10 @@ import VerifiedOutlinedIcon from "@mui/icons-material/VerifiedOutlined";
 import AutoAwesomeOutlinedIcon from "@mui/icons-material/AutoAwesomeOutlined";
 import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import Accordion from "../components/Accordion";
+import Navbar from "../components/Navbar";
 
-function Home({ consoles }) {
+
+function Home({ products }) {
     return (
         <div>
             <Head>
@@ -20,7 +22,9 @@ function Home({ consoles }) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'}/>
             <Carousel />
+            {/* <span>{myarr}</span> */}
             <div className={styles.main}>
                 <div className={styles.topic}>
                     <h1>Our best Sellers</h1>
@@ -31,7 +35,7 @@ function Home({ consoles }) {
                     <hr />
                 </div>
                 <div className={styles.grid}>
-                    {consoles.data.map((item) => {
+                    {products.data.map((item) => {
                         return (
                             <div key={item.attributes.slug}>
                                 <Link
@@ -79,8 +83,16 @@ function Home({ consoles }) {
                 </span> */}
                     <hr />
                 </div>
+                <div className={styles.sorting}>
+                    <span>Showing {products.data.length} items</span>
+                    <hr/>
+                    <select name="sort" id="sort">
+                        <option value="lowtohigh">Price: Low to high</option>
+                        <option value="lowtohigh">Price: High to low</option>
+                    </select>
+                </div>
                 <div className={styles.grid}>
-                    {consoles.data.map((item) => {
+                    {products.data.map((item) => {
                         return (
                             <div key={item.attributes.slug}>
                                 <Link
@@ -164,9 +176,9 @@ export async function getServerSideProps(context) {
             headers: headers,
         }
     );
-    let consoles = await data.json();
+    let products = await data.json();
     return {
-        props: { consoles }, // will be passed to the page component as props
+        props: { products }, // will be passed to the page component as props
     };
 }
 

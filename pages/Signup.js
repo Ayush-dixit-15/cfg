@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../components/Navbar";
 
 const Signup = () => {
-  return (
-    <div>Signup</div>
-  )
-}
+    return (
+        <div>
+            <Navbar
+                KYC={"KYC"}
+                About={"About"}
+                Contact={"Contact"}
+                Login={"Login"}
+                Signup={null}
+            />
+            Signup
+        </div>
+    );
+};
 
-export default Signup
+export default Signup;

@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import styles from "../styles/Accordion.module.css";
 
 const Accordion = () => {
     return (
@@ -17,11 +18,11 @@ const Accordion = () => {
                     crossOrigin="anonymous"
                 ></link>
             </Head>
-            <div className="accordion" id="accordionExample">
+            <div className={`accordion ${styles.accordion}`} id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                         <button
-                            className="accordion-button"
+                            className={`accordion-button ${styles.accordionButton1}`}
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseOne"
@@ -56,7 +57,7 @@ const Accordion = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingTwo">
                         <button
-                            className="accordion-button collapsed"
+                            className={`accordion-button collapsed ${styles.accordionButton2}`}
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo"
@@ -91,7 +92,7 @@ const Accordion = () => {
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
                         <button
-                            className="accordion-button collapsed"
+                            className={`accordion-button collapsed ${styles.accordionButton1}`}
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseThree"
