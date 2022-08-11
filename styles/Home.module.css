@@ -1,0 +1,108 @@
+.main{
+    padding: 2rem 6rem;
+}
+
+.topic{
+    margin-top: 4rem;
+}
+
+.topic h1{
+    color: var(--red);
+    font-weight: 700;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.topic hr{
+    width: 10rem;
+    border-top: 5px solid var(--red);
+    border-radius: 10rem;
+    opacity: 1;
+    margin: 0;
+}
+
+.grid{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    grid-template-columns: auto auto auto auto;
+    grid-gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.card{
+    transition: all 0.2s ease-in-out;
+    margin: 2rem 0;
+}
+
+.card:hover{
+    transform: translateY(-1rem);
+    cursor: pointer;
+}
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    background: var(--yellow);
+    border-radius: 10px;
+    padding: 1rem 3rem;
+    align-items: center;
+    position: relative;
+    margin-top: 12rem;
+    color: var(--black);
+}
+
+.banner .left h1{
+    font-weight: 800;
+    font-size: 3rem;
+}
+
+.banner .left h3{
+    font-size: 1.25rem;
+}
+
+.banner button{
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin: 1rem 0;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.banner button:hover{
+    background: var(--red);
+}
+
+.banner .right{
+    position: absolute;
+    right: 10px;
+    bottom: -30px;
+}
+
+.usp{
+    display: flex;
+    justify-content: space-between;
+    margin: 4rem 0;
+}
+
+.usp .usp_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.usp .usp_item p{
+    text-align: center;
+    margin-top: 2rem;
+    width: 20rem;
+    color: var(--gray);
+}

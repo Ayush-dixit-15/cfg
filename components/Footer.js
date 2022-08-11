@@ -17,13 +17,13 @@ const Footer = () => {
                     <img src="/logo.png" alt="" />
                     <p>Craving for gaming</p>
                     <span>
-                        <a href="/"><InstagramIcon /></a>
+                        <a href="/"><InstagramIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="/"><FacebookIcon /></a>
+                        <a href="/"><FacebookIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="/"><LinkedInIcon /></a>
+                        <a href="/"><LinkedInIcon style={{color: 'white'}}/></a>
                     </span>
                 </div>
                 <div className={styles.middle}>

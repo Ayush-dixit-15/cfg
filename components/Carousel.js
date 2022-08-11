@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import carousel1 from "../public/carousel1.png";
 import carousel2 from "../public/carousel2.png";
+import styles from '../styles/Carousel.module.css';
 
 const Carousel = () => {
     return (
@@ -22,7 +23,7 @@ const Carousel = () => {
             </Head>
             <div
                 id="carouselExampleIndicators"
-                className="carousel slide"
+                className={`carousel slide ${styles.carousel}`}
                 data-bs-ride="true"
             >
                 <div className="carousel-indicators">
@@ -47,8 +48,8 @@ const Carousel = () => {
                         aria-label="Slide 3"
                     ></button> */}
                 </div>
-                <div className="carousel-inner">
-                    <div className="carousel-item active">
+                <div className={`carousel-inner ${styles.carousel_inner}`}>
+                    <div className={`carousel-item active ${styles.carousel_item}`}>
                         <Image src={carousel1} />
                     </div>
                     <div className="carousel-item">

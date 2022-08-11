@@ -2,10 +2,13 @@
 
 *{
     font-family: 'Nunito Sans', sans-serif;
+    color: var(--black);
 }
 
 :root {
     --red: #D90708;
     --yellow: #FFBB00;
     --gray: #8F8F8F;
+    --black: #000;
+    --white: #fff;
   }

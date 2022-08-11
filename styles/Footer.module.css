@@ -1,6 +1,6 @@
 .footer_body{
     background: url('../public/footerbg.png');
-    color: white;
+    color: var(--white);
     padding: 5rem 10rem 0rem 10rem;
     font-weight: 400;
 }
@@ -26,6 +26,7 @@
     padding: 0.5rem;
     margin-right: 1rem;
     border-radius: 999px;
+    color: var(--white);
 }
 
 .footer_content .left a{
