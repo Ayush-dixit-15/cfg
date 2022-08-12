@@ -1,0 +1,92 @@
+.landing{
+    display: flex;
+    margin: 0 8rem;
+
+}
+
+.landing .left{
+    max-width: 30rem;
+}
+
+.landing .left .extraImage{
+    display: flex;
+    justify-content: space-between;
+}
+
+.landing .left .qualities{
+    display: flex;
+    justify-content: space-between;
+    max-width: 20rem;
+    margin-top: 1.5rem;
+}
+
+.landing .left .qualities .quality{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing .left .qualities .quality span{
+    margin-left: 0.5rem;
+}
+
+.landing .right{
+    margin-left: 4rem;
+}
+
+.landing .right h2{
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.landing .right h4{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--red);
+}
+
+.landing .right span{
+    max-width: 10rem;
+}
+
+.landing .right .plan{
+    margin: 3rem 0;
+    padding: 2rem;
+    border: 1px solid var(--gray);
+    border-radius: 0.5rem;
+}
+
+.landing .right .plan h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.landing .right .plan hr{
+    margin-bottom: 1rem;
+}
+
+.landing .right .plan .plan_item{
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.landing .right .plan .plan_item button{
+    outline: var(--red);
+    border: 1px solid var(--red);
+    padding: 0.1rem 0.45rem;
+    border-radius: 999px;
+    height: 1rem;
+    background: var(--white);
+}
+
+.landing .right .plan .plan_item button:hover{
+    background: var(--red);
+    cursor: pointer;
+}
+
+.landing .right .plan .plan_item h3{
+    margin-left: 1rem;
+}
+

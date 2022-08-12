@@ -2,7 +2,7 @@
 
 *{
     font-family: 'Nunito Sans', sans-serif;
-    color: var(--black);
+    /* color: var(--black); */
     margin: 0;
     padding: 0;
 }
@@ -14,3 +14,23 @@
     --black: #000;
     --white: #fff;
   }
+
+#closeBtn{
+    transition: all 0.5s ease-in-out;
+}
+
+  #closeBtn:hover{
+    cursor: pointer;
+    transform: rotateZ(360deg);
+}
+  #cartBtn:hover{
+    cursor: pointer;
+}
+
+#cartBtn{
+    transition: all 0.5s ease-in-out;
+}
+
+#cartBtn path:hover{
+    color: var(--gray);
+}

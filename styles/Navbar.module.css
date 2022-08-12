@@ -34,3 +34,61 @@
 .navbar ul li a:hover{
     color: var(--gray);
 }
+
+.navbar .right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart{
+    height: 100vh;
+    width: 25vw;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    right: 0;
+    padding: 4rem 2rem;
+    transform: translateX(100rem);
+    transition: all 0.3s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background: var(--white);
+}
+
+
+.cart_title{
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.cart_itemno{
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+    color: var(--red);
+}
+
+.checkout{
+    margin: 0 2rem;
+}
+
+.subtotal{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0rem;
+    font-size: 1.2rem;
+}
+
+.checkout button{
+    width: 100%;
+    padding: 0.5rem 0;
+    /* font-size: 1.2rem; */
+    background: var(--red);
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+
