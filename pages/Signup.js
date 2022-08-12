@@ -84,7 +84,6 @@ const Signup = () => {
                 Login={"Login"}
                 Signup={null}
             />
-            Signup
             <div id="signInDiv"> </div>
         </div>
     );
