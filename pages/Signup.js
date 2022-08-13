@@ -78,6 +78,8 @@ const Signup = () => {
                 ></script>
             </Head>
             <Navbar
+            product={product}
+                key={email}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}

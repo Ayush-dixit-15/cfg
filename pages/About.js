@@ -5,6 +5,7 @@ const About = () => {
     return (
         <div>
             <Navbar
+            product={product}
                 KYC={"KYC"}
                 About={null}
                 Contact={"Contact"}
