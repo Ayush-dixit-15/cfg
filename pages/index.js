@@ -11,7 +11,7 @@ import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
 
 
-function Home({ products }) {
+function Home({ products ,product }) {
     return (
         <div>
             <Head>
@@ -23,7 +23,7 @@ function Home({ products }) {
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
-            <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'}/>
+            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'}/>
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>

@@ -5,17 +5,19 @@ import styles from "../../styles/Console.module.css";
 import SanitizerIcon from '@mui/icons-material/Sanitizer';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 
-const Console = ({ console }) => {
+const Console = ({ console, addProductToCart, product }) => {
     const router = useRouter();
     const { slug } = router.query;
     return (
         <div>
             <Navbar
+            product={product}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+                key={product}
             />
             <div className={styles.landing}>
                 <div className={styles.left}>
@@ -39,30 +41,32 @@ const Console = ({ console }) => {
                 <div className={styles.right}>
                     <h2>{console.attributes.title}</h2>
                     <h4>Details</h4>
-                    <span>{console.attributes.description}</span>
+                    <p>{console.attributes.description}</p>
                     <div className={styles.plan}>
                         <h2>Choose your plan</h2>
+                        <form action="">
                         <div className={styles.plan_item}>
-                            <button></button>
+                            <input type="radio" name="plan" id="plan" onClick={()=> {addProductToCart(slug,1,console.attributes.plan1,console.attributes.title)}}/>
                             <h3>{console.attributes.plan1}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <button></button>
+                            <input type="radio" name="plan" id="plan" />
                             <h3>{console.attributes.plan1}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <button></button>
+                            <input type="radio" name="plan" id="plan" />
                             <h3>{console.attributes.plan1}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <button></button>
+                            <input type="radio" name="plan" id="plan" />
                             <h3>{console.attributes.plan1}</h3>
                         </div>
                             <hr />
                             <button>Proceed to buy games</button>
+                            </form>
                     </div>
                 </div>
             </div>

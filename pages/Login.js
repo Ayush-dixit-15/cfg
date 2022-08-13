@@ -5,6 +5,7 @@ const Login = () => {
     return (
         <div>
             <Navbar
+            product={product}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}

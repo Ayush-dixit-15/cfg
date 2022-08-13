@@ -9,7 +9,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Navbar = ({ KYC, About, Contact, Login, Signup }) => {
+const Navbar = ({ KYC, About, Contact, Login, Signup, product }) => {
     const [email, setemail] = useState("");
     const saveemail = (items) => {
         localStorage.setItem("email", JSON.stringify(items));
@@ -75,6 +75,9 @@ const Navbar = ({ KYC, About, Contact, Login, Signup }) => {
                         <ArrowBackIosIcon id="closeBtn" />
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>(0 items)</span>
+                        <span>{product.name}</span>
+                        <span>{product.qty}</span>
+                        <span>{product.price}</span>
                     </div>
                     <div className={styles.checkout}>
                         <hr />
