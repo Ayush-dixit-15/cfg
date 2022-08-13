@@ -75,9 +75,13 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product }) => {
                         <ArrowBackIosIcon id="closeBtn" />
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>(0 items)</span>
-                        <span>{product.name}</span>
-                        <span>{product.qty}</span>
-                        <span>{product.price}</span>
+                        {Object.keys(product).map((k) => {
+              return <div key={k}>
+                  <span>qty: {product[k].qty}</span>
+                  <span>name: {product[k].name}</span>
+                  <span>price: {product[k].price}</span>
+                </div>
+            })}
                     </div>
                     <div className={styles.checkout}>
                         <hr />

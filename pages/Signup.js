@@ -5,7 +5,7 @@ import Head from "next/head";
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 
-const Signup = () => {
+const Signup = ({product}) => {
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
     const [pic, setpic] = useState("");
