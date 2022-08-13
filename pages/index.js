@@ -55,7 +55,7 @@ function Home({ products ,product }) {
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                            From {item.attributes.plan1}
+                                        ₹{item.attributes.plan1}
                                         </span>
                                     </div>
                                 </Link>

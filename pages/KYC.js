@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const KYC = () => {
+const KYC = ({product}) => {
     return (
         <div>
             <Navbar

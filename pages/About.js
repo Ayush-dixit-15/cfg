@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const About = () => {
+const About = ({product}) => {
     return (
         <div>
             <Navbar

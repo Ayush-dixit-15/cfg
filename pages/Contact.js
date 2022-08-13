@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const Contact = () => {
+const Contact = ({product}) => {
     return (
         <div>
             <Navbar
