@@ -1,0 +1,38 @@
+ #box2{
+        flex-direction: column;
+}
+
+#p1{
+    position: relative;
+    /* top: 5px;
+    left: 145px; */
+    word-wrap: normal;
+    transform: translate(0) !important;
+    width: 80vw;
+ 
+
+}
+
+#box3{
+    flex-direction: column-reverse;
+}
+
+#box3 img{
+    position: relative;
+    /* top -290px; */
+}
+#p2{
+    position: relative;
+    transform: translate(0) !important; 
+    width: 80vw;
+    /* top: 260px;
+    left: -145px; */
+    word-wrap: normal;
+
+}
+
+
+/*
+#p2{
+    font-size: small;
+} */

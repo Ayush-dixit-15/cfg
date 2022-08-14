@@ -1,0 +1,35 @@
+body{
+    margin: 0px 0px;
+    padding: 0px;
+    background-color: #474747;
+}
+
+.box1{
+/* color: white; */
+background-color: white;
+width: 85%;
+margin: auto;
+/* align-items: center; */
+/* text-align: center; */
+padding: 25px;
+}
+
+
+.date{
+text-align: left;
+/* padding: 39px; */
+
+}
+
+.box1 h1{
+    text-align: center;
+}
+
+.tnc{
+    text-align: center;
+}
+#go{
+    text-align: left;
+    line-break: auto;
+}
+
