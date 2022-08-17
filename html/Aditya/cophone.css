@@ -1,0 +1,16 @@
+#box2{
+    flex-direction: column;
+}
+
+#left{
+    margin-bottom: 30px;
+    padding-bottom: 100px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
+
+#right{
+    padding-bottom: 100px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
