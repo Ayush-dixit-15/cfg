@@ -1,13 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Console.module.css";
 import SanitizerIcon from '@mui/icons-material/Sanitizer';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import Link from "next/link";
 
-const Console = ({ console, addProductToCart, product }) => {
+const Console = ({ console, addProductToCart, product, subTotal }) => {
     const router = useRouter();
     const { slug } = router.query;
+    const [count, setcount] = useState(0);
     return (
         <div>
             <Navbar
@@ -18,6 +20,7 @@ const Console = ({ console, addProductToCart, product }) => {
                 Login={"Login"}
                 Signup={"Signup"}
                 key={product}
+                subTotal={subTotal}
             />
             <div className={styles.landing}>
                 <div className={styles.left}>
@@ -46,26 +49,26 @@ const Console = ({ console, addProductToCart, product }) => {
                         <h2>Choose your plan</h2>
                         <form action="">
                         <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={()=> {addProductToCart(slug,1,console.attributes.plan1,console.attributes.title)}}/>
-                            <h3>{console.attributes.plan1}</h3>
+                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(1)}}/>
+                            <h3>₹{console.attributes.plan1}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" />
-                            <h3>{console.attributes.plan1}</h3>
+                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(2)}}/>
+                            <h3>₹{console.attributes.plan2}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" />
-                            <h3>{console.attributes.plan1}</h3>
+                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(3)}}/>
+                            <h3>₹{console.attributes.plan3}</h3>
                         </div>
                             <hr />
                         <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" />
-                            <h3>{console.attributes.plan1}</h3>
+                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(4)}}/>
+                            <h3>₹{console.attributes.plan4}</h3>
                         </div>
                             <hr />
-                            <button>Proceed to buy games</button>
+                            {count!=0 && <p onClick={()=> {addProductToCart(slug,1,eval(`console.attributes.plan${count}`),console.attributes.title, process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.mainImage.data.attributes.url)}}>Proceed to buy games</p>}
                             </form>
                     </div>
                 </div>

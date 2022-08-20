@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const About = ({ product }) => {
+const About = ({ product, subTotal }) => {
     return (
         <div>
             <Navbar
@@ -11,6 +11,7 @@ const About = ({ product }) => {
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+                subTotal={subTotal}
             />
             <div className="about_box1">
                 <img src="/1523.jpg" alt="Craving For Gaming" />

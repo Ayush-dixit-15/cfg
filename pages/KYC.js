@@ -10,7 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 import styles from '../styles/KYC.module.css';
 import { DisabledByDefault } from "@mui/icons-material";
 
-const KYC = ({ product }) => {
+const KYC = ({ product, subTotal }) => {
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
     const [camera, setcamera] = useState(false)
@@ -73,6 +73,7 @@ const KYC = ({ product }) => {
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+                subTotal={subTotal}
             />
             <div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>

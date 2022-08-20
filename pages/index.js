@@ -11,7 +11,7 @@ import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
 
 
-function Home({ products ,product }) {
+function Home({ products ,product, subTotal }) {
     return (
         <div>
             <Head>
@@ -23,7 +23,7 @@ function Home({ products ,product }) {
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
-            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'}/>
+            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal}/>
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
@@ -55,7 +55,7 @@ function Home({ products ,product }) {
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                        ₹{item.attributes.plan1}
+                                        From ₹{item.attributes.plan1}/day
                                         </span>
                                     </div>
                                 </Link>
@@ -112,7 +112,7 @@ function Home({ products ,product }) {
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                            From {item.attributes.plan1}
+                                            From ₹{item.attributes.plan1}/day
                                         </span>
                                     </div>
                                 </Link>

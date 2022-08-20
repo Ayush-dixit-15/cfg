@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 
-const Contact = ({product}) => {
+const Contact = ({product ,subTotal}) => {
     return (
         <div>
             <Navbar
@@ -11,6 +11,7 @@ const Contact = ({product}) => {
                 Contact={null}
                 Login={"Login"}
                 Signup={"Signup"}
+                subTotal={subTotal}
             />
              <div className="contact_box1">
         <div className="contact_contact">
