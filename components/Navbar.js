@@ -9,12 +9,12 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useEffect } from "react";
 import { useState } from "react";
 
-const Navbar = ({ KYC, About, Contact, Login, Signup, product }) => {
+const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
     const [email, setemail] = useState("");
     const saveemail = (items) => {
         localStorage.setItem("email", JSON.stringify(items));
     };
-    useEffect(()=>{
+    useEffect(() => {
         try {
             if (localStorage.getItem("email")) {
                 setemail(JSON.parse(localStorage.getItem("email")));
@@ -23,7 +23,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product }) => {
         } catch (error) {
             console.log(error);
         }
-    },[]);
+    }, []);
     return (
         <>
             <Script src="/script.js"></Script>
@@ -76,18 +76,24 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product }) => {
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>(0 items)</span>
                         {Object.keys(product).map((k) => {
-              return <div key={k}>
-                  <span>qty: {product[k].qty}</span>
+                            return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                {/* <span>qty: {product[k].qty}</span>
                   <span>name: {product[k].name}</span>
-                  <span>price: {product[k].price}</span>
-                </div>
-            })}
+                  <span>price: {product[k].price}</span> */}
+                                <img src={product[k].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <h3>{product[k].name}</h3>
+                                    <p>Quantity: {product[k].qty}</p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${product[k].price * product[k].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
                     </div>
                     <div className={styles.checkout}>
                         <hr />
                         <div className={styles.subtotal}>
-                            <span>Subtotal</span>
-                            <span>₹0</span>
+                            <span>Subtotal: </span>
+                            <span>₹{subTotal}</span>
                         </div>
                         <button>Checkout</button>
                     </div>

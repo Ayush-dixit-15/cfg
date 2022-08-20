@@ -6,25 +6,58 @@ import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import styles from '../styles/signup.module.css';
 import Link from "next/link";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useRouter } from "next/router";
 
-const Signup = ({ product }) => {
+const Signup = ({ product, subTotal }) => {
+    const router = useRouter();
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
     const [pic, setpic] = useState("");
     const [entername, setentername] = useState("");
     const [enteremail, setenteremail] = useState("");
     const [enterpassword, setenterpassword] = useState("");
+    const [visibility, setvisibility] = useState("password");
+    const [prob, setprob] = useState("");
 
-    function handleCallBackResponse(response) {
-        console.log(response.credential);
+    const toggleVisibility = () => {
+        if(visibility==="password"){
+            setvisibility("text");
+        }
+        else{
+            setvisibility("password");
+        }
+    }
+
+    async function handleCallBackResponse(response) {
         var userObject = jwt_decode(response.credential);
-        console.log(userObject);
-        setname(userObject.name);
-        savename(userObject.name);
-        setemail(userObject.email);
-        saveemail(userObject.email);
-        setpic(userObject.picture);
-        savepic(userObject.picture);
+        // console.log(userObject);
+        const data = { username: userObject.name, email: userObject.email, password: "googleAuth"};
+        let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+            },
+            body: JSON.stringify(data),
+        });
+        let result = await res.json();
+        // console.log(result);
+        if(result.error){
+            console.log(result.error.message);
+            setprob(result.error.message);
+        }
+        else{
+            setname(userObject.name);
+            savename(userObject.name);
+            setemail(userObject.email);
+            saveemail(userObject.email);
+            setpic(userObject.picture);
+            savepic(userObject.picture);
+            router.push(`/`);
+        }
     }
 
     const savename = (items) => {
@@ -85,6 +118,29 @@ const Signup = ({ product }) => {
         }
     }
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+            const data = { username: entername, email: enteremail, password: enterpassword };
+            let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+                },
+                body: JSON.stringify(data),
+            });
+            let response = await res.json();
+            console.log(response);
+            if(response.error){
+                console.log(response.error.message);
+                setprob(response.error.message);
+            }
+            else
+            {
+                router.push(`/`);
+            }
+    }
     return (
         <div>
             <Head>
@@ -102,53 +158,59 @@ const Signup = ({ product }) => {
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={null}
+                subTotal={subTotal}
             />
             <div className={styles.signup_container}>
                 <div className={styles.signup_dialogue}>
                     <h3>Sign up</h3>
                     <div id="signInDiv"> </div>
                     <div className={styles.signup_dialogue_input}>
-                        <form>
-                        <label htmlFor="entername">Full Name: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                        <input
-                            value={entername}
-                            onChange={handleChange}
-                            placeholder="Enter your Full Name"
-                            type="text"
-                            id="entername"
-                            name="entername"
-                            autoComplete="entername"
-                            required
-                            style={{ padding: "0 0.5rem" }}
-                        />
-                        <label htmlFor="enteremail">E-mail: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                        <input
-                            value={enteremail}
-                            onChange={handleChange}
-                            placeholder="Enter your E-mail"
-                            type="text"
-                            id="enteremail"
-                            name="enteremail"
-                            autoComplete="enteremail"
-                            required
-                            style={{ padding: "0 0.5rem" }}
-                        />
-                        <label htmlFor="enterpassword">Password: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                        <input
-                            value={enterpassword}
-                            onChange={handleChange}
-                            placeholder="Enter your Password"
-                            type="text"
-                            id="enterpassword"
-                            name="enterpassword"
-                            autoComplete="enterpassword"
-                            required
-                            style={{ padding: "0 0.5rem" }}
-                        />
-                        <button type="submit">Continue</button>
-                        <p style={{margin: "0.5rem 0"}}>Already have an account? <Link href="/Login">Log in</Link></p>
-                        <p style={{margin: "0.5rem 0"}}>By continuing, you agree to craving for gaming's <Link href="/Tnc">Terms & Conditions.</Link></p>
-                            </form>
+                        <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
+                        <form onSubmit={handleSubmit} method="POST">
+                            <label htmlFor="entername">Username: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                            <input
+                                value={entername}
+                                onChange={handleChange}
+                                placeholder="Enter your Username"
+                                type="text"
+                                id="entername"
+                                name="entername"
+                                autoComplete="entername"
+                                required
+                                style={{ padding: "0 0.5rem" }}
+                            />
+                            <label htmlFor="enteremail">E-mail: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                            <input
+                                value={enteremail}
+                                onChange={handleChange}
+                                placeholder="Enter your E-mail"
+                                type="text"
+                                id="enteremail"
+                                name="enteremail"
+                                autoComplete="enteremail"
+                                required
+                                style={{ padding: "0 0.5rem" }}
+                            />
+                            <label htmlFor="enterpassword">Password: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                            <div className={styles.password_field}>
+                                <input
+                                    value={enterpassword}
+                                    onChange={handleChange}
+                                    placeholder="Enter your Password"
+                                    type={visibility}
+                                    id="enterpassword"
+                                    name="enterpassword"
+                                    autoComplete="enterpassword"
+                                    required
+                                    style={{ padding: "0 0.5rem" }}
+                                />
+                                <VisibilityIcon onClick={()=>toggleVisibility()} className={styles.openEye} style={{display: `${visibility==='password'?'inline':'none'}`}}/>
+                                <VisibilityOffIcon onClick={()=>toggleVisibility()} className={styles.openEye} style={{display: `${visibility==='password'?'none':'inline'}`}}/>
+                            </div>
+                            <button type="submit">Continue</button>
+                            <p style={{ margin: "0.5rem 0" }}>Already have an account? <Link href="/Login">Log in</Link></p>
+                            <p style={{ margin: "0.5rem 0" }}>By continuing, you agree to craving for gaming's <Link href="/Tnc">Terms & Conditions.</Link></p>
+                        </form>
                     </div>
                 </div>
             </div>
