@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }) {
             <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
             <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} {...pageProps} />
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

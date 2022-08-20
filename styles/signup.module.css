@@ -1,0 +1,56 @@
+.signup_container{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.signup_container::before{
+    content: '';
+            background: url('../public/signupbg.png') 
+                no-repeat center center/cover;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+}
+.signup_dialogue{
+    background: var(--white);
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+}
+.signup_dialogue h3{
+    margin-bottom: 2rem;
+}
+.signup_dialogue_input{
+    width: 60%;
+    margin-top: 2rem;
+}
+.signup_dialogue_input form{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup_dialogue_input form button{
+    margin-top: 1.5rem;
+    padding: 0.5rem 0;
+    border: none;
+    border-radius: 10px;
+    color: var(--white);
+    background-color: var(--red);
+    transition: all 0.2s ease-in-out;
+}
+
+.signup_dialogue_input form button:hover{
+    background-color: tomato;
+    cursor: pointer;
+}
+
+.signup_dialogue_input label{
+    margin-top: 1.5rem;
+}

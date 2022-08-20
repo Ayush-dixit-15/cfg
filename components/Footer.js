@@ -28,7 +28,7 @@ const Footer = () => {
                 </div>
                 <div className={styles.middle}>
                     <Link href="/About">About us</Link>
-                    <Link href="/About">Terms & Conditions</Link>
+                    <Link href="/Tnc">Terms & Conditions</Link>
                     <Link href="/Contact">Contact us</Link>
                 </div>
                 <div className={styles.right}>
