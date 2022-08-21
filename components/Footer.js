@@ -16,20 +16,23 @@ const Footer = () => {
                 <div className={styles.left}>
                     <img src="/logo.png" alt="" />
                     <p>Craving for gaming</p>
+                    <div className={styles.socials}>
                     <span>
-                        <a href="/"><InstagramIcon style={{color: 'white'}}/></a>
+                        <a href="https://www.instagram.com/craving4gaming/" target="_blank"><InstagramIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="/"><FacebookIcon style={{color: 'white'}}/></a>
+                        <a href="https://www.facebook.com/" target="_blank"><FacebookIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="/"><LinkedInIcon style={{color: 'white'}}/></a>
+                        <a href="https://in.linkedin.com/" target="_blank"><LinkedInIcon style={{color: 'white'}}/></a>
                     </span>
+                    </div>
                 </div>
                 <div className={styles.middle}>
                     <Link href="/About">About us</Link>
                     <Link href="/Tnc">Terms & Conditions</Link>
                     <Link href="/Contact">Contact us</Link>
+                    <Link href="/Buy">Buy/Sell</Link>
                 </div>
                 <div className={styles.right}>
                     <h1>Get in Touch</h1>

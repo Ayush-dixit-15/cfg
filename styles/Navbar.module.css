@@ -91,4 +91,74 @@
     cursor: pointer;
 }
 
+.pic{
+    cursor: pointer;
+}
+
+.phoneNav{
+    display: none;
+}
+
+@media only screen and (max-width: 800px) {
+    .outerNav{
+        display: none;
+    }
+    .phoneNav{
+        display: flex;
+        align-items: center;
+        color: var(--white);
+        background: var(--black);
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 4;
+    }
+    .phoneMenu{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10;
+        background-color: var(--black);
+        transition: all 0.3s ease-in-out;
+        transform: translateX(-100rem);
+        padding: 2rem 0;
+    }
+    .phoneCart{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        z-index: 10;
+        background-color: var(--white);
+        transition: all 0.3s ease-in-out;
+        transform: translateX(100rem);
+        color: var(--black);
+    }
+    .menuHeader{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 2rem;
+    }
+    .menuLinks{
+        padding: 3rem 2rem;
+    }
+
+    .menuLinks ul{
+        list-style: none;
+    }
+    .menuLinks ul li{
+        margin: 1rem 0;
+    }
+
+    .menuLinks ul li a{
+        color: var(--white);
+        text-decoration: none;
+    }
+}
+
 
