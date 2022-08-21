@@ -8,11 +8,18 @@ import Script from "next/script";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useEffect } from "react";
 import { useState } from "react";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
     const [email, setemail] = useState("");
+    const [pic, setpic] = useState("");
     const saveemail = (items) => {
         localStorage.setItem("email", JSON.stringify(items));
+    };
+    const savepic = (items) => {
+        localStorage.setItem("pic", JSON.stringify(items));
     };
     useEffect(() => {
         try {
@@ -20,10 +27,15 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                 setemail(JSON.parse(localStorage.getItem("email")));
                 saveemail(JSON.parse(localStorage.getItem("email")));
             }
+            if (localStorage.getItem("pic")) {
+                setpic(JSON.parse(localStorage.getItem("pic")));
+                savepic(JSON.parse(localStorage.getItem("pic")));
+            }
+
         } catch (error) {
             console.log(error);
         }
-    }, []);
+    }, [pic,email]);
     return (
         <>
             <Script src="/script.js"></Script>
@@ -64,6 +76,12 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                                 </li>
                             )}
                         </ul>}
+                        {
+                            pic != "" && pic != "N/A" && <Link href="/Profile"><Image className={styles.pic} src={pic} style={{ height: "30px", borderRadius: "999px", marginRight: "2rem" }} height={30} width={30}></Image></Link>
+                        }
+                        {
+                            pic != "" && pic == "N/A" && <Link href="/Profile"><AccountCircleIcon className={styles.pic} style={{ marginRight: "2rem" }} /></Link>
+                        }
                         <ShoppingCartIcon
                             id="cartBtn"
                             style={{ color: "white" }}
@@ -97,6 +115,49 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                         </div>
                         <button>Checkout</button>
                     </div>
+                </div>
+            </div>
+            <div className={styles.phoneNav}>
+                <MenuIcon id="phoneMenuBtn" />
+                <Link href="/"><Image src={logo} /></Link>
+                <ShoppingCartIcon id="phoneCartBtn" />
+                <div id="phoneMenu" className={styles.phoneMenu}>
+                    <div className={styles.menuHeader}>
+                        <Image src={logo} />
+                        <CloseIcon id="phoneMenuCloseBtn"/>
+                    </div>
+                    <div className={styles.menuLinks}>
+                        <ul>
+                        {KYC != null && (
+                                <li>
+                                    <Link href={`/${KYC}`}>{KYC}</Link>
+                                </li>
+                            )}
+                            {About != null && (
+                                <li>
+                                    <Link href={`/${About}`}>{About}</Link>
+                                </li>
+                            )}
+                            {Contact != null && (
+                                <li>
+                                    <Link href={`/${Contact}`}>{Contact}</Link>
+                                </li>
+                            )}
+                            {Login != null && (
+                                <li>
+                                    <Link href={`/${Login}`}>{Login}</Link>
+                                </li>
+                            )}
+                            {Signup != null && (
+                                <li>
+                                    <Link href={`/${Signup}`}>{Signup}</Link>
+                                </li>
+                            )}
+                        </ul>
+                    </div>
+                </div>
+                <div id="phoneCart" className={styles.phoneCart}>
+                    <span id="phoneCartCloseBtn">X</span>
                 </div>
             </div>
         </>

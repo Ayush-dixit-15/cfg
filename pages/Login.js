@@ -131,6 +131,12 @@ const Login = ({ product, subTotal }) => {
         }
         else
         {
+            setname(entername);
+            savename(entername);
+            setemail(response.user.email);
+            saveemail(response.user.email);
+            setpic("N/A");
+            savepic("N/A");
             router.push(`/`);
         }
     }

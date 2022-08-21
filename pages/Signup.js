@@ -22,10 +22,10 @@ const Signup = ({ product, subTotal }) => {
     const [prob, setprob] = useState("");
 
     const toggleVisibility = () => {
-        if(visibility==="password"){
+        if (visibility === "password") {
             setvisibility("text");
         }
-        else{
+        else {
             setvisibility("password");
         }
     }
@@ -33,7 +33,7 @@ const Signup = ({ product, subTotal }) => {
     async function handleCallBackResponse(response) {
         var userObject = jwt_decode(response.credential);
         // console.log(userObject);
-        const data = { username: userObject.name, email: userObject.email, password: "googleAuth"};
+        const data = { username: userObject.name, email: userObject.email, password: "googleAuth" };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
             method: "POST",
             headers: {
@@ -45,11 +45,11 @@ const Signup = ({ product, subTotal }) => {
         });
         let result = await res.json();
         // console.log(result);
-        if(result.error){
+        if (result.error) {
             console.log(result.error.message);
             setprob(result.error.message);
         }
-        else{
+        else {
             setname(userObject.name);
             savename(userObject.name);
             setemail(userObject.email);
@@ -120,26 +120,31 @@ const Signup = ({ product, subTotal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-            const data = { username: entername, email: enteremail, password: enterpassword };
-            let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
-                },
-                body: JSON.stringify(data),
-            });
-            let response = await res.json();
-            console.log(response);
-            if(response.error){
-                console.log(response.error.message);
-                setprob(response.error.message);
-            }
-            else
-            {
-                router.push(`/`);
-            }
+        const data = { username: entername, email: enteremail, password: enterpassword };
+        let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+            },
+            body: JSON.stringify(data),
+        });
+        let response = await res.json();
+        console.log(response);
+        if (response.error) {
+            console.log(response.error.message);
+            setprob(response.error.message);
+        }
+        else {
+            setname(entername);
+            savename(entername);
+            setemail(enteremail);
+            saveemail(enteremail);
+            setpic("N/A");
+            savepic("N/A");
+            router.push(`/`);
+        }
     }
     return (
         <div>
@@ -165,7 +170,7 @@ const Signup = ({ product, subTotal }) => {
                     <h3>Sign up</h3>
                     <div id="signInDiv"> </div>
                     <div className={styles.signup_dialogue_input}>
-                        <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
+                        <span key={prob} style={{ color: "var(--red)" }}>{prob}</span>
                         <form onSubmit={handleSubmit} method="POST">
                             <label htmlFor="entername">Username: <strong style={{ color: "var(--red)" }}>*</strong></label>
                             <input
@@ -204,8 +209,8 @@ const Signup = ({ product, subTotal }) => {
                                     required
                                     style={{ padding: "0 0.5rem" }}
                                 />
-                                <VisibilityIcon onClick={()=>toggleVisibility()} className={styles.openEye} style={{display: `${visibility==='password'?'inline':'none'}`}}/>
-                                <VisibilityOffIcon onClick={()=>toggleVisibility()} className={styles.openEye} style={{display: `${visibility==='password'?'none':'inline'}`}}/>
+                                <VisibilityIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'inline' : 'none'}` }} />
+                                <VisibilityOffIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'none' : 'inline'}` }} />
                             </div>
                             <button type="submit">Continue</button>
                             <p style={{ margin: "0.5rem 0" }}>Already have an account? <Link href="/Login">Log in</Link></p>
