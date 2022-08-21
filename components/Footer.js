@@ -18,13 +18,13 @@ const Footer = () => {
                     <p>Craving for gaming</p>
                     <div className={styles.socials}>
                     <span>
-                        <a href="https://www.instagram.com/craving4gaming/" target="_blank"><InstagramIcon style={{color: 'white'}}/></a>
+                        <a href="https://www.instagram.com/craving4gaming/" target="_blank" rel="noreferrer"><InstagramIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="https://www.facebook.com/" target="_blank"><FacebookIcon style={{color: 'white'}}/></a>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FacebookIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
-                        <a href="https://in.linkedin.com/" target="_blank"><LinkedInIcon style={{color: 'white'}}/></a>
+                        <a href="https://in.linkedin.com/" target="_blank" rel="noreferrer"><LinkedInIcon style={{color: 'white'}}/></a>
                     </span>
                     </div>
                 </div>
