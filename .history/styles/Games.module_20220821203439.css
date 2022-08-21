@@ -1,0 +1,13 @@
+.poster{
+    height: 26rem;
+    width:22rem;
+    wi
+}
+.main_banner{
+    display: flex;
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-size: contain;
+     width: 100%; 
+     height: auto;
+}
