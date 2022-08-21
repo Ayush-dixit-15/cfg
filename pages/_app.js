@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import { useState, useEffect } from 'react';
 import { useRouter } from "next/router";
-
+import Script from "next/script";
 
 function MyApp({ Component, pageProps }) {
   const [product, setProduct] = useState({});
@@ -67,6 +67,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
       </Head>
+      <Script src="/script.js"></Script>
       <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} {...pageProps} />
       <Footer />
     </>

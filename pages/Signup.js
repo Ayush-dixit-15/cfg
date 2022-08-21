@@ -9,6 +9,7 @@ import Link from "next/link";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from "next/router";
+import Script from "next/script";
 
 const Signup = ({ product, subTotal }) => {
     const router = useRouter();
@@ -169,6 +170,7 @@ const Signup = ({ product, subTotal }) => {
                     defer
                 ></script>
             </Head>
+            <Script src="/script.js"></Script>
             <Navbar
                 product={product}
                 key={email}

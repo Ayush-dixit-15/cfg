@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Script from 'next/script';
 
 const Profile = () => {
   return (
-    <div>Profile</div>
+    <div><Script src="/script.js"></Script>Profile</div>
   )
 }
 
