@@ -8,7 +8,8 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import Link from "next/link";
 import SendIcon from '@mui/icons-material/Send';
 import styles from '../styles/KYC.module.css';
-import { DisabledByDefault } from "@mui/icons-material";
+import Script from "next/script";
+
 
 const KYC = ({ product, subTotal }) => {
     const webRef = useRef(null);
@@ -52,19 +53,18 @@ const KYC = ({ product, subTotal }) => {
     };
     return (
         <>
-            <Head>
-                <script
+                <Script
                     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
                     crossOrigin="anonymous"
-                ></script>
+                ></Script>
+            <Head>
                 <link
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
                     rel="stylesheet"
                     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
                     crossOrigin="anonymous"
                 ></link>
-                <script src="https://kit.fontawesome.com/e47f59bf81.js" crossOrigin="anonymous"></script>
             </Head>
             <Navbar
                 product={product}
@@ -128,7 +128,7 @@ const KYC = ({ product, subTotal }) => {
                                     required
                                     style={{marginBottom: "1.5rem", padding: "0 0.5rem"}}
                                 />
-                                <label for="addressProof"><p style={{margin: "0"}}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
+                                <label htmlFor="addressProof"><p style={{margin: "0"}}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
                                 <input type="file" id="addressProof" name="addressProof" accept="image/*" required></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }}>
@@ -186,7 +186,7 @@ const KYC = ({ product, subTotal }) => {
                         </div>
                         <div style={{display: "flex", flexDirection: "column", marginTop: "3rem"}}>
 
-                        <label for="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                        <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input type="file" id="sign" name="sign" accept="image/*" required></input>
                         </div>
                     </div>

@@ -14,6 +14,7 @@ const Signup = ({ product, subTotal }) => {
     const router = useRouter();
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
+    const [userid, setuserid] = useState(0);
     const [pic, setpic] = useState("");
     const [entername, setentername] = useState("");
     const [enteremail, setenteremail] = useState("");
@@ -32,7 +33,7 @@ const Signup = ({ product, subTotal }) => {
 
     async function handleCallBackResponse(response) {
         var userObject = jwt_decode(response.credential);
-        // console.log(userObject);
+        console.log(userObject);
         const data = { username: userObject.name, email: userObject.email, password: "googleAuth" };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
             method: "POST",
@@ -44,7 +45,7 @@ const Signup = ({ product, subTotal }) => {
             body: JSON.stringify(data),
         });
         let result = await res.json();
-        // console.log(result);
+        console.log(result);
         if (result.error) {
             console.log(result.error.message);
             setprob(result.error.message);
@@ -56,6 +57,8 @@ const Signup = ({ product, subTotal }) => {
             saveemail(userObject.email);
             setpic(userObject.picture);
             savepic(userObject.picture);
+            setuserid(result.user.id);
+            saveuserid(result.user.id);
             router.push(`/`);
         }
     }
@@ -68,6 +71,9 @@ const Signup = ({ product, subTotal }) => {
     };
     const savepic = (items) => {
         localStorage.setItem("pic", JSON.stringify(items));
+    };
+    const saveuserid = (items)=>{
+        localStorage.setItem("userid", JSON.stringify(items));
     };
 
     useEffect(() => {
@@ -89,18 +95,24 @@ const Signup = ({ product, subTotal }) => {
                 savename(JSON.parse(localStorage.getItem("name")));
             } else {
                 localStorage.setItem("name", JSON.stringify(name));
-            }
+            };
             if (localStorage.getItem("email")) {
                 setemail(JSON.parse(localStorage.getItem("email")));
                 saveemail(JSON.parse(localStorage.getItem("email")));
             } else {
                 localStorage.setItem("email", JSON.stringify(email));
-            }
+            };
             if (localStorage.getItem("pic")) {
                 setpic(JSON.parse(localStorage.getItem("pic")));
                 savepic(JSON.parse(localStorage.getItem("pic")));
             } else {
                 localStorage.setItem("pic", JSON.stringify(pic));
+            };
+            if (localStorage.getItem("userid")) {
+                setuserid(JSON.parse(localStorage.getItem("userid")));
+                saveuserid(JSON.parse(localStorage.getItem("userid")));
+            } else {
+                localStorage.setItem("userid", JSON.stringify(userid));
             }
         } catch (error) {
             console.log(error);
@@ -143,6 +155,8 @@ const Signup = ({ product, subTotal }) => {
             saveemail(enteremail);
             setpic("N/A");
             savepic("N/A");
+            setuserid(response.user.id);
+            saveuserid(response.user.id);
             router.push(`/`);
         }
     }
@@ -214,7 +228,7 @@ const Signup = ({ product, subTotal }) => {
                             </div>
                             <button type="submit">Continue</button>
                             <p style={{ margin: "0.5rem 0" }}>Already have an account? <Link href="/Login">Log in</Link></p>
-                            <p style={{ margin: "0.5rem 0" }}>By continuing, you agree to craving for gaming's <Link href="/Tnc">Terms & Conditions.</Link></p>
+                            <p style={{ margin: "0.5rem 0" }}>By continuing, you agree to craving for gaming&apos;s <Link href="/Tnc">Terms &#38; Conditions.</Link></p>
                         </form>
                     </div>
                 </div>

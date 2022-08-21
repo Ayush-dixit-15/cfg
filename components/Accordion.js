@@ -1,16 +1,17 @@
 import React from "react";
 import Head from "next/head";
 import styles from "../styles/Accordion.module.css";
+import Script from "next/script";
 
 const Accordion = () => {
     return (
         <>
-            <Head>
-                <script
+                <Script
                     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
                     crossOrigin="anonymous"
-                ></script>
+                ></Script>
+            <Head>
                 <link
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
                     rel="stylesheet"
@@ -40,14 +41,14 @@ const Accordion = () => {
                     >
                         <div className="accordion-body">
                             <strong>
-                                This is the first item's accordion body.
+                                This is the first item&apos;s accordion body.
                             </strong>{" "}
                             It is shown by default, until the collapse plugin
                             adds the appropriate classes that we use to style
                             each element. These classes control the overall
                             appearance, as well as the showing and hiding via
                             CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It's
+                            custom CSS or overriding our default variables. It&apos;s
                             also worth noting that just about any HTML can go
                             within the <code>.accordion-body</code>, though the
                             transition does limit overflow.
@@ -75,14 +76,14 @@ const Accordion = () => {
                     >
                         <div className="accordion-body">
                             <strong>
-                                This is the second item's accordion body.
+                                This is the second item&apos;s accordion body.
                             </strong>{" "}
                             It is hidden by default, until the collapse plugin
                             adds the appropriate classes that we use to style
                             each element. These classes control the overall
                             appearance, as well as the showing and hiding via
                             CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It's
+                            custom CSS or overriding our default variables. It&apos;s
                             also worth noting that just about any HTML can go
                             within the <code>.accordion-body</code>, though the
                             transition does limit overflow.
@@ -110,14 +111,14 @@ const Accordion = () => {
                     >
                         <div className="accordion-body">
                             <strong>
-                                This is the third item's accordion body.
+                                This is the third item&apos;s accordion body.
                             </strong>{" "}
                             It is hidden by default, until the collapse plugin
                             adds the appropriate classes that we use to style
                             each element. These classes control the overall
                             appearance, as well as the showing and hiding via
                             CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It's
+                            custom CSS or overriding our default variables. It&apos;s
                             also worth noting that just about any HTML can go
                             within the <code>.accordion-body</code>, though the
                             transition does limit overflow.
