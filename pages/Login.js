@@ -14,6 +14,7 @@ const Login = ({ product, subTotal }) => {
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
     const [pic, setpic] = useState("");
+    const [userid, setuserid] = useState(0);
     const [entername, setentername] = useState("");
     const [enterpassword, setenterpassword] = useState("");
     const [visibility, setvisibility] = useState("password");
@@ -52,6 +53,8 @@ const Login = ({ product, subTotal }) => {
             saveemail(userObject.email);
             setpic(userObject.picture);
             savepic(userObject.picture);
+            setuserid(result.user.id);
+            saveuserid(result.user.id);
             router.push(`/`);
         }
     }
@@ -64,6 +67,9 @@ const Login = ({ product, subTotal }) => {
     };
     const savepic = (items) => {
         localStorage.setItem("pic", JSON.stringify(items));
+    };
+    const saveuserid = (items)=>{
+        localStorage.setItem("userid", JSON.stringify(items));
     };
 
     useEffect(() => {
@@ -97,6 +103,12 @@ const Login = ({ product, subTotal }) => {
                 savepic(JSON.parse(localStorage.getItem("pic")));
             } else {
                 localStorage.setItem("pic", JSON.stringify(pic));
+            }
+            if (localStorage.getItem("userid")) {
+                setuserid(JSON.parse(localStorage.getItem("userid")));
+                saveuserid(JSON.parse(localStorage.getItem("userid")));
+            } else {
+                localStorage.setItem("userid", JSON.stringify(userid));
             }
         } catch (error) {
             console.log(error);
@@ -137,6 +149,8 @@ const Login = ({ product, subTotal }) => {
             saveemail(response.user.email);
             setpic("N/A");
             savepic("N/A");
+            setuserid(response.user.id);
+            saveuserid(response.user.id);
             router.push(`/`);
         }
     }

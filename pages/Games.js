@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Script from 'next/script';
 
 const Games = () => {
   return (
-    <div>Games</div>
+    <div><Script src="/script.js"></Script>Games</div>
   )
 }
 

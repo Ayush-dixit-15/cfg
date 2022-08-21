@@ -1,9 +1,11 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import Script from "next/script";
 
 const About = ({ product, subTotal }) => {
     return (
         <div>
+            <Script src="/script.js"></Script>
             <Navbar
                 product={product}
                 KYC={"KYC"}

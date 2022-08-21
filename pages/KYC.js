@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Head from "next/head";
 import Webcam from "react-webcam";
@@ -9,6 +9,7 @@ import Link from "next/link";
 import SendIcon from '@mui/icons-material/Send';
 import styles from '../styles/KYC.module.css';
 import Script from "next/script";
+import { RepeatOnSharp } from "@mui/icons-material";
 
 
 const KYC = ({ product, subTotal }) => {
@@ -27,7 +28,10 @@ const KYC = ({ product, subTotal }) => {
     const [city, setcity] = useState("");
     const [state, setstate] = useState("");
     const [pincode, setpincode] = useState("");
-    const [sign, setsign] = useState("");
+    const [phone, setphone] = useState();
+    const [userid, setuserid] = useState();
+    const [kycid, setkycid] = useState();
+
     const handleChange = (e) => {
         if (e.target.name === "houseno") {
             sethouseno(e.target.value);
@@ -47,17 +51,61 @@ const KYC = ({ product, subTotal }) => {
         else if (e.target.name === "pincode") {
             setpincode(e.target.value);
         }
-        else if (e.target.name === "sign") {
-            setsign(e.target.value);
+        else if (e.target.name === "phone") {
+            setphone(e.target.value);
         }
     };
+    const saveuserid = (items) => {
+        localStorage.setItem("userid", JSON.stringify(items));
+    };
+    const savekycid = (items) => {
+        localStorage.setItem("kycid", JSON.stringify(items));
+    };
+
+    useEffect(() => {
+        try {
+            if (localStorage.getItem("userid")) {
+                setuserid(JSON.parse(localStorage.getItem("userid")));
+                saveuserid(JSON.parse(localStorage.getItem("userid")));
+            }
+            if (localStorage.getItem("kycid")) {
+                setkycid(JSON.parse(localStorage.getItem("kycid")));
+                savekycid(JSON.parse(localStorage.getItem("kycid")));
+            }
+            else{
+                localStorage.setItem("kycid",JSON.stringify(kycid));
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }, [userid, kycid])
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid } };
+        let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+            },
+            body: JSON.stringify(sentdata),
+        });
+        let response = await res.json();
+        console.log(response);
+        setkycid(response.data.id);
+        savekycid(response.data.id);
+    }
     return (
         <>
-                <Script
-                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-                    crossOrigin="anonymous"
-                ></Script>
+            <Script src="/script.js"></Script>
+            <Script
+                src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+                crossOrigin="anonymous"
+            ></Script>
             <Head>
                 <link
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
@@ -65,6 +113,7 @@ const KYC = ({ product, subTotal }) => {
                     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
                     crossOrigin="anonymous"
                 ></link>
+                {/* <script src="/script.js"></script> */}
             </Head>
             <Navbar
                 product={product}
@@ -80,12 +129,24 @@ const KYC = ({ product, subTotal }) => {
                     <h3 style={{ color: "var(--red)", margin: "1.5rem 0" }}>KYC</h3>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
-                        <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon}/>
+                        <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
                     <p style={{ margin: "1.5rem 0" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit} method="POST">
+                    <div className={styles.phone_input}>
+                        <label htmlFor="phone">Phone Number: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                        <input value={phone}
+                            onChange={handleChange}
+                            placeholder="Enter Phone Number"
+                            type="number"
+                            id="phone"
+                            name="phone"
+                            autoComplete="phone"
+                            required
+                            style={{ padding: "0 0.5rem" }} />
+                    </div>
                     <div style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
                             <h2 style={{ fontSize: "1.65rem" }}>Address</h2>
@@ -103,9 +164,9 @@ const KYC = ({ product, subTotal }) => {
                                     name="houseno"
                                     autoComplete="houseno"
                                     required
-                                    style={{padding: "0 0.5rem"}}
+                                    style={{ padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="landmark" style={{marginTop: "1.5rem"}}>Landmark:</label>
+                                <label htmlFor="landmark" style={{ marginTop: "1.5rem" }}>Landmark:</label>
                                 <input
                                     value={landmark}
                                     onChange={handleChange}
@@ -114,9 +175,9 @@ const KYC = ({ product, subTotal }) => {
                                     id="landmark"
                                     name="landmark"
                                     autoComplete="landmark"
-                                    style={{padding: "0 0.5rem"}}
+                                    style={{ padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="state" style={{marginTop: "1.5rem"}}>State: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                                <label htmlFor="state" style={{ marginTop: "1.5rem" }}>State: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={state}
                                     onChange={handleChange}
@@ -126,12 +187,12 @@ const KYC = ({ product, subTotal }) => {
                                     name="state"
                                     autoComplete="state"
                                     required
-                                    style={{marginBottom: "1.5rem", padding: "0 0.5rem"}}
+                                    style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="addressProof"><p style={{margin: "0"}}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-                                <input type="file" id="addressProof" name="addressProof" accept="image/*" required></input>
+                                <label htmlFor="addressProof"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
+                                <input type="file" id="addressProof" name="addressProof" accept="image/*"></input>
                             </div>
-                            <div style={{ display: "flex", flexDirection: "column", width: "40%" }}>
+                            <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={area}
@@ -142,9 +203,9 @@ const KYC = ({ product, subTotal }) => {
                                     name="area"
                                     autoComplete="area"
                                     required
-                                    style={{padding: "0 0.5rem"}}
+                                    style={{ padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="city" style={{marginTop: "1.5rem"}}>Town/City: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                                <label htmlFor="city" style={{ marginTop: "1.5rem" }}>Town/City: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={city}
                                     onChange={handleChange}
@@ -154,48 +215,48 @@ const KYC = ({ product, subTotal }) => {
                                     name="city"
                                     autoComplete="city"
                                     required
-                                    style={{padding: "0 0.5rem"}}
+                                    style={{ padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="pincode" style={{marginTop: "1.5rem"}}>Pincode: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                                <label htmlFor="pincode" style={{ marginTop: "1.5rem" }}>Pincode: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={pincode}
                                     onChange={handleChange}
                                     placeholder="Enter Pincode"
-                                    type="text"
+                                    type="number"
                                     id="pincode"
                                     name="pincode"
                                     autoComplete="pincode"
                                     required
-                                    style={{padding: "0 0.5rem"}}
+                                    style={{ padding: "0 0.5rem" }}
                                 />
                             </div>
                         </div>
                     </div>
                     <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }}>
                         <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
-                        <div style={{display: "flex", alignItems: "center"}}>
+                        <div style={{ display: "flex", alignItems: "center" }}>
                             <div>
                                 {!camera && <div></div>}
-                                {camera && <Webcam ref={webRef} width={400} height={400}/>}
+                                {camera && <Webcam ref={webRef} width={400} height={400} />}
                             </div>
-                            <div style={{marginLeft: "2rem"}}>
-                                {!camera && <p onClick={() => startCamera()} style={{background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0"}} className={styles.captureBtn}>Start Capturing</p>}
-                                {camera && <span onClick={() => capture()} style={{background: "var(--red)", borderRadius: "999px", padding: "0.75rem"}}><CameraAltIcon style={{color: "var(--white)"}}/></span>}
+                            <div style={{ marginLeft: "2rem" }}>
+                                {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
+                                {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
                                 {/* <Image src={selfie} height={100} width={100} /> */}
                             </div>
                         </div>
-                        <div style={{display: "flex", flexDirection: "column", marginTop: "3rem"}}>
+                        <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
-                        <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                                <input type="file" id="sign" name="sign" accept="image/*" required></input>
+                            <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                            <input type="file" id="sign" name="sign" accept="image/*"></input>
                         </div>
                     </div>
-                    <p style={{margin: "0 6rem"}}>
-                        <input type="checkbox" required/>
+                    <p style={{ margin: "0 6rem" }}>
+                        <input type="checkbox" required />
                         I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
                     </p>
-                    <div style={{display: "flex", justifyContent: "center"}}>
-                    <button type="submit" style={{padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0"}} className={styles.captureBtn}>Submit <SendIcon style={{marginLeft: "1rem"}}/></button>
+                    <div style={{ display: "flex", justifyContent: "center" }}>
+                        <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
             </div>

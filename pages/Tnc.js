@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import Script from 'next/script';
 
 const Tnc = () => {
   return (
-    <div>Tnc</div>
+    <div><Script src="/script.js"></Script>Tnc</div>
   )
 }
 
