@@ -228,7 +228,7 @@ const Signup = ({ product, subTotal }) => {
                             </div>
                             <button type="submit">Continue</button>
                             <p style={{ margin: "0.5rem 0" }}>Already have an account? <Link href="/Login">Log in</Link></p>
-                            <p style={{ margin: "0.5rem 0" }}>By continuing, you agree to craving for gaming's <Link href="/Tnc">Terms &#38; Conditions.</Link></p>
+                            <p style={{ margin: "0.5rem 0" }}>By continuing, you agree to craving for gaming&apos;s <Link href="/Tnc">Terms &#38; Conditions.</Link></p>
                         </form>
                     </div>
                 </div>
