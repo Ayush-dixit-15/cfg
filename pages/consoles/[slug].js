@@ -24,11 +24,11 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
             />
             <div className={styles.landing}>
                 <div className={styles.left}>
-                    <img src={process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.mainImage.data.attributes.url} alt="" />
+                    <img src={console.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>
-                    <img src={process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.extraImage1.data.attributes.url} alt="" />
-                    <img src={process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.extraImage2.data.attributes.url} alt="" />
-                    <img src={process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.extraImage3.data.attributes.url} alt="" />
+                    <img src={console.attributes.extraImage1.data.attributes.url} alt="" />
+                    <img src={console.attributes.extraImage2.data.attributes.url} alt="" />
+                    <img src={console.attributes.extraImage3.data.attributes.url} alt="" />
                     </div>
                     <div className={styles.qualities}>
                         <div className={styles.quality}>
@@ -68,7 +68,7 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
                             <h3>₹{console.attributes.plan4}</h3>
                         </div>
                             <hr />
-                            {count!=0 && <p onClick={()=> {addProductToCart(slug,1,eval(`console.attributes.plan${count}`),console.attributes.title, process.env.NEXT_PUBLIC_STRAPI_HOST + console.attributes.mainImage.data.attributes.url)}}>Proceed to buy games</p>}
+                            {count!=0 && <p onClick={()=> {addProductToCart(slug,1,eval(`console.attributes.plan${count}`),console.attributes.title, console.attributes.mainImage.data.attributes.url)}}>Proceed to buy games</p>}
                             </form>
                     </div>
                 </div>

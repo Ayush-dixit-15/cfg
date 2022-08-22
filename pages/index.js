@@ -10,9 +10,30 @@ import SupportAgentOutlinedIcon from "@mui/icons-material/SupportAgentOutlined";
 import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
 import Script from "next/script";
+import { useState, useEffect } from "react";
 
 
 function Home({ products ,product, subTotal }) {
+    const [userid, setuserid] = useState(0);
+    useEffect(() => {
+      try{
+        if (localStorage.getItem("userid")) {
+            setuserid(JSON.parse(localStorage.getItem("userid")));
+            saveuserid(JSON.parse(localStorage.getItem("userid")));
+        } else {
+            localStorage.setItem("userid", JSON.stringify(userid));
+        }
+      }
+      catch(error)
+      {
+        console.log(error);
+      }
+    }, []);
+
+    const saveuserid = (items)=>{
+        localStorage.setItem("userid", JSON.stringify(items));
+    };
+    
     return (
         <div>
             <Head>
@@ -48,10 +69,7 @@ function Home({ products ,product, subTotal }) {
                                     <div className={styles.card}>
                                         <img
                                             src={
-                                                process.env
-                                                    .NEXT_PUBLIC_STRAPI_HOST +
-                                                item.attributes.mainImage.data
-                                                    .attributes.url
+                                                item.attributes.mainImage.data.attributes.url
                                             }
                                             height={180}
                                             width={180}
@@ -105,10 +123,7 @@ function Home({ products ,product, subTotal }) {
                                     <div className={styles.card}>
                                         <img
                                             src={
-                                                process.env
-                                                    .NEXT_PUBLIC_STRAPI_HOST +
-                                                item.attributes.mainImage.data
-                                                    .attributes.url
+                                                item.attributes.mainImage.data.attributes.url
                                             }
                                             height={180}
                                             width={180}

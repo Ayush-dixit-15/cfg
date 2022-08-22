@@ -73,7 +73,8 @@
     background: none;
 }
 .openEye{
-    padding: 0 0.65rem;
+    /* padding: 0 0.65rem; */
+    margin-left: 1rem;
 }
 .openEye:hover{
     cursor: pointer;
