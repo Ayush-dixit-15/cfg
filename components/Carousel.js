@@ -4,16 +4,17 @@ import Image from "next/image";
 import carousel1 from "../public/carousel1.png";
 import carousel2 from "../public/carousel2.png";
 import styles from '../styles/Carousel.module.css';
+import Script from "next/script";
 
 const Carousel = () => {
     return (
         <>
-            <Head>
-                <script
+                <Script
                     src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
                     crossOrigin="anonymous"
-                ></script>
+                ></Script>
+            <Head>
                 <link
                     href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
                     rel="stylesheet"

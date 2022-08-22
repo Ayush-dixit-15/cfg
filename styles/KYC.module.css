@@ -1,19 +1,54 @@
-.captureBtn{
+.captureBtn {
     transition: all 0.2s ease-in-out;
 }
-.captureBtn:hover{
+
+.captureBtn:hover {
     cursor: pointer;
     background: tomato !important;
 }
 
-.consoleIcon{
+.consoleIcon {
     animation: rotate 5s linear infinite;
 }
 
-@keyframes rotate{
-    0%   {transform: rotateZ(0deg);}
-    25%  {transform: rotateZ(90deg);}
-    50%  {transform: rotateZ(180deg);}
-    75%  {transform: rotateZ(270deg);}
-    100% {transform: rotateZ(360deg);}
-  }
+
+.phone_input {
+    margin: 0rem 6rem;
+    padding: 4rem;
+    border: 0.5px solid var(--gray);
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.phone_input input::-webkit-outer-spin-button,
+.phone_input input::-webkit-inner-spin-button {
+    display: none;
+}
+.inputs input::-webkit-outer-spin-button,
+.inputs input::-webkit-inner-spin-button {
+    display: none;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(90deg);
+    }
+
+    50% {
+        transform: rotateZ(180deg);
+    }
+
+    75% {
+        transform: rotateZ(270deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
