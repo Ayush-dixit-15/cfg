@@ -2,8 +2,9 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
+import Link from 'next/link'
 
-const Slug = ({game, product, subTotal}) => {
+const Slug = ({game, product, subTotal}) => {=6
     const router = useRouter();
     const { slug } = router.query;
     
@@ -31,7 +32,7 @@ const Slug = ({game, product, subTotal}) => {
       <img alt="ecommerce" className={styles.poster} src={game.attributes.Poster.data.attributes.url }/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
        
-        <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{game.attributes.gameName}</h1>
+        <h1 className="text-white text-3xl title-font font-medium mb-1">{game.attributes.gameName}</h1>
         <h2 className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
         <div className="flex mb-4">
           <span className="flex items-center">
@@ -54,18 +55,41 @@ const Slug = ({game, product, subTotal}) => {
           </span>
         
         </div>
-        <p className="leading-relaxed">{game.attributes.details}</p>
+        <p className="leading-relaxed text-white">{game.attributes.details}</p>
         <div className="flex">
-          <span className="title-font font-medium text-2xl text-gray-900">₹{game.attributes.price}</span>
+          <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
           <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to Cart</button>
           <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded">Buy Now</button>
-          
+  
         </div>
       </div>
     </div>
   </div>
 </section>
 </div>
+<div className={styles.maylike}>
+            <h1>
+              You may also like
+              </h1>
+              <div className={styles.marquee}>
+              <div className={styles.track} >
+              {
+                games.data.map((item)=>{
+                return(
+                  <Link href = {`/games/${item.attributes.slug}`}>
+                  <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer">
+                  <div className="bg-gray-100 p-6 rounded-lg flex-col">
+                    <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={process.env.NEXT_PUBLIC_STRAPI_HOST+ item.attributes.Poster.data.attributes.url}/>
+                    <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
+                    <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
+                  </div>
+                  </div>
+                  </Link>)
+               }) 
+              }
+              </div>
+              </div>
+          </div>
  </div>
   )
 }
@@ -76,8 +100,11 @@ export async function getServerSideProps(context) {
     }
     let a = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?filters[slug]="+context.query.slug + "&populate=*" , {headers : headers});
     let game = await a.json();
+    let b = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?populate=*" , {headers : headers});
+    let games = await b.json();
+    console.log(games);
     return {
-      props: {game: game.data[0]},
+      props: {game: game.data[0], games},
   }
 }
 

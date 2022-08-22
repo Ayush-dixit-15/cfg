@@ -51,7 +51,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                 <div className={styles.navbar}>
                     <div className={styles.left}>
                         <Link href="/">
-                            <Image src={logo} />
+                            <Image src={logo} className="cursor-pointer"/>
                         </Link>
                         <ul>
                             {KYC != null && (
