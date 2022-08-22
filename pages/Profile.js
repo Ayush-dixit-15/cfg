@@ -41,13 +41,8 @@ const Profile = ({ product, subTotal }) => {
     }
   }, [])
   const logOut = () => {
-    localStorage.setItem("name", JSON.stringify(""));
-    setemail("");
-    localStorage.setItem("email", JSON.stringify(""));
-    setname("");
-    localStorage.setItem("pic", JSON.stringify(""));
-    setpic("");
-    router.push("/");
+    localStorage.clear();
+    router.push('/Login');
   };
   return (
     <div>
@@ -55,7 +50,7 @@ const Profile = ({ product, subTotal }) => {
       <Image src={banner} />
       <div className={styles.profile}>
         <div className={styles.profile_info}>
-          <span onClick={()=>logOut} className={styles.logoutBtn}>Logout <LogoutIcon /></span>
+          <span onClick={()=>logOut()} className={styles.logoutBtn}>Logout <LogoutIcon /></span>
           <Image src={pic} width={200} height={200}/>
           <span className={styles.editBtn}>Edit <EditIcon style={{marginLeft: "0.5rem"}}/></span>
         </div>
