@@ -15,11 +15,15 @@ import CloseIcon from '@mui/icons-material/Close';
 const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
     const [email, setemail] = useState("");
     const [pic, setpic] = useState("");
+    const [kycid, setkycid] = useState(0);
     const saveemail = (items) => {
         localStorage.setItem("email", JSON.stringify(items));
     };
     const savepic = (items) => {
         localStorage.setItem("pic", JSON.stringify(items));
+    };
+    const savekycid = (items) => {
+        localStorage.setItem("kycid", JSON.stringify(items));
     };
     useEffect(() => {
         try {
@@ -30,6 +34,10 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
             if (localStorage.getItem("pic")) {
                 setpic(JSON.parse(localStorage.getItem("pic")));
                 savepic(JSON.parse(localStorage.getItem("pic")));
+            }
+            if (localStorage.getItem("kycid")) {
+                setkycid(JSON.parse(localStorage.getItem("kycid")));
+                savekycid(JSON.parse(localStorage.getItem("kycid")));
             }
 
         } catch (error) {
@@ -113,7 +121,8 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                             <span>Subtotal: </span>
                             <span>₹{subTotal}</span>
                         </div>
-                        <button>Checkout</button>
+                        {kycid == 0 && <Link href="/KYC"><button>Checkout</button></Link>}
+                        {kycid!=0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
                     </div>
                 </div>
             </div>

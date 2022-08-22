@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
 
-const Slug = ({game,games}) => {
+const Slug = ({game, product, subTotal}) => {=6
     const router = useRouter();
     const { slug } = router.query;
     
@@ -12,22 +12,24 @@ const Slug = ({game,games}) => {
   return (
     <div> 
          <Navbar
-                product= "null"
+                product= {product}
+                subTotal={subTotal}
                 KYC={"KYC"}
                 About={" About"}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+
             />
-            <div className={styles.main_banner} style={{
-              backgroundImage: `url(${process.env.NEXT_PUBLIC_STRAPI_HOST+game.attributes.Banner.data.attributes.url})` 
+            <div className="w-full h-full bg-no-repeat bg-cover" style={{
+              backgroundImage: `url(${game.attributes.Banner.data.attributes.url})` 
             }}>
             {/* <img alt="ecommerce" className={styles.poster} src={ process.env.NEXT_PUBLIC_STRAPI_HOST + game.attributes.Banner.data.attributes.url }/> */}
             
             <section className="text-gray-600 body-font overflow-hidden">
   <div className="container px-5 py-24 mx-auto">
     <div className="lg:w-4/5 mx-auto flex flex-wrap">
-      <img alt="ecommerce" className={styles.poster} src={ process.env.NEXT_PUBLIC_STRAPI_HOST + game.attributes.Poster.data.attributes.url }/>
+      <img alt="ecommerce" className={styles.poster} src={game.attributes.Poster.data.attributes.url }/>
       <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
        
         <h1 className="text-white text-3xl title-font font-medium mb-1">{game.attributes.gameName}</h1>

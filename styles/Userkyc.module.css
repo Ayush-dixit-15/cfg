@@ -1,0 +1,19 @@
+.userkyc_container{
+    margin: 4rem 6rem;
+    padding: 4rem;
+    border: 1px solid var(--gray);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.userkyc_container .left h1{
+    color: var(--red);
+    font-size: 4rem;
+}
+
+.userkyc_container .left h3{
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+

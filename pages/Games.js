@@ -3,29 +3,30 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Link from 'next/link'
 
-const About = ( props ) => {
+const About = ( {games, product, subTotal} ) => {
     return (
         <div>
             <Navbar
-                product= "null"
                 KYC={"KYC"}
                 About={" About"}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+                product={product}
+                subTotal={subTotal}
             />
         <div className="banner">
             {/* <img src="/1.png" alt="" /> */}
         </div>
-        <div className="flex flex-wrap m-4">
-        {props.games.data.map((item)=>{
+        <div class="flex flex-wrap m-4">
+        {games.data.map((item)=>{
           return(
-            <Link href = {`/games/${item.attributes.slug}`}>
-            <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer">
-            <div className="bg-gray-100 p-6 rounded-lg">
-              <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={process.env.NEXT_PUBLIC_STRAPI_HOST+ item.attributes.Poster.data.attributes.url}/>
-              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
-              <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
+            <Link href = {`/games/${item.attributes.slug}`}><
+            <div class="xl:w-1/4 md:w-1/2 p-4 cursor-pointer">
+            <div class="bg-gray-100 p-6 rounded-lg">
+              <img class="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
+              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
+              <p class="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
             </div>
             </div>
             </Link>
@@ -41,9 +42,9 @@ export async function getServerSideProps(context) {
     }
     let a = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?populate=*" , {headers : headers});
     let games = await a.json();
-    console.log(games);
+    // console.log(games);
     return {
-      props: {games:games},
+      props: {games},
   }
 }
 export default About;

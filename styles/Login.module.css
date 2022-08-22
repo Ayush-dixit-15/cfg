@@ -72,9 +72,10 @@
     outline: none;
     width: 85%;
     background: none;
+    border-radius: 0;
 }
 .openEye{
-    padding: 0 0.65rem;
+    /* padding: 0 0.65rem; */
 }
 .openEye:hover{
     cursor: pointer;

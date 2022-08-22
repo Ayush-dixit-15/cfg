@@ -9,10 +9,12 @@ import Link from "next/link";
 import SendIcon from '@mui/icons-material/Send';
 import styles from '../styles/KYC.module.css';
 import Script from "next/script";
-import { RepeatOnSharp } from "@mui/icons-material";
+import Router, { useRouter } from "next/router";
 
 
-const KYC = ({ product, subTotal }) => {
+const KYC = ({ product, subTotal, kycData }) => {
+    const [bill, setbill] = useState();
+    const router = useRouter();
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
     const [camera, setcamera] = useState(false)
@@ -30,7 +32,7 @@ const KYC = ({ product, subTotal }) => {
     const [pincode, setpincode] = useState("");
     const [phone, setphone] = useState();
     const [userid, setuserid] = useState();
-    const [kycid, setkycid] = useState();
+    const [kycid, setkycid] = useState(0);
 
     const handleChange = (e) => {
         if (e.target.name === "houseno") {
@@ -54,6 +56,9 @@ const KYC = ({ product, subTotal }) => {
         else if (e.target.name === "phone") {
             setphone(e.target.value);
         }
+        else if (e.target.name === "bill") {
+            setbill(e.target.value);
+        }
     };
     const saveuserid = (items) => {
         localStorage.setItem("userid", JSON.stringify(items));
@@ -67,6 +72,17 @@ const KYC = ({ product, subTotal }) => {
             if (localStorage.getItem("userid")) {
                 setuserid(JSON.parse(localStorage.getItem("userid")));
                 saveuserid(JSON.parse(localStorage.getItem("userid")));
+                if(userid==0)
+                {
+                    router.push('/Login');
+                }
+                var checkKyc = kycData.data.filter((item)=>{
+                    return item.attributes.user.data.id === userid;
+                });
+                if(checkKyc.length!=0)
+                {
+                    router.push(`/kyc/${checkKyc[0].id}`);
+                }
             }
             if (localStorage.getItem("kycid")) {
                 setkycid(JSON.parse(localStorage.getItem("kycid")));
@@ -95,6 +111,7 @@ const KYC = ({ product, subTotal }) => {
         });
         let response = await res.json();
         console.log(response);
+        console.log(bill);
         setkycid(response.data.id);
         savekycid(response.data.id);
     }
@@ -107,13 +124,7 @@ const KYC = ({ product, subTotal }) => {
                 crossOrigin="anonymous"
             ></Script>
             <Head>
-                <link
-                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-                    rel="stylesheet"
-                    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
-                    crossOrigin="anonymous"
-                ></link>
-                {/* <script src="/script.js"></script> */}
+                
             </Head>
             <Navbar
                 product={product}
@@ -123,6 +134,7 @@ const KYC = ({ product, subTotal }) => {
                 Login={"Login"}
                 Signup={"Signup"}
                 subTotal={subTotal}
+                key={kycid}
             />
             <div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>
@@ -189,8 +201,8 @@ const KYC = ({ product, subTotal }) => {
                                     required
                                     style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="addressProof"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-                                <input type="file" id="addressProof" name="addressProof" accept="image/*"></input>
+                                <label htmlFor="bill"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
+                                <input type="file" id="bill" name="bill" accept="image/*" value={bill} onChange={handleChange}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -265,5 +277,23 @@ const KYC = ({ product, subTotal }) => {
         </>
     );
 };
+
+export async function getServerSideProps(context) {
+    let headers = {
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_READ}`
+    };
+    // console.log(process.env.NEXT_PUBLIC_STRAPI_URL);
+    // let url =process.env.NEXT_PUBLIC_STRAPI_URL+"/api/products?populate=*";
+    let data = await fetch(
+        process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/kycs?populate=*`,
+        {
+            headers: headers,
+        }
+    );
+    let kycData = await data.json();
+    return {
+        props: { kycData }, // will be passed to the page component as props
+    };
+  }
 
 export default KYC;

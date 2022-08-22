@@ -205,8 +205,8 @@ const Login = ({ product, subTotal }) => {
                                 required
                                 style={{ padding: "0 0.5rem" }}
                             />
-                            <VisibilityIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'inline' : 'none'}` }} />
-                            <VisibilityOffIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'none' : 'inline'}` }} />
+                            <VisibilityIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'inline' : 'none'}`, marginLeft: "1.25rem"}} />
+                            <VisibilityOffIcon onClick={() => toggleVisibility()} className={styles.openEye} style={{ display: `${visibility === 'password' ? 'none' : 'inline'}`, marginLeft: "1.25rem" }} />
                         </div>
                         <button type="submit">Continue</button>
                     </form>
