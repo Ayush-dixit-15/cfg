@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
 
-const Slug = ({game, product, subTotal}) => {=6
+const Slug = ({game, product, subTotal}) => {
     const router = useRouter();
     const { slug } = router.query;
     
