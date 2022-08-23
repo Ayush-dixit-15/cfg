@@ -43,7 +43,7 @@ const Profile = ({ product, subTotal }) => {
   }, [])
   const logOut = () => {
     localStorage.clear();
-    router.push('/Login');
+    router.push('/');
   };
   return (
     <div>
@@ -54,7 +54,7 @@ const Profile = ({ product, subTotal }) => {
           <span onClick={()=>logOut()} className={styles.logoutBtn}>Logout <LogoutIcon /></span>
           {pic!="N/A" && <Image src={pic} width={200} height={200} style={{borderRadius: "999px"}}/>}
           {pic==="N/A" && <Image src={avatar} width={200} height={200} style={{borderRadius: "999px"}}/>}
-          <span className={styles.editBtn}>Edit <EditIcon style={{marginLeft: "0.5rem"}}/></span>
+          <span className={styles.editBtn}>Change Password <EditIcon style={{marginLeft: "0.5rem"}}/></span>
         </div>
         <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>
           <span style={{fontSize: "2.5rem"}}>{name}</span>

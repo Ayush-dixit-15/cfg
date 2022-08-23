@@ -11,6 +11,7 @@ import { useState } from "react";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
     const [showcart, setshowcart] = useState("translateX(100rem)");
@@ -98,15 +99,19 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                         {
                             pic != "" && pic == "N/A" && <Link href="/Profile"><AccountCircleIcon className={styles.pic} /></Link>
                         }
-                        <ShoppingCartIcon
-                            style={{ color: "white", marginLeft: "2rem" }}
-                            onClick={() => toggleCart()}
-                        />
+                        <div className={styles.cartSize}>
+                            <ShoppingCartIcon
+                            className={styles.cartIcon}
+                                style={{ color: "white", marginLeft: "2rem" }}
+                                onClick={() => toggleCart()}
+                            />
+                            <span className={styles.cartSizeInfo}>{Object.keys(product).length}</span>
+                        </div>
                     </div>
                 </div>
                 <div className={styles.cart} style={{ transform: `${showcart}` }}>
                     <div className={styles.cart_head}>
-                        <ArrowBackIosIcon onClick={() => toggleCart()} />
+                        <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>({Object.keys(product).length} items)</span>
                         {Object.keys(product).map((k) => {
@@ -120,7 +125,11 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                             </div>
                         })}
                     </div>
-                    <div className={styles.checkout}>
+                    {subTotal === 0 && <div className={styles.cartEmpty}>
+                        <ProductionQuantityLimitsIcon style={{ fontSize: "8rem", color: "var(--red)" }} />
+                        <span>Your cart is Empty</span>
+                    </div>}
+                    {subTotal != 0 && <div className={styles.checkout}>
                         <hr />
                         <div className={styles.subtotal}>
                             <span>Subtotal: </span>
@@ -128,7 +137,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                         </div>
                         {kycid == 0 && <Link href="/KYC"><button>Checkout</button></Link>}
                         {kycid != 0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
-                    </div>
+                    </div>}
                 </div>
             </div>
             <div className={styles.phoneNav}>
