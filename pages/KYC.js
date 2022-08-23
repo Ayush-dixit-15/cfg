@@ -82,6 +82,7 @@ const KYC = ({ product, subTotal, kycData }) => {
                 if(checkKyc.length!=0)
                 {
                     router.push(`/kyc/${checkKyc[0].id}`);
+                    localStorage.setItem("kycid",JSON.stringify(checkKyc[0].id));
                 }
             }
             if (localStorage.getItem("kycid")) {

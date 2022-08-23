@@ -1,6 +1,6 @@
 ## Craving for Gaming's Website 🌐
 
-This repository contains the Frontend code  of [Craving for Gaming's](https://www.instagram.com/craving4gaming/) website. It is an E-commerce Website with many functionalities like User authentication, Add to Cart, Knowing your customer, editing each information, responsiveness and many more.
+This repository contains the Frontend code  of [Craving for Gaming](https://www.instagram.com/craving4gaming/)'s website. It is an E-commerce Website with many functionalities like User authentication, Add to Cart, Knowing your customer, editing each information, responsiveness and many more.
 
 
 ## Sneak Peak 🫣
