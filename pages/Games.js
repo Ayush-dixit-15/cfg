@@ -3,6 +3,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Link from 'next/link'
 
+
 const About = ( {games, product, subTotal} ) => {
     return (
         <div>
@@ -33,6 +34,14 @@ const About = ( {games, product, subTotal} ) => {
           )
         })}
       </div>
+      <div className="m-5 games">
+          <h1 className="text-red-600 font-bold ">
+            All Games
+            <hr className="line mb-3"/>
+          </h1>
+         
+      </div>
+    
         </div>
     );
 };

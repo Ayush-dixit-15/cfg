@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
 
-const Slug = ({game, product, subTotal}) => {
+const Slug = ({game, product, subTotal,games}) => {
     const router = useRouter();
     const { slug } = router.query;
     
@@ -79,7 +79,7 @@ const Slug = ({game, product, subTotal}) => {
                   <Link href = {`/games/${item.attributes.slug}`}>
                   <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer">
                   <div className="bg-gray-100 p-6 rounded-lg flex-col">
-                    <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={process.env.NEXT_PUBLIC_STRAPI_HOST+ item.attributes.Poster.data.attributes.url}/>
+                    <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
                     <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
                     <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
                   </div>
@@ -94,7 +94,7 @@ const Slug = ({game, product, subTotal}) => {
   )
 }
 export async function getServerSideProps(context) {
-    console.log(context.query)
+ 
     let headers={
         Authorization: "Bearer b35eaddac22958868e43308870ec29a685e0935a7ec790d450283c283d1c8922015b35f7865c63655ae9b3d3854137acfc18b3e9b7567c861bad59208a9e8c4b346a3002a2f07eeb3870156ea2120e508e6950cb7c8c0c62e35a928fdf3d8e70caa8d7e69a0024487e72f3c4bc086e54bd02425572c91e058fc97df9960b528b"
     }
@@ -102,7 +102,7 @@ export async function getServerSideProps(context) {
     let game = await a.json();
     let b = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?populate=*" , {headers : headers});
     let games = await b.json();
-    console.log(games);
+  
     return {
       props: {game: game.data[0], games},
   }

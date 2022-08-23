@@ -241,6 +241,18 @@ left: -145px; */
 .poster{
   height: 18rem;
 }
-.main_image{
-  
+.line{
+  width:50%;text-align:left;margin-left:0;
+  border:3px solid red;
+  border-radius: 4px;
+}
+.search-btn:hover {
+  color: #FF2625 !important;
+  background-color: white;
+  border: 1px solid #FF2625 !important;
+}
+.search-btn{
+  color:white;
+  background-color: #FF2625;
+  margin-left: 1em;
 }
