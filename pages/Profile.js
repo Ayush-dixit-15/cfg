@@ -7,6 +7,7 @@ import Image from 'next/image';
 import LogoutIcon from '@mui/icons-material/Logout';
 import EditIcon from '@mui/icons-material/Edit';
 import { useRouter } from 'next/router';
+import avatar from '../public/avatar.png';
 
 const Profile = ({ product, subTotal }) => {
   const router = useRouter();
@@ -51,7 +52,8 @@ const Profile = ({ product, subTotal }) => {
       <div className={styles.profile}>
         <div className={styles.profile_info}>
           <span onClick={()=>logOut()} className={styles.logoutBtn}>Logout <LogoutIcon /></span>
-          <Image src={pic} width={200} height={200}/>
+          {pic!="N/A" && <Image src={pic} width={200} height={200} style={{borderRadius: "999px"}}/>}
+          {pic==="N/A" && <Image src={avatar} width={200} height={200} style={{borderRadius: "999px"}}/>}
           <span className={styles.editBtn}>Edit <EditIcon style={{marginLeft: "0.5rem"}}/></span>
         </div>
         <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>

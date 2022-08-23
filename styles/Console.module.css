@@ -6,6 +6,7 @@
 
 .landing .left{
     max-width: 30rem;
+    width: 50%;
 }
 
 .landing .left .extraImage{
@@ -32,6 +33,7 @@
 
 .landing .right{
     margin-left: 4rem;
+    width: 50%;
 }
 
 .landing .right h2{
@@ -88,5 +90,54 @@
 
 .landing .right .plan .plan_item h3{
     margin-left: 1rem;
+}
+
+.gamesBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--red);
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: var(--white);
+    transition: all 0.3s ease-in-out;
+}
+
+.gamesBtn:hover{
+    background: tomato;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.plan input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    /* background-color: #d1d3d1; */
+    content: '';
+    display: inline-block;
+    /* visibility: visible; */
+    /* border: 1px solid var(--red); */
+}
+
+.plan input[type='radio']:hover{
+    cursor: pointer;
+}
+
+.plan input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    /* top: -2px; */
+    left: -1px;
+    position: relative;
+    background-color: var(--red);
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    /* border: 2px solid white; */
 }
 
