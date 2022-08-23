@@ -1,9 +1,11 @@
 import React from 'react';
-import Script from 'next/script';
+import Navbar from "../components/Navbar";
+import styles from '../styles/Tnc.module.css';
 
-const Tnc = () => {
+const Tnc = ({subTotal,product}) => {
   return (
-    <div><Script src="/script.js"></Script>Tnc</div>
+    <div><Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
+        </div>
   )
 }
 

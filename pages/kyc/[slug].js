@@ -14,7 +14,7 @@ const UserKyc = ({ kycData, product, subTotal }) => {
   console.log(kycData);
   return (
     <div>
-      <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
+      <Navbar product={product} KYC={null} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
       <div className={styles.userkyc_container}>
         <div className={styles.left}>
           <h1>KYC</h1>
@@ -28,8 +28,8 @@ const UserKyc = ({ kycData, product, subTotal }) => {
           <p>Town/City: {kycData.data.attributes.city}</p>
           <p>State: {kycData.data.attributes.state}</p>
           {kycData.data.attributes.landmark != null && <p>Landmark: {kycData.data.attributes.landmark}</p>}
-          <p>Pincode: {kycData.data.attributes.pincode}</p>
-          <Link href={`/kycEdit/${slug}`}><span>Edit<EditIcon/></span></Link>
+          <p style={{marginBottom: "2rem"}}>Pincode: {kycData.data.attributes.pincode}</p>
+          <Link href={`/kycEdit/${slug}`}><span className={styles.editBtn}>Edit<EditIcon/></span></Link>
         </div>
         <div className={styles.right}>
           <Image src={logo} height={150} width={275}/>
