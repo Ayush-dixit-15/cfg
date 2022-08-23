@@ -80,3 +80,22 @@
 .openEye:hover{
     cursor: pointer;
 }
+
+@media only screen and (max-width:800px){
+    .login_container{
+        align-items: stretch;
+    }
+    .login_dialogue{
+        width: 100%;
+        font-size: 70%;
+    }
+    .login_dialogue input{
+        padding: 0.5rem !important;
+    }
+    .login_dialogue h3{
+        font-size: 2rem;
+    }
+    .openEye{
+        margin-left: 0.5rem !important;
+    }
+}
