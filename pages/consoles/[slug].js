@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Console.module.css";
@@ -13,7 +13,7 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
     return (
         <div>
             <Navbar
-            product={product}
+                product={product}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}
@@ -26,9 +26,9 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
                 <div className={styles.left}>
                     <img src={console.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>
-                    <img src={console.attributes.extraImage1.data.attributes.url} alt="" />
-                    <img src={console.attributes.extraImage2.data.attributes.url} alt="" />
-                    <img src={console.attributes.extraImage3.data.attributes.url} alt="" />
+                        <img src={console.attributes.extraImage1.data.attributes.url} alt="" />
+                        <img src={console.attributes.extraImage2.data.attributes.url} alt="" />
+                        <img src={console.attributes.extraImage3.data.attributes.url} alt="" />
                     </div>
                     <div className={styles.qualities}>
                         <div className={styles.quality}>
@@ -48,28 +48,30 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
                     <div className={styles.plan}>
                         <h2>Choose your plan</h2>
                         <form action="">
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(1)}}/>
-                            <h3>₹{console.attributes.plan1}</h3>
-                        </div>
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
+                                <h3>₹{console.attributes.plan1}</h3>
+                            </div>
                             <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(2)}}/>
-                            <h3>₹{console.attributes.plan2}</h3>
-                        </div>
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
+                                <h3>₹{console.attributes.plan2}</h3>
+                            </div>
                             <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(3)}}/>
-                            <h3>₹{console.attributes.plan3}</h3>
-                        </div>
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(3) }} />
+                                <h3>₹{console.attributes.plan3}</h3>
+                            </div>
                             <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={()=>{setcount(4)}}/>
-                            <h3>₹{console.attributes.plan4}</h3>
-                        </div>
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(4) }} />
+                                <h3>₹{console.attributes.plan4}</h3>
+                            </div>
                             <hr />
-                            {count!=0 && <p onClick={()=> {addProductToCart(slug,1,eval(`console.attributes.plan${count}`),console.attributes.title, console.attributes.mainImage.data.attributes.url)}}>Proceed to buy games</p>}
-                            </form>
+                            {count != 0 &&<div className={styles.gamesBtn}>
+                                 <p onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>Proceed to buy games</p>
+                            </div>}
+                        </form>
                     </div>
                 </div>
             </div>
@@ -82,7 +84,7 @@ export async function getServerSideProps(context) {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_READ}`,
     };
     let url =
-        process.env.NEXT_PUBLIC_STRAPI_HOST+"/api/consoles?filters[slug]=" +
+        process.env.NEXT_PUBLIC_STRAPI_HOST + "/api/consoles?filters[slug]=" +
         context.query.slug +
         "&populate=*";
     let data = await fetch(url, { headers: headers });

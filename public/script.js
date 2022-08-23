@@ -12,29 +12,29 @@ const phoneMenu = document.getElementById("phoneMenu");
 const phoneMenuCloseBtn = document.getElementById("phoneMenuCloseBtn");
 
 
-cartBtn.addEventListener("click", () => {
-    cart.style.transform = "translateX(0)";
-})
+// cartBtn.addEventListener("click", () => {
+//     cart.style.transform = "translateX(0)";
+// })
 
-closeBtn.addEventListener("click", () => {
-    cart.style.transform = "translateX(100rem)";
-})
+// closeBtn.addEventListener("click", () => {
+//     cart.style.transform = "translateX(100rem)";
+// })
 
-phoneMenuBtn.addEventListener("click", () => {
-    phoneMenu.style.transform = "translateX(0)";
-})
+// phoneMenuBtn.addEventListener("click", () => {
+//     phoneMenu.style.transform = "translateX(0)";
+// })
 
-phoneMenuCloseBtn.addEventListener("click", () => {
-    phoneMenu.style.transform = "translateX(-100rem)";
-})
+// phoneMenuCloseBtn.addEventListener("click", () => {
+//     phoneMenu.style.transform = "translateX(-100rem)";
+// })
 
-phoneCartBtn.addEventListener("click", () => {
-    phoneCart.style.transform = "translateX(0)";
-})
+// phoneCartBtn.addEventListener("click", () => {
+//     phoneCart.style.transform = "translateX(0)";
+// })
 
-phoneCartCloseBtn.addEventListener("click", () => {
-    phoneCart.style.transform = "translateX(100rem)";
-})
+// phoneCartCloseBtn.addEventListener("click", () => {
+//     phoneCart.style.transform = "translateX(100rem)";
+// })
 
 a = [
     {

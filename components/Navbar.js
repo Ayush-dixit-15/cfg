@@ -11,8 +11,17 @@ import { useState } from "react";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 
 const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
+    const [showcart, setshowcart] = useState("translateX(100rem)");
+    const toggleCart = () => {
+        if (showcart === "translateX(0)") {
+            setshowcart("translateX(100rem)");
+        } else {
+            setshowcart("translateX(0)");
+        }
+    }
     const [email, setemail] = useState("");
     const [pic, setpic] = useState("");
     const [kycid, setkycid] = useState(0);
@@ -43,7 +52,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
         } catch (error) {
             console.log(error);
         }
-    }, [pic,email]);
+    }, [pic, email]);
     return (
         <>
             <Script src="/script.js"></Script>
@@ -51,7 +60,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                 <div className={styles.navbar}>
                     <div className={styles.left}>
                         <Link href="/">
-                            <Image src={logo} className="cursor-pointer"/>
+                            <Image src={logo} className="cursor-pointer" />
                         </Link>
                         <ul>
                             {KYC != null && (
@@ -85,27 +94,28 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                             )}
                         </ul>}
                         {
-                            pic != "" && pic != "N/A" && <Link href="/Profile"><Image className={styles.pic} src={pic} style={{ height: "30px", borderRadius: "999px", marginRight: "2rem" }} height={30} width={30}></Image></Link>
+                            pic != "" && pic != "N/A" && <Link href="/Profile"><Image className={styles.pic} src={pic} style={{ height: "30px", borderRadius: "999px" }} height={30} width={30}></Image></Link>
                         }
                         {
-                            pic != "" && pic == "N/A" && <Link href="/Profile"><AccountCircleIcon className={styles.pic} style={{ marginRight: "2rem" }} /></Link>
+                            pic != "" && pic == "N/A" && <Link href="/Profile"><AccountCircleIcon className={styles.pic} /></Link>
                         }
-                        <ShoppingCartIcon
-                            id="cartBtn"
-                            style={{ color: "white" }}
-                        />
+                        <div className={styles.cartSize}>
+                            <ShoppingCartIcon
+                            className={styles.cartIcon}
+                                style={{ color: "white", marginLeft: "2rem" }}
+                                onClick={() => toggleCart()}
+                            />
+                            <span className={styles.cartSizeInfo}>{Object.keys(product).length}</span>
+                        </div>
                     </div>
                 </div>
-                <div id="cart" className={styles.cart}>
+                <div className={styles.cart} style={{ transform: `${showcart}` }}>
                     <div className={styles.cart_head}>
-                        <ArrowBackIosIcon id="closeBtn" />
+                        <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
                         <span className={styles.cart_title}>Your Cart</span>
-                        <span className={styles.cart_itemno}>(0 items)</span>
+                        <span className={styles.cart_itemno}>({Object.keys(product).length} items)</span>
                         {Object.keys(product).map((k) => {
                             return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
-                                {/* <span>qty: {product[k].qty}</span>
-                  <span>name: {product[k].name}</span>
-                  <span>price: {product[k].price}</span> */}
                                 <img src={product[k].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
                                     <h3>{product[k].name}</h3>
@@ -115,15 +125,19 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                             </div>
                         })}
                     </div>
-                    <div className={styles.checkout}>
+                    {subTotal === 0 && <div className={styles.cartEmpty}>
+                        <ProductionQuantityLimitsIcon style={{ fontSize: "8rem", color: "var(--red)" }} />
+                        <span>Your cart is Empty</span>
+                    </div>}
+                    {subTotal != 0 && <div className={styles.checkout}>
                         <hr />
                         <div className={styles.subtotal}>
                             <span>Subtotal: </span>
                             <span>₹{subTotal}</span>
                         </div>
                         {kycid == 0 && <Link href="/KYC"><button>Checkout</button></Link>}
-                        {kycid!=0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
-                    </div>
+                        {kycid != 0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
+                    </div>}
                 </div>
             </div>
             <div className={styles.phoneNav}>
@@ -133,11 +147,11 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal }) => {
                 <div id="phoneMenu" className={styles.phoneMenu}>
                     <div className={styles.menuHeader}>
                         <Image src={logo} />
-                        <CloseIcon id="phoneMenuCloseBtn"/>
+                        <CloseIcon id="phoneMenuCloseBtn" />
                     </div>
                     <div className={styles.menuLinks}>
                         <ul>
-                        {KYC != null && (
+                            {KYC != null && (
                                 <li>
                                     <Link href={`/${KYC}`}>{KYC}</Link>
                                 </li>

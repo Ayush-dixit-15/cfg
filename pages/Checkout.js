@@ -29,7 +29,7 @@ const Checkout = ({ product, subTotal, msg }) => {
           <h1>Review your order</h1>
           <hr />
           <span>
-            By placing your order, you agree to craving for gaming's <Link href="/Tnc">terms &#38; conditions.</Link>
+            By placing your order, you agree to craving for gaming&apos;s <Link href="/Tnc">terms &#38; conditions.</Link>
           </span>
         </div>
         <div className={styles.order_address}>

@@ -180,11 +180,11 @@ const Login = ({ product, subTotal }) => {
                     <span>Or</span>
                     <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
                     <form onSubmit={handleSubmit} method="POST">
-                        <label htmlFor="entername">Username: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                        <label htmlFor="entername">Username or E-mail: <strong style={{ color: "var(--red)" }}>*</strong></label>
                         <input
                             value={entername}
                             onChange={handleChange}
-                            placeholder="Enter your Username"
+                            placeholder="Enter your Username or E-mail"
                             type="text"
                             id="entername"
                             name="entername"

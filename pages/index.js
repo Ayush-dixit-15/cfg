@@ -11,29 +11,30 @@ import Accordion from "../components/Accordion";
 import Navbar from "../components/Navbar";
 import Script from "next/script";
 import { useState, useEffect } from "react";
+import SearchIcon from '@mui/icons-material/Search';
 
 
-function Home({ products ,product, subTotal }) {
+function Home({ products, product, subTotal }) {
+    const [query, setquery] = useState("");
     const [userid, setuserid] = useState(0);
     useEffect(() => {
-      try{
-        if (localStorage.getItem("userid")) {
-            setuserid(JSON.parse(localStorage.getItem("userid")));
-            saveuserid(JSON.parse(localStorage.getItem("userid")));
-        } else {
-            localStorage.setItem("userid", JSON.stringify(userid));
+        try {
+            if (localStorage.getItem("userid")) {
+                setuserid(JSON.parse(localStorage.getItem("userid")));
+                saveuserid(JSON.parse(localStorage.getItem("userid")));
+            } else {
+                localStorage.setItem("userid", JSON.stringify(userid));
+            }
         }
-      }
-      catch(error)
-      {
-        console.log(error);
-      }
+        catch (error) {
+            console.log(error);
+        }
     }, []);
 
-    const saveuserid = (items)=>{
+    const saveuserid = (items) => {
         localStorage.setItem("userid", JSON.stringify(items));
     };
-    
+
     return (
         <div>
             <Head>
@@ -46,8 +47,8 @@ function Home({ products ,product, subTotal }) {
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
             <Script src="/script.js"></Script>
-            
-            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal}/>
+
+            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
@@ -76,7 +77,7 @@ function Home({ products ,product, subTotal }) {
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                        From ₹{item.attributes.plan1}/day
+                                            From ₹{item.attributes.plan1}/day
                                         </span>
                                     </div>
                                 </Link>
@@ -106,15 +107,29 @@ function Home({ products ,product, subTotal }) {
                     <hr />
                 </div>
                 <div className={styles.sorting}>
-                    <span>Showing {products.data.length} items</span>
-                    <hr/>
+                    <div className={styles.length}>
+                        <span>Showing {products.data.length} items</span>
+                        <hr />
                     <select name="sort" id="sort">
+                        <option value="defualt">Defualt Sorting</option>
                         <option value="lowtohigh">Price: Low to high</option>
                         <option value="lowtohigh">Price: High to low</option>
                     </select>
+                    </div>
+                    <div className={styles.search}>
+                        <input type="text" placeholder="Search for Product Name or Brand" value={query} onChange={(e) => { setquery(e.target.value) }} />
+                        <SearchIcon style={{margin: "0.5rem"}}/>
+                    </div>
                 </div>
                 <div className={styles.grid}>
-                    {products.data.map((item) => {
+                    {products.data.filter((val) => {
+                        if (query === "") {
+                            return val;
+                        }
+                        else if (val.attributes.title.toLowerCase().includes(query.toLocaleLowerCase())) {
+                            return val;
+                        }
+                    }).map((item) => {
                         return (
                             <div key={item.attributes.slug}>
                                 <Link
