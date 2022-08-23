@@ -162,14 +162,14 @@ function Home({ products, product, subTotal }) {
                 </div>
                 <div className={styles.usp}>
                     <div className={styles.usp_item}>
-                        <VerifiedOutlinedIcon style={{ fontSize: "4rem" }} />
+                        <VerifiedOutlinedIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Donec quis enim lacus.
                         </p>
                     </div>
                     <div className={styles.usp_item}>
-                        <AutoAwesomeOutlinedIcon style={{ fontSize: "4rem" }} />
+                        <AutoAwesomeOutlinedIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing
                             elit. Donec quis enim lacus.
@@ -178,6 +178,7 @@ function Home({ products, product, subTotal }) {
                     <div className={styles.usp_item}>
                         <SupportAgentOutlinedIcon
                             style={{ fontSize: "4rem" }}
+                            className={styles.icon}
                         />
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipiscing

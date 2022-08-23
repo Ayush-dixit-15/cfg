@@ -55,22 +55,9 @@ const Checkout = ({ product, subTotal, msg }) => {
 
 // export async function getServerSideProps(context) {
 
-//   console.log(context);
-
-//   let headers = {
-//       Authorization: `Bearer ${process.env.NEXT_PUBLIC_READ}`,
-//   };
-//   // console.log(process.env.NEXT_PUBLIC_STRAPI_URL);
-//   // let url =process.env.NEXT_PUBLIC_STRAPI_URL+"/api/products?populate=*";
-//   let data = await fetch(
-//       process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/kycs/${kycid}?populate=*`,
-//       {
-//           headers: headers,
-//       }
-//   );
-//   let kyc = await data.json();
+//   
 //   return {
-//       props: { msg: "hi" } // will be passed to the page component as props
+//       props: {  } // will be passed to the page component as props
 //   };
 // }
 

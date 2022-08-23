@@ -1,22 +1,23 @@
-.signup_container{
+.signup_container {
     position: relative;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.signup_container::before{
+
+.signup_container::before {
     content: '';
-            background: url('../public/signupbg.png') 
-                no-repeat center center/cover;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
+    background: url('../public/signupbg.png') no-repeat center center/cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
 }
-.signup_dialogue{
+
+.signup_dialogue {
     background: var(--white);
     padding: 4rem 2rem;
     display: flex;
@@ -24,22 +25,25 @@
     width: 50vw;
     align-items: center;
 }
-.signup_dialogue h3{
+
+.signup_dialogue h3 {
     margin-bottom: 2rem;
 }
-.signup_dialogue_input{
+
+.signup_dialogue_input {
     width: 60%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.signup_dialogue_input form{
+
+.signup_dialogue_input form {
     display: flex;
     flex-direction: column;
 }
 
-.signup_dialogue_input form button{
+.signup_dialogue_input form button {
     margin-top: 1.5rem;
     padding: 0.5rem 0;
     border: none;
@@ -49,33 +53,67 @@
     transition: all 0.2s ease-in-out;
 }
 
-.signup_dialogue_input form button:hover{
+.signup_dialogue_input form button:hover {
     background-color: tomato;
     cursor: pointer;
 }
 
-.signup_dialogue_input label{
+.signup_dialogue_input label {
     margin-top: 1.5rem;
 }
-.password_field{
+
+.password_field {
     width: 100%;
     display: flex;
     align-items: center;
     border: 1px solid var(--black);
     border-radius: 3px;
 }
-.password_field input{
+
+.password_field input {
     border-top: none;
     border-bottom: none;
     border-left: none;
     outline: none;
     width: 85%;
     background: none;
+    border-radius: 0;
 }
-.openEye{
+
+.openEye {
     /* padding: 0 0.65rem; */
     margin-left: 1rem;
 }
-.openEye:hover{
+
+.openEye:hover {
     cursor: pointer;
+}
+
+.signup_dialogue a{
+    color: blue;
+}
+
+.signup_dialogue a:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+@media only screen and (max-width:800px){
+    .signup_container{
+        align-items: stretch;
+    }
+    .signup_dialogue{
+        width: 100%;
+        font-size: 70%;
+    }
+    .signup_dialogue input{
+        padding: 0.5rem !important;
+    }
+    .signup_dialogue h3{
+        font-size: 2rem;
+    }
+    .signup_dialogue_input{
+        width: 90%;
+    }
 }
