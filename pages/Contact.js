@@ -30,7 +30,7 @@ const Contact = ({ product, subTotal }) => {
                 <div className={styles.contact_left}>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.9436067794186!2d77.11289461440875!3d28.691333488169388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d03efc98fd195%3A0xfc565b69d57ad5b2!2sSuraksha%20Enclave!5e0!3m2!1sen!2sin!4v1661192536628!5m2!1sen!2sin"
-                        style={{border:"0"}} allowfullscreen="" loading="lazy"
+                        style={{border:"0"}} allowFullScreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div className={styles.contact_middle}>
