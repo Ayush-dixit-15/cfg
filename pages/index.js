@@ -110,6 +110,7 @@ function Home({ products, product, subTotal}) {
                     <div className={styles.length}>
                         <span>Showing {products.data.length} items</span>
                         <hr />
+                        
                     <select name="sort" id="sort">
                         <option value="defualt">Defualt Sorting</option>
                         <option value="lowtohigh">Price: Low to high</option>

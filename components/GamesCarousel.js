@@ -7,7 +7,7 @@ const breakPoint = [
   { width: 1, itemsToShow: 1 },
   { width: 800, itemsToShow: 2 },
   { width: 768, itemsToShow: 4 },
-  { width: 1200, itemsToShow: 6 }
+  { width: 1200, itemsToShow: 4 }
 ]
 
 const GamesCarousel = ({ games }) => {

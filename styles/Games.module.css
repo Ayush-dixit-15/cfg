@@ -14,8 +14,7 @@
 }
 .maylike h1{
     text-align: center;
-    margin: 50px;
-    color: #324d67;
+   font-weight: bolder;
 }
 .marquee {
     --duration: 10s;
