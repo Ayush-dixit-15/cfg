@@ -46,7 +46,6 @@ function Home({ products, product, subTotal}) {
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
-            <Script src="/script.js"></Script>
 
             <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
             <Carousel />
