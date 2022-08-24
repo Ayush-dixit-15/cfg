@@ -62,7 +62,7 @@ const Checkout = ({ product, subTotal, details }) => {
                                 <p>Use code <strong>Welcome6969</strong> to get flat ₹500 off on games</p>
                             </div>
                             <div style={{marginTop: "2rem"}}>
-                            <p style={{color:"var(--red)", display: `${no}`}}>This code isn't available right now</p>
+                            <p style={{color:"var(--red)", display: `${no}`}}>This code isn&apos;t available right now</p>
                             <p style={{color:"green", display: `${yes}`}}>Promo code applied ✅</p>
                             <input name='promo' id='promo' placeholder='Enter Code' value={code} onChange={(e)=>{setcode(e.target.value)}}/>
                             <button onClick={()=>applyPromo()}>Apply</button>
