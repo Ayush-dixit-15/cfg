@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { BsBagCheckFill } from 'react-icons/bs';
 import { useRouter } from 'next/router';
 
-import { runFireworks } from '../lib/utils'
+import { runFireworks } from '../lib/'
 const Success = () => {
    const [product, setProduct] = useState({})
     useEffect(()=>{
@@ -32,7 +32,7 @@ const Success = () => {
             </p>
             <p className="description">
                 If you have any questions, please email
-                <a href="mailto:craving4gaming.help@gmail.com" className="email">craving4gaming.help@gmail.com</a>
+                <a href="mailto:order@example.com" className="email">craving4gaming.help@gmail.com</a>
             </p>
             
                 <button className="btn" type="button" width="300px" onClick={()=>{

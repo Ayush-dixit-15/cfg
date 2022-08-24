@@ -32,7 +32,7 @@ const Success = () => {
             </p>
             <p className="description">
                 If you have any questions, please email
-                <a href="mailto:craving4gaming.help@gmail.com" className="email">craving4gaming.help@gmail.com</a>
+                <a href="craving4gaming.help@gmail.com" className="email">craving4gaming.help@gmail.com</a>
             </p>
             
                 <button className="btn" type="button" width="300px" onClick={()=>{

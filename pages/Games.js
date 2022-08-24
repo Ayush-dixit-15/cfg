@@ -33,12 +33,12 @@ const Games = ( {games, product, subTotal, action} ) => {
                           {action.data.map((item)=>{
                             return(
                               <Link href = {`/games/${item.attributes.slug}`}>
-                              <div class="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-                              <div class="bg-gray-100 p-6 rounded-lg">
-                                <img class="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
-                                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
-                                <p class="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
-                                </div>
+                              <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
+                              <div className="bg-gray-100 p-6 rounded-lg">
+                                <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
+                                <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
+                                <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
+                                </div>import Footer from "../components/Footer";
                             </div>
                   
                               </Link>
@@ -48,15 +48,15 @@ const Games = ( {games, product, subTotal, action} ) => {
                         <option value="lowtohigh">Fps</option>
                     </select></div>
         </div>
-        <div class="flex flex-wrap m-4">
+        <div className="flex flex-wrap m-4">
         {games.data.map((item)=>{
           return(
             <Link href = {`/games/${item.attributes.slug}`}>
-            <div class="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-            <div class="bg-gray-100 p-6 rounded-lg">
-              <img class="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
-              <p class="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
+            <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
+            <div className="bg-gray-100 p-6 rounded-lg">
+              <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
+              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
+              <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
               </div>
           </div>
 
