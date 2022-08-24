@@ -2,6 +2,8 @@ import React from 'react';
 import Footer from '../components/Footer';
 import Navbar from "../components/Navbar";
 import styles from '../styles/Tnc.module.css';
+import Footer from '../components/Footer';
+
 
 const Tnc = ({ subTotal, product }) => {
   return (
@@ -199,6 +201,7 @@ const Tnc = ({ subTotal, product }) => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

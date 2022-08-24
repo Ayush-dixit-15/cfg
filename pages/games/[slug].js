@@ -94,6 +94,7 @@ const Slug = ({ game, product, subTotal, games }) => {
           git
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

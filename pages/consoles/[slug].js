@@ -5,6 +5,7 @@ import styles from "../../styles/Console.module.css";
 import SanitizerIcon from '@mui/icons-material/Sanitizer';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import Link from "next/link";
+import Footer from '../../components/Footer';
 
 const Console = ({ console, addProductToCart, product, subTotal }) => {
     const router = useRouter();

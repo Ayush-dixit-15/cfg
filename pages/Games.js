@@ -4,6 +4,7 @@ import Link from 'next/link'
 import GamesCarousel from "../components/GamesCarousel";
 import styles from '../styles/Games.module.css';
 import SearchIcon from '@mui/icons-material/Search';
+import Footer from "../components/Footer";
 
 
 const Games = ({ games, product, subTotal, action }) => {
@@ -165,6 +166,7 @@ const Games = ({ games, product, subTotal, action }) => {
         </div>
 
       </div>
+      <Footer/>
     </div>
   );
 };
