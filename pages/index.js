@@ -14,7 +14,7 @@ import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 
 
-function Home({ products, product, subTotal }) {
+function Home({ products, product, subTotal}) {
     const [query, setquery] = useState("");
     const [userid, setuserid] = useState(0);
     useEffect(() => {
