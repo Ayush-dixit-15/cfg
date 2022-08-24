@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import carousel1 from "../public/carousel1.png";
 import carousel2 from "../public/carousel2.png";
-import carousel3 from "../public/carousel3.png";
+import carousel3 from "../public/carousel2.png";
 import styles from '../styles/Carousel.module.css';
 import Script from "next/script";
 
@@ -43,12 +43,12 @@ const Carousel = () => {
                         data-bs-slide-to="1"
                         aria-label="Slide 2"
                     ></button>
-                    <button
+                    {/* <button
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="2"
                         aria-label="Slide 3"
-                    ></button>
+                    ></button> */}
                 </div>
                 <div className={`carousel-inner ${styles.carousel_inner}`}>
                     <div className={`carousel-item active ${styles.carousel_item}`}>

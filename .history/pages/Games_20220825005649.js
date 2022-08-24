@@ -25,7 +25,7 @@ const Games = ( {games, product, subTotal, action} ) => {
         </div>
       <GamesCarousel games= {games}/>
       <div className="topic">
-                    <h1>All games</h1>
+                    <h1>All consoles</h1>
                     <hr />
                 </div>
                 <div className="sorting">
@@ -34,9 +34,9 @@ const Games = ( {games, product, subTotal, action} ) => {
                         <hr />
                         
                     <select name="sort" id="sort">
-                        <option value="defualt">Genre</option>
-                        <option value="lowtohigh">Action-adventure</option>
-                        <option value="lowtohigh">FPS</option>
+                        <option value="defualt">Defualt Sorting</option>
+                        <option value="lowtohigh">Price: Low to high</option>
+                        <option value="lowtohigh">Price: High to low</option>
                     </select>
                     </div>
                     <div className="search">

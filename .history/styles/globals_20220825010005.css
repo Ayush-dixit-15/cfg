@@ -168,23 +168,17 @@ left: -145px; */
   transform: translateY(-1rem);
   cursor: pointer;
 }
-.topic {
-  margin-top: 4rem;
+
+.topic{
+  margin: 0;
 }
 
 .topic h1 {
-  color: var(--red);
-  font-weight: 700;
-  margin: 0;
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
-.topic hr {
-  width: 10rem;
-  border-top: 5px solid var(--red);
-  border-radius: 10rem;
-  opacity: 1;
-  margin: 0;
+.topic hr{
+  width: 5rem;
 }
 .sorting {
   display: flex;
@@ -287,17 +281,4 @@ margin-top: 160px;
 }
 .btn:hover{
   transform: scale(1.1,1.1);
-}
-@media only screen and (max-width:800px){
-  .topic{
-    margin: 0;
-}
-
-.topic h1 {
-    font-size: 1.25rem;
-}
-
-.topic hr{
-    width: 5rem;
-}
 }

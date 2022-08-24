@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 
 const Games = ( {games, product, subTotal, action} ) => {
   const [query, setquery] = useState("");
+  const [genre, setGenre] = useState("Gnere")
     return (
       
         <div>

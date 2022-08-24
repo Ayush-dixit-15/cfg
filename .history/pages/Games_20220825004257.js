@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import Navbar from "../components/Navbar";
 import Link from 'next/link'
 import GamesCarousel from "../components/GamesCarousel";
-import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
 
 
@@ -24,50 +23,38 @@ const Games = ( {games, product, subTotal, action} ) => {
             {/* <img src="/1.png" alt="" /> */}
         </div>
       <GamesCarousel games= {games}/>
-      <div className="topic">
-                    <h1>All games</h1>
+      <div className="topic mb-3">
+                    <h1>All Games</h1>
                     <hr />
-                </div>
-                <div className="sorting">
                     <div className="length">
-                        <span>Showing {games.data.length} items</span>
-                        <hr />
-                        
                     <select name="sort" id="sort">
                         <option value="defualt">Genre</option>
-                        <option value="lowtohigh">Action-adventure</option>
-                        <option value="lowtohigh">FPS</option>
-                    </select>
-                    </div>
-                    <div className="search">
+                        <option value="lowtohigh" >Action-Adventure</option>
+                        <option value="lowtohigh">Fps</option>
+                    </select></div>
+        </div>
+        <div className="search">
+        <div className={styles.search}>
                         <input type="text" placeholder="Search for Product Name or Brand" value={query} onChange={(e) => { setquery(e.target.value) }} />
                         <SearchIcon style={{margin: "0.5rem"}}/>
-                    </div>
-            </div>
+                
+        </div>
         <div className="flex flex-wrap m-4">
-                    {games.data.filter((val) => {
-                        if (query === "") {
-                            return val;
-                        }
-                        else if (val.attributes.gameName.toLowerCase().includes(query.toLocaleLowerCase())) {
-                            return val;
-                        }
-                    }).map((item) => {
-                      return(
-                        <Link href = {`/games/${item.attributes.slug}`}>
-                        <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-                        <div className="bg-gray-100 p-6 rounded-lg">
-                          <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
-                          <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
-                          <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
-                          </div>
-                      </div>
-            
-                        </Link>
-                        );
-                    })}
-                </div>
-    
+        {games.data.map((item)=>{
+          return(
+            <Link href = {`/games/${item.attributes.slug}`}>
+            <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
+            <div className="bg-gray-100 p-6 rounded-lg">
+              <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
+              <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
+              <p className="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
+              </div>
+          </div>
+
+            </Link>
+          )
+        })}
+      </div>
       <Footer/>
         </div>
     );

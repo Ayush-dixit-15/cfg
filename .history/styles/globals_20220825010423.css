@@ -289,15 +289,5 @@ margin-top: 160px;
   transform: scale(1.1,1.1);
 }
 @media only screen and (max-width:800px){
-  .topic{
-    margin: 0;
-}
-
-.topic h1 {
-    font-size: 1.25rem;
-}
-
-.topic hr{
-    width: 5rem;
-}
+  
 }

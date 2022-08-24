@@ -43,12 +43,12 @@ const Carousel = () => {
                         data-bs-slide-to="1"
                         aria-label="Slide 2"
                     ></button>
-                    <button
+                    {/* <button
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
                         data-bs-slide-to="2"
                         aria-label="Slide 3"
-                    ></button>
+                    ></button> */}
                 </div>
                 <div className={`carousel-inner ${styles.carousel_inner}`}>
                     <div className={`carousel-item active ${styles.carousel_item}`}>

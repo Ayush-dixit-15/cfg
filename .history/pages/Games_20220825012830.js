@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 
 const Games = ( {games, product, subTotal, action} ) => {
   const [query, setquery] = useState("");
+  const [genre, setGenre] = useState("Gnere")
     return (
       
         <div>
@@ -35,7 +36,7 @@ const Games = ( {games, product, subTotal, action} ) => {
                         
                     <select name="sort" id="sort">
                         <option value="defualt">Genre</option>
-                        <option value="lowtohigh">Action-adventure</option>
+                        <option value="lowtohigh" onClick={set}>Action-adventure</option>
                         <option value="lowtohigh">FPS</option>
                     </select>
                     </div>

@@ -34,9 +34,9 @@ const Games = ( {games, product, subTotal, action} ) => {
                         <hr />
                         
                     <select name="sort" id="sort">
-                        <option value="defualt">Genre</option>
-                        <option value="lowtohigh">Action-adventure</option>
-                        <option value="lowtohigh">FPS</option>
+                        <option value="defualt">Defualt Sorting</option>
+                        <option value="lowtohigh">Price: Low to high</option>
+                        <option value="lowtohigh">Price: High to low</option>
                     </select>
                     </div>
                     <div className="search">
