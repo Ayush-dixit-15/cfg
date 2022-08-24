@@ -5,7 +5,10 @@ import HorizontalScrollbar from "../components/HorizontalScrollBar";
 
 
 const Games = ( {games, product, subTotal, action} ) => {
-
+=======
+const About = ( {games, product, subTotal} ) => {
+  console.log(games);
+>>>>>>> 5fecb58ef851f45f3105846697768a49334ace1b
     return (
       
         <div>

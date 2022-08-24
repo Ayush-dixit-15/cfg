@@ -1,15 +1,16 @@
-// console.log("hello");
-const cartBtn = document.getElementById("cartBtn");
-const cart = document.getElementById("cart");
-const closeBtn = document.getElementById("closeBtn");
+console.log("hello");
 
-const phoneCartBtn = document.getElementById("phoneCartBtn");
-const phoneCart = document.getElementById("phoneCart");
-const phoneCartCloseBtn = document.getElementById("phoneCartCloseBtn");
+// const cartBtn = document.getElementById("cartBtn");
+// const cart = document.getElementById("cart");
+// const closeBtn = document.getElementById("closeBtn");
 
-const phoneMenuBtn = document.getElementById("phoneMenuBtn");
-const phoneMenu = document.getElementById("phoneMenu");
-const phoneMenuCloseBtn = document.getElementById("phoneMenuCloseBtn");
+// const phoneCartBtn = document.getElementById("phoneCartBtn");
+// const phoneCart = document.getElementById("phoneCart");
+// const phoneCartCloseBtn = document.getElementById("phoneCartCloseBtn");
+
+// const phoneMenuBtn = document.getElementById("phoneMenuBtn");
+// const phoneMenu = document.getElementById("phoneMenu");
+// const phoneMenuCloseBtn = document.getElementById("phoneMenuCloseBtn");
 
 
 // cartBtn.addEventListener("click", () => {

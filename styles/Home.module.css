@@ -1,19 +1,19 @@
-.main{
+.main {
     padding: 2rem 6rem;
 }
 
-.topic{
+.topic {
     margin-top: 4rem;
 }
 
-.topic h1{
+.topic h1 {
     color: var(--red);
     font-weight: 700;
     margin: 0;
     font-size: 2rem;
 }
 
-.topic hr{
+.topic hr {
     width: 10rem;
     border-top: 5px solid var(--red);
     border-radius: 10rem;
@@ -21,7 +21,7 @@
     margin: 0;
 }
 
-.grid{
+.grid {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
     grid-template-columns: auto auto auto auto;
@@ -29,22 +29,22 @@
     margin-top: 2rem;
 }
 
-.card h2{
+.card h2 {
     font-size: 1.25rem;
     font-weight: 700;
 }
 
-.card{
+.card {
     transition: all 0.2s ease-in-out;
     margin: 2rem 0;
 }
 
-.card:hover{
+.card:hover {
     transform: translateY(-1rem);
     cursor: pointer;
 }
 
-.banner{
+.banner {
     display: flex;
     justify-content: space-between;
     background: var(--yellow);
@@ -56,16 +56,16 @@
     color: var(--black);
 }
 
-.banner .left h1{
+.banner .left h1 {
     font-weight: 800;
     font-size: 3rem;
 }
 
-.banner .left h3{
+.banner .left h3 {
     font-size: 1.25rem;
 }
 
-.banner button{
+.banner button {
     background: var(--black);
     color: var(--white);
     border: none;
@@ -77,62 +77,62 @@
     transition: all 0.2s ease-in-out;
 }
 
-.banner button:hover{
+.banner button:hover {
     background: var(--red);
 }
 
-.banner .right{
+.banner .right {
     position: absolute;
     right: 10px;
     bottom: -30px;
 }
 
-.usp{
+.usp {
     display: flex;
     justify-content: space-between;
     margin: 4rem 0;
 }
 
-.usp .usp_item{
+.usp .usp_item {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.usp .usp_item p{
+.usp .usp_item p {
     text-align: center;
     margin-top: 2rem;
     width: 20rem;
     color: var(--gray);
 }
 
-.sorting{
+.sorting {
     display: flex;
     justify-content: space-between;
 }
 
-.length{
+.length {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.length hr{
+.length hr {
     border-top: 1px solid var(--gray);
     opacity: 1;
     width: 20vw;
     margin: 0 0.5rem;
 }
 
-.length select{
+.length select {
     border: 1px solid var(--black);
     padding: 0.5rem;
     border-radius: 5px;
     width: 20vw;
 }
 
-.search{
+.search {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -140,9 +140,78 @@
     border-radius: 5px;
 }
 
-.search input{
+.search input {
     padding: 0.5rem;
     border: none;
     outline: none;
     width: 25vw;
+}
+
+@media only screen and (max-width:800px) {
+    .main {
+        padding: 2rem;
+        font-size: 70%;
+    }
+
+    .grid {
+        grid-template-columns: auto auto;
+    }
+
+
+    .topic{
+        margin: 0;
+    }
+
+    .topic h1 {
+        font-size: 1.25rem;
+    }
+
+    .topic hr{
+        width: 5rem;
+    }
+
+    .card img {
+        height: 9rem;
+        width: 9rem;
+    }
+
+    .banner{
+        margin-top: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+        margin: 3rem 0;
+    }
+
+    .banner .left h1{
+        font-size: 2rem;
+    }
+    .banner .left h3{
+        font-size: 0.75rem;
+    }
+
+    .banner button{
+        font-size: 0.65rem;
+    }
+
+    .banner .right{
+        position: static;
+        bottom: 0;
+        right: 0;
+    }
+
+    .usp_item svg{
+        font-size: 2rem;
+    }
+
+    .usp .usp_item p{
+        width: 4rem;
+    font-size: 0.5rem;
+    }
+
+    .icon{
+        font-size: 2rem !important;
+    }
+
+
 }
