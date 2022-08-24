@@ -12,6 +12,7 @@ import Navbar from "../components/Navbar";
 import Script from "next/script";
 import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
+import Footer from "../components/Footer";
 
 
 function Home({ products, product, subTotal}) {
@@ -195,6 +196,7 @@ function Home({ products, product, subTotal}) {
                 </div>
                 <Accordion />
             </div>
+            <Footer/>
         </div>
     );
 }

@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
+import Footer from '../../components/Footer';
+import GamesCarousel from '../../components/GamesCarousel';
 
 const Slug = ({ game, product, subTotal, games }) => {
   const router = useRouter();

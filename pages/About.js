@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Script from "next/script";
+import Footer from "../components/Footer";
 
 const About = ({ product, subTotal }) => {
     return (
@@ -43,6 +44,7 @@ const About = ({ product, subTotal }) => {
                 </div>
                 <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" />
             </div>
+            <Footer/>
         </div>
     );
 };

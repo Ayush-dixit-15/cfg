@@ -6,6 +6,7 @@ import Image from 'next/image';
 import logo from "../../public/logo.png";
 import EditIcon from '@mui/icons-material/Edit';
 import Link from 'next/link';
+import Footer from '../../components/Footer';
 
 
 const UserKyc = ({ kycData, product, subTotal }) => {
@@ -35,6 +36,7 @@ const UserKyc = ({ kycData, product, subTotal }) => {
           <Image src={logo} height={150} width={275}/>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

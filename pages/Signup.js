@@ -10,6 +10,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from "next/router";
 import Script from "next/script";
+import Footer from "../components/Footer";
 
 const Signup = ({ product, subTotal }) => {
     const router = useRouter();
@@ -235,6 +236,7 @@ const Signup = ({ product, subTotal }) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

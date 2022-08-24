@@ -7,6 +7,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import contactBanner from '../public/iframe (1).png';
 import Image from "next/image";
+import Footer from "../components/Footer";
 
 const Contact = ({ product, subTotal }) => {
     return (
@@ -53,6 +54,7 @@ const Contact = ({ product, subTotal }) => {
 
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };
