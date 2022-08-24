@@ -38,19 +38,19 @@ const Slug = ({ game, product, subTotal, games }) => {
                 <h2 className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
                 <div className="flex mb-4">
                   <span className="flex items-center">
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
-                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
+                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
                     </svg>
                     <span className="text-gray-600 ml-3">4 Reviews</span>
@@ -78,12 +78,12 @@ const Slug = ({ game, product, subTotal, games }) => {
 
             {games.data.map((item) => {
               return (
-                <Link href={`/games/${item.attributes.slug}`}>
-                  <div class="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-                    <div class="bg-gray-100 p-6 rounded-lg">
-                      <img class="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url} />
-                      <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{item.attributes.gameName}</h2>
-                      <p class="leading-relaxed text-base">{item.attributes.details.slice(0, 130)}</p>
+                <Link href={`/games/${item.attributes.slug}`} key={item.attributes.slug}>
+                  <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
+                    <div className="bg-gray-100 p-6 rounded-lg">
+                      <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url} />
+                      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{item.attributes.gameName}</h2>
+                      <p className="leading-relaxed text-base">{item.attributes.details.slice(0, 130)}</p>
                     </div>
                   </div>
 
