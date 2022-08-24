@@ -19,7 +19,7 @@ const GamesCarousel = ({ games }) => {
       <Carousel breakPoints={breakPoint}>
         {games.data.map((item) => {
           return (
-            <Link href={`/games/${item.attributes.slug}`}>
+            <Link href={`/games/${item.attributes.slug}`} key={item.attributes.slug}>
               <div className={styles.gamesCarousel_item}>
                 <img src={item.attributes.Poster.data.attributes.url}></img>
                 <h2>{item.attributes.gameName}</h2>
