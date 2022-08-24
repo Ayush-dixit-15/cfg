@@ -1,0 +1,15 @@
+.tnc_bg{
+    background: gray;
+}
+
+.tnc_body{
+    margin: 0 6rem;
+    background: var(--white);
+    padding: 6rem;
+}
+
+.tnc_body h2{
+    margin: 1rem 0;
+    font-weight: 600;
+    text-decoration: underline;
+}
