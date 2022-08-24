@@ -39,6 +39,40 @@
   .track:hover {
     animation-play-state: paused;
   }
+
+  .gamesCarousel_item{
+    margin: 4rem 2rem;
+    background: var(--yellow);
+    padding: 0.5rem;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid var(--black);
+  }
+
+  .gamesCarousel_item img{
+    border-radius: 15px 15px 20px 20px;
+    width: 100%;
+  }
+
+  .gamesCarousel_item h2{
+    font-size: 1.5rem;
+  }
+
+  .gamesCarousel_item p{
+    font-size: 0.75rem;
+  }
+  .gamesCarousel_item span{
+    background: var(--white);
+    padding: 0.13rem 1rem;
+    border-radius: 30px;
+  }
+
+  .gamesCarousel_item:hover {
+    cursor: pointer;
+    transform: translateY(-2rem);
+  }
+  
   @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-100%); }

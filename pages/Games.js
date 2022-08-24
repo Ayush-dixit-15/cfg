@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Link from 'next/link'
 
 const About = ( {games, product, subTotal} ) => {
+  console.log(games);
     return (
         <div>
             <Navbar
