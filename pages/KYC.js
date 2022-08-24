@@ -10,6 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 import styles from '../styles/KYC.module.css';
 import Script from "next/script";
 import Router, { useRouter } from "next/router";
+import Footer from "../components/Footer";
 
 
 const KYC = ({ product, subTotal, kycData }) => {
@@ -272,6 +273,7 @@ const KYC = ({ product, subTotal, kycData }) => {
                         <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
+                <Footer/>
             </div>
 
 

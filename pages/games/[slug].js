@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
+import Footer from '../../components/Footer';
+import GamesCarousel from '../../components/GamesCarousel';
 
 const Slug = ({game, product, subTotal,games}) => {
     const router = useRouter();
@@ -71,27 +73,10 @@ const Slug = ({game, product, subTotal,games}) => {
             <h1>
               You may also like
               </h1>
-              <div className={styles.marquee}>
-              <div className={styles.track} >
-             
-        {games.data.map((item)=>{
-          return(
-            <Link href = {`/games/${item.attributes.slug}`}>
-            <div class="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-            <div class="bg-gray-100 p-6 rounded-lg">
-              <img class="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url}/>
-              <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{ item.attributes.gameName}</h2>
-              <p class="leading-relaxed text-base">{item.attributes.details.slice(0,130)}</p>
-              </div>
+              <GamesCarousel games= {games}/>
+              
           </div>
-
-            </Link>
-          )
-        })}
-      </div>
-              git
-              </div>
-          </div>
+          <Footer/>
  </div>
   )
 }

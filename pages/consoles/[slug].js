@@ -75,6 +75,7 @@ const Console = ({ console, addProductToCart, product, subTotal }) => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

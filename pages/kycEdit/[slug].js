@@ -8,6 +8,7 @@ import Webcam from "react-webcam";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import SendIcon from '@mui/icons-material/Send';
 import Link from "next/link";
+import Footer from '../../components/Footer';
 
 const KycEdit = ({ kycData, product, subTotal }) => {
 
@@ -211,7 +212,9 @@ const KycEdit = ({ kycData, product, subTotal }) => {
           <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
         </div>
       </form>
-    </div></div>
+    </div>
+    <Footer/>
+    </div>
   )
 }
 

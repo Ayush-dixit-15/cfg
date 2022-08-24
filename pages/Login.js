@@ -8,6 +8,7 @@ import styles from '../styles/Login.module.css';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from "next/router";
+import Footer from "../components/Footer";
 
 const Login = ({ product, subTotal }) => {
     const router = useRouter();
@@ -212,6 +213,7 @@ const Login = ({ product, subTotal }) => {
                     </form>
                 </div>
             </div>
+            <Footer/>
         </div>
     );
 };

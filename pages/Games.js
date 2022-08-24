@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Link from 'next/link'
 import GamesCarousel from "../components/GamesCarousel";
+import Footer from "../components/Footer";
 
 
 const Games = ( {games, product, subTotal, action} ) => {
@@ -63,6 +64,7 @@ const Games = ( {games, product, subTotal, action} ) => {
           )
         })}
       </div>
+      <Footer/>
         </div>
     );
 };

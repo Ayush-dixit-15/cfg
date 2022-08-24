@@ -8,6 +8,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import EditIcon from '@mui/icons-material/Edit';
 import { useRouter } from 'next/router';
 import avatar from '../public/avatar.png';
+import Footer from '../components/Footer';
 
 const Profile = ({ product, subTotal }) => {
   const router = useRouter();
@@ -61,6 +62,7 @@ const Profile = ({ product, subTotal }) => {
           <span style={{fontSize: "1rem", fontWeight: "100"}}>{email}</span>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

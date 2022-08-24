@@ -4,6 +4,7 @@ import Navbar from "../../components/Navbar";
 import styles from '../../styles/Checkout.module.css';
 import Link from 'next/link';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import Footer from '../../components/Footer';
 
 const Checkout = ({ product, subTotal, details }) => {
     const [code,setcode] = useState();
@@ -69,7 +70,8 @@ const Checkout = ({ product, subTotal, details }) => {
                         </div>
                     </div>
                     <div className={styles.order}>
-                        <button>Place Order</button>
+                        <Link href = "/success">
+                        <button>Place Order</button></Link>
                         <div className={styles.summary}>
                             <h3 style={{marginTop: "1rem"}}>Summary</h3>
                             <div className={styles.summary_items}>
@@ -106,6 +108,7 @@ const Checkout = ({ product, subTotal, details }) => {
                         })}
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }
