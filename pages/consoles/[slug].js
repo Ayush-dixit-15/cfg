@@ -89,7 +89,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             </div>
             <div className={styles.margining}>
             <div className={styles.topic}>
-                    <h1>What's in the Box?</h1>
+                    <h1>What&apos;s in the Box?</h1>
                     <hr />
                 </div>
             <Carousel breakPoints={breakPoint}>
