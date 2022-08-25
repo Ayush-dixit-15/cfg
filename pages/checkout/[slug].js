@@ -18,7 +18,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
     let gameOrder = "";
     let comboOrder = "";
     let controllerOrder = "";
-    console.log(product(Object.keys(product)).name);
+    // console.log(product(Object.keys(product)).name);
     for (let i = 0; i < Object.keys(product).length; i++) {
         consoleOrder = consoleOrder.concat(", ", Object.keys(product)[i].name, Object.keys(product)[i].qty);
     };
