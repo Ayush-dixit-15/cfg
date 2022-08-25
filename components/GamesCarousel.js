@@ -4,7 +4,7 @@ import Link from 'next/link';
 import styles from '../styles/Games.module.css';
 
 const breakPoint = [
-  { width: 1, itemsToShow: 1 },
+  { width: 1, itemsToShow: 2 },
   { width: 800, itemsToShow: 2 },
   { width: 768, itemsToShow: 4 },
   { width: 1200, itemsToShow: 4 }
@@ -23,8 +23,8 @@ const GamesCarousel = ({ games, ht}) => {
               <div className={styles.gamesCarousel_item} style={{height: `${ht}`}}>
                 <img src={item.attributes.Poster.data.attributes.url}></img>
                 <h2>{item.attributes.gameName}</h2>
-                <p>{item.attributes.genre}</p>
-                <p>{item.attributes.consoleType}</p>
+                <p style={{color: "var(--red)"}}>Genre: {item.attributes.genre}</p>
+                <p style={{color: "var(--red)"}}>Console: {item.attributes.consoleType}</p>
                 <p>{item.attributes.details.slice(0, 60)}...</p>
                 <span>₹{item.attributes.price}</span>
               </div>

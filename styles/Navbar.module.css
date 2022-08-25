@@ -162,8 +162,9 @@
         z-index: 10;
         background-color: var(--black);
         transition: all 0.3s ease-in-out;
-        transform: translateX(-100rem);
+        /* transform: translateX(-100rem); */
         padding: 2rem 0;
+        opacity: 0.95;
     }
     .phoneCart{
         position: fixed;

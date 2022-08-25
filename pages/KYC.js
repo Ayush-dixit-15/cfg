@@ -28,6 +28,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     }
     const capture = () => {
         setselfie(webRef.current.getScreenshot());
+        setcamera(false);
+        console.log(selfie);
     }
     const [houseno, sethouseno] = useState("");
     const [area, setarea] = useState("");
@@ -107,7 +109,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
         // const file = await blobFrom(bill, 'image/png');
         // const form = new FormData();
         // form.append('proof', file, bill);
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, proof: bill} };
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid} };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -124,14 +126,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
         let response = await res.json();
         console.log(response);
-        console.log(res2);
+        // console.log(res2);
         // console.log(bill);
         setkycid(response.data.id);
         savekycid(response.data.id);
     }
     return (
         <>
-            <Script src="/script.js"></Script>
             <Script
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
@@ -157,7 +158,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
-                    <p style={{ margin: "1.5rem 0" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+                    <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+                    <p style={{color: "var(--red)", fontSize: "1.5rem"}}>Error!</p>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">
                     <div className={styles.phone_input}>
@@ -215,7 +217,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
                                 <label htmlFor="bill"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange}></input>
+                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -267,13 +269,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             <div style={{ marginLeft: "2rem" }}>
                                 {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
                                 {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
-                                {/* <Image src={selfie} height={100} width={100} /> */}
+                                {!camera && <Image src={selfie} height={100} width={100} />}
                             </div>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange}></input>
+                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }}>

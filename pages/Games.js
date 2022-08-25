@@ -6,6 +6,8 @@ import GamesCarousel from "../components/GamesCarousel";
 import styles from '../styles/Games.module.css';
 import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
+import carousel2 from "../public/carousel2.png";
+import Image from "next/image";
 
 
 const Games = ({ games, product, subTotal, action, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -22,8 +24,8 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         Signup={"Signup"}
         product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
       />
-      <div className="banner">
-        {/* <img src="/1.png" alt="" /> */}
+      <div >
+        <Image src={carousel2} alt="" />
       </div>
       <div className={styles.games_body}>
         <div className={styles.games_promo}>
@@ -120,12 +122,6 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
           <div className={styles.length}>
             <span>Showing {games.data.length} items</span>
             <hr />
-
-            <select name="sort" id="sort">
-              <option value="defualt">Defualt Sorting</option>
-              <option value="lowtohigh">Price: Low to high</option>
-              <option value="lowtohigh">Price: High to low</option>
-            </select>
           </div>
           <div className={styles.search}>
             <input type="text" placeholder="Search for Games" value={query} onChange={(e) => { setquery(e.target.value) }} />

@@ -33,9 +33,9 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
               <img alt="ecommerce" className={styles.poster} src={game.attributes.Poster.data.attributes.url} />
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
 
-                <h1 className="text-white text-3xl title-font font-medium mb-1">{game.attributes.gameName}</h1>
+                <h1 className={`text-white text-3xl title-font font-medium mb-1 ${styles.gameTitle}`}>{game.attributes.gameName}</h1>
                 <h2 style={{ color: "var(--red)" }} className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
-                <p className="leading-relaxed text-white">{game.attributes.details}</p>
+                <p className={`leading-relaxed text-white ${styles.gameDetails}`}>{game.attributes.details}</p>
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
                   <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={()=>addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url)}>Add to Cart</button>
@@ -48,9 +48,9 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
         </section>
       </div>
       <div className={styles.game_body}>
-        <div style={{ marginTop: "4rem" }}>
-          <h1 style={{ color: "var(--red)", fontWeight: "700", margin: "0", fontSize: "2rem" }}>More Games</h1>
-          <hr style={{ width: "10rem", borderTop: "5px solid var(--red)", borderRadius: "10rem", opacity: "1", margin: "0" }} />
+      <div className={styles.topic}>
+          <h1>More Games</h1>
+          <hr />
         </div>
         <GamesCarousel games={games} ht={"28rem"}></GamesCarousel>
       </div>

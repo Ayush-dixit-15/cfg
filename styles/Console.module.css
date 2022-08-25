@@ -227,3 +227,43 @@
 .optional .right .add_sub span{
     margin: 0 1rem;
 }
+
+@media only screen and (max-width:800px){
+    .landing{
+        flex-direction: column;
+        margin: 2rem 2rem;
+    }
+    .left{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .landing .right{
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;   
+        margin-top: 3rem;
+    }
+    .margining{
+        margin: -4rem 2rem 0 2rem;
+    }
+    .what img{
+        height: 5rem;
+    }
+    .what span{
+        font-size: 0.75rem;
+    }
+    .topic h1{
+        font-size: 1.25rem;
+    }
+    .topic hr{
+        width: 6rem;
+    }
+    .optional .left img{
+        height: 7rem !important;
+        width: 7rem !important;
+    }
+    .optional .right{
+        margin-top: 0;
+        margin-left: -11rem;
+    }
+}

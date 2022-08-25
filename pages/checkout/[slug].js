@@ -14,8 +14,25 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
     const [yes, setyes] = useState("none");
     const [no, setno] = useState("none");
     const router = useRouter();
+    let consoleOrder = "";
+    let gameOrder = "";
+    let comboOrder = "";
+    let controllerOrder = "";
+    console.log(product(Object.keys(product)).name);
+    for (let i = 0; i < Object.keys(product).length; i++) {
+        consoleOrder = consoleOrder.concat(", ", Object.keys(product)[i].name, Object.keys(product)[i].qty);
+    };
+    for (let i = 0; i < Object.keys(gameCart).length; i++) {
+        gameOrder = gameOrder.concat(", ", Object.keys(gameCart)[i]);
+    };
+    for (let i = 0; i < Object.keys(comboCart).length; i++) {
+        comboOrder = comboOrder.concat(", ", Object.keys(comboCart)[i]);
+    };
+    for (let i = 0; i < Object.keys(optCart).length; i++) {
+        controllerOrder = controllerOrder.concat(", ", Object.keys(optCart)[i]);
+    };
+    console.log(gameOrder, consoleOrder, comboOrder, controllerOrder);
     const { slug } = router.query;
-    console.log(product, gameCart, optCart, comboCart);
     useEffect(() => {
       if(Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length === 0){
         router.push('/');

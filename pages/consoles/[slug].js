@@ -15,7 +15,7 @@ import Accordion from "../../components/Accordion";
 
 const Console = ({ console, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     const breakPoint = [
-        { width: 1, itemsToShow: 1 },
+        { width: 1, itemsToShow: 2 },
         { width: 800, itemsToShow: 2 },
         { width: 768, itemsToShow: 4 },
         { width: 1200, itemsToShow: 4 }
@@ -95,23 +95,23 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             <Carousel breakPoints={breakPoint}>
                 <div className={styles.what}>
                     <img src={console.attributes.whatsInTheBoxImage1.data.attributes.url}/>
-                    <spn>{console.attributes.whatsInTheBoxText1}</spn>
+                    <span>{console.attributes.whatsInTheBoxText1}</span>
                 </div>
                 <div className={styles.what}>
                     <img src={console.attributes.whatsInTheBoxImage2.data.attributes.url}/>
-                    <spn>{console.attributes.whatsInTheBoxText2}</spn>
+                    <span>{console.attributes.whatsInTheBoxText2}</span>
                 </div>
                 <div className={styles.what}>
                     <img src={console.attributes.whatsInTheBoxImage3.data.attributes.url}/>
-                    <spn>{console.attributes.whatsInTheBoxText3}</spn>
+                    <span>{console.attributes.whatsInTheBoxText3}</span>
                 </div>
                 <div className={styles.what}>
                     <img src={console.attributes.whatsInTheBoxImage4.data.attributes.url}/>
-                    <spn>{console.attributes.whatsInTheBoxText4}</spn>
+                    <span>{console.attributes.whatsInTheBoxText4}</span>
                 </div>
                 <div className={styles.what}>
                     <img src={console.attributes.whatsInTheBoxImage5.data.attributes.url}/>
-                    <spn>{console.attributes.whatsInTheBoxText5}</spn>
+                    <span>{console.attributes.whatsInTheBoxText5}</span>
                 </div>
             </Carousel>
             <div className={styles.topic}>

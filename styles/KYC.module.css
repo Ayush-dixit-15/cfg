@@ -52,3 +52,10 @@
         transform: rotateZ(360deg);
     }
 }
+
+@media only screen and (max-width: 800px){
+    .kycInfo{
+        text-align: center;
+        margin: 2rem 6rem !important;
+    }
+}

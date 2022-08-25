@@ -166,7 +166,7 @@ const Tnc = ({ subTotal, product, addProductToCart, removeProductFromCart, clear
               13.ASSIGNMENT
             </h2>
             <p>The Customer shall not assign or transfer any interest in this Agreement or the Products without the written consent of Craving For
-              Gaming. Anysuchtransferorassignmentshallbeconsideredasillegalandhenceaviolationofthetermsofthis Agreement. Craving For
+              Gaming. Any such transfer or assignment shall be considered as illegal and hence aviolation of the terms of this Agreement. Craving For
               Gaming reserves the right to assign this Agreement, to any third party (including credit rating agencies, factoring agents and NBFC)
               without prior notice to the Customer. </p>
             <h2>14.INDEMNIFICATION </h2>
