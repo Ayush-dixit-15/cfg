@@ -3,18 +3,17 @@ import Navbar from "../components/Navbar";
 import Script from "next/script";
 import Footer from "../components/Footer";
 
-const About = ({ product, subTotal }) => {
+const About = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     return (
         <div>
             <Script src="/script.js"></Script>
             <Navbar
-                product={product}
+                product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 KYC={"KYC"}
                 About={null}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
-                subTotal={subTotal}
             />
             <div className="about_box1">
                 <img src="/1523.jpg" alt="Craving For Gaming" />

@@ -9,18 +9,17 @@ import contactBanner from '../public/iframe (1).png';
 import Image from "next/image";
 import Footer from "../components/Footer";
 
-const Contact = ({ product, subTotal }) => {
+const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     return (
         <div>
             <Script src="/script.js"></Script>
             <Navbar
-                product={product}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={null}
                 Login={"Login"}
                 Signup={"Signup"}
-                subTotal={subTotal}
+                product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
             />
             <div className={styles.contact_box1}>
                 <Image src={contactBanner} alt="" />

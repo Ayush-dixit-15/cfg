@@ -11,10 +11,11 @@ import styles from '../styles/KYC.module.css';
 import Script from "next/script";
 import Router, { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import axios from 'axios';
 
 
-const KYC = ({ product, subTotal, kycData }) => {
-    const [bill, setbill] = useState();
+const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
+    const [bill, setbill] = useState(null);
     const router = useRouter();
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
@@ -58,7 +59,8 @@ const KYC = ({ product, subTotal, kycData }) => {
             setphone(e.target.value);
         }
         else if (e.target.name === "bill") {
-            setbill(e.target.value);
+            console.log(e.target.files[0]);
+            setbill(e.target.files[0]);
         }
     };
     const saveuserid = (items) => {
@@ -101,7 +103,7 @@ const KYC = ({ product, subTotal, kycData }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid } };
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, proof: bill } };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -113,7 +115,7 @@ const KYC = ({ product, subTotal, kycData }) => {
         });
         let response = await res.json();
         console.log(response);
-        console.log(bill);
+        // console.log(bill);
         setkycid(response.data.id);
         savekycid(response.data.id);
     }
@@ -129,13 +131,12 @@ const KYC = ({ product, subTotal, kycData }) => {
                 
             </Head>
             <Navbar
-                product={product}
                 KYC={null}
                 About={"About"}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
-                subTotal={subTotal}
+                product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 key={kycid}
             />
             <div>
@@ -204,7 +205,7 @@ const KYC = ({ product, subTotal, kycData }) => {
                                     style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
                                 <label htmlFor="bill"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-                                <input type="file" id="bill" name="bill" accept="image/*" value={bill} onChange={handleChange}></input>
+                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -262,7 +263,7 @@ const KYC = ({ product, subTotal, kycData }) => {
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <input type="file" id="sign" name="sign" accept="image/*"></input>
+                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange}></input>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }}>

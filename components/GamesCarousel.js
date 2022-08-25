@@ -10,7 +10,7 @@ const breakPoint = [
   { width: 1200, itemsToShow: 4 }
 ]
 
-const GamesCarousel = ({ games }) => {
+const GamesCarousel = ({ games, ht}) => {
 
   console.log(games);
 
@@ -20,7 +20,7 @@ const GamesCarousel = ({ games }) => {
         {games.data.map((item) => {
           return (
             <Link href={`/games/${item.attributes.slug}`} key={item.attributes.slug}>
-              <div className={styles.gamesCarousel_item}>
+              <div className={styles.gamesCarousel_item} style={{height: `${ht}`}}>
                 <img src={item.attributes.Poster.data.attributes.url}></img>
                 <h2>{item.attributes.gameName}</h2>
                 <p>{item.attributes.genre}</p>

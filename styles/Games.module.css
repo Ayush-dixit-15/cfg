@@ -51,6 +51,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--black);
+    height: 31rem;
   }
 
   .gamesCarousel_item img{
@@ -123,6 +124,7 @@
     /* height: 100vh; */
     /* z-index: -1; */
     margin-top: 10rem;
+    padding-bottom: 4rem;
 
 }
 
@@ -222,6 +224,43 @@
   border: none;
   outline: none;
   width: 25vw;
+}
+
+.game_body{
+  margin: 0 6rem;
+}
+
+@media only screen and (max-width:800px){
+  .hero_top{
+    display: none;
+  }
+  .hero_bottom{
+    /* flex-direction: column; */
+    padding-top: 20rem;
+  }
+
+  .hero_left img{
+    transform: translateY(0);
+    height: 10rem;
+  }
+
+  .hero_left{
+    margin-right: 2rem;
+  }
+
+  .hero_right{
+    margin-top: 0;
+  }
+
+  .hero_right h1{
+    font-size: 1rem;
+  }
+  .hero_right p{
+    font-size: 0.5rem;
+  }
+  .hero_right span{
+    font-size: 1rem;
+  }
 }
   
   @keyframes marquee {

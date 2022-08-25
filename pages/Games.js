@@ -7,7 +7,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
 
 
-const Games = ({ games, product, subTotal, action }) => {
+const Games = ({ games, product, subTotal, action, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const [query, setquery] = useState("");
 
   return (
@@ -19,8 +19,7 @@ const Games = ({ games, product, subTotal, action }) => {
         Contact={"Contact"}
         Login={"Login"}
         Signup={"Signup"}
-        product={product}
-        subTotal={subTotal}
+        product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
       />
       <div className="banner">
         {/* <img src="/1.png" alt="" /> */}
@@ -34,7 +33,7 @@ const Games = ({ games, product, subTotal, action }) => {
           <hr />
         </div>
         <div className={styles.grid}>
-          <Link href={`/consoles/`} >
+          <Link href={`/games/god-of-war`} >
             <div className={styles.card} style={{cursor: "pointer"}}>
               <img
                 src='./god of war poster.jpg'
@@ -47,7 +46,7 @@ const Games = ({ games, product, subTotal, action }) => {
               </span>
             </div>
           </Link>
-          <Link href={`/consoles/`} >
+          <Link href={`/games/the-last-of-us-part-2`} >
             <div className={styles.card} style={{cursor: "pointer"}}>
               <img
                 src='./the last of us.jpeg'
@@ -62,7 +61,7 @@ const Games = ({ games, product, subTotal, action }) => {
               </span>
             </div>
           </Link>
-          <Link href={`/consoles/`}>
+          <Link href={`/games/uncharted-4`}>
             <div className={styles.card} style={{cursor: "pointer"}}>
               <img
                 src='./uncharted 4 poster.jpg'
@@ -77,7 +76,7 @@ const Games = ({ games, product, subTotal, action }) => {
               </span>
             </div>
           </Link>
-          <Link href={`/consoles/`} >
+          <Link href={`/games/watch-dogs-2`} >
             <div className={styles.card} style={{cursor: "pointer"}}>
               <img
                 src='./watch dogs 2 poster.webp'
@@ -105,11 +104,11 @@ const Games = ({ games, product, subTotal, action }) => {
               <h1>FIFA 20</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui. Sed et malesuada nunc. Suspendisse sit amet ultrices urna, ac pellentesque arcu. Donec fringilla, nunc ut suscipit consequat, felis erat luctus justo, eu commodo dui dui at nunc. Pellentesque egestas vel erat sit amet condimentum. Curabitur et ante arcu.</p>
               <span>₹500</span>
-              <Link href='/'><button>Buy Now</button></Link>
+              <Link href='/games/fifa-20'><button>Buy Now</button></Link>
             </div>
           </div>
         </div>
-        <GamesCarousel games={games} />
+        <GamesCarousel games={games} ht={"30rem"}/>
       </div>
       <div className={styles.games_body}>
         <div className={styles.topic}>

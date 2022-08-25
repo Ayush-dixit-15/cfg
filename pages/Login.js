@@ -10,7 +10,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useRouter } from "next/router";
 import Footer from "../components/Footer";
 
-const Login = ({ product, subTotal }) => {
+const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     const router = useRouter();
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
@@ -165,13 +165,12 @@ const Login = ({ product, subTotal }) => {
                 ></script>
             </Head>
             <Navbar
-                product={product}
+                product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}
                 Login={null}
                 Signup={"Signup"}
-                subTotal={subTotal}
                 key={email}
             />
             <div className={styles.login_container}>

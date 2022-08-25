@@ -121,7 +121,7 @@
 .length hr {
     border-top: 1px solid var(--gray);
     opacity: 1;
-    width: 20vw;
+    width: 50vw;
     margin: 0 0.5rem;
 }
 

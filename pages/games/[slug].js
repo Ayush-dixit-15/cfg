@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Footer from '../../components/Footer';
 import GamesCarousel from '../../components/GamesCarousel';
 
-const Slug = ({ game, product, subTotal, games }) => {
+const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
   const { slug } = router.query;
 
@@ -14,8 +14,7 @@ const Slug = ({ game, product, subTotal, games }) => {
   return (
     <div>
       <Navbar
-        product={product}
-        subTotal={subTotal}
+        product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
         KYC={"KYC"}
         About={" About"}
         Contact={"Contact"}
@@ -35,32 +34,11 @@ const Slug = ({ game, product, subTotal, games }) => {
               <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
 
                 <h1 className="text-white text-3xl title-font font-medium mb-1">{game.attributes.gameName}</h1>
-                <h2 className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
-                <div className="flex mb-4">
-                  <span className="flex items-center">
-                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg fill="currentColor" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-4 h-4 text-red-500" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
-                    </svg>
-                    <span className="text-gray-600 ml-3">4 Reviews</span>
-                  </span>
-
-                </div>
+                <h2 style={{ color: "var(--red)" }} className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
                 <p className="leading-relaxed text-white">{game.attributes.details}</p>
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
-                  <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Add to Cart</button>
+                  <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={()=>addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url)}>Add to Cart</button>
                   <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded">Buy Now</button>
 
                 </div>
@@ -69,32 +47,14 @@ const Slug = ({ game, product, subTotal, games }) => {
           </div>
         </section>
       </div>
-      <div className={styles.maylike}>
-        <h1>
-          You may also like
-        </h1>
-        <div className={styles.marquee}>
-          <div className={styles.track} >
-
-            {games.data.map((item) => {
-              return (
-                <Link href={`/games/${item.attributes.slug}`} key={item.attributes.slug}>
-                  <div className="xl:w-1/4 md:w-1/2 p-4 cursor-pointer card">
-                    <div className="bg-gray-100 p-6 rounded-lg">
-                      <img className="h-40 rounded w-full object-cover object-center mb-6 poster" src={item.attributes.Poster.data.attributes.url} />
-                      <h2 className="text-lg text-gray-900 font-medium title-font mb-4">{item.attributes.gameName}</h2>
-                      <p className="leading-relaxed text-base">{item.attributes.details.slice(0, 130)}</p>
-                    </div>
-                  </div>
-
-                </Link>
-              )
-            })}
-          </div>
-          git
+      <div className={styles.game_body}>
+        <div style={{ marginTop: "4rem" }}>
+          <h1 style={{ color: "var(--red)", fontWeight: "700", margin: "0", fontSize: "2rem" }}>More Games</h1>
+          <hr style={{ width: "10rem", borderTop: "5px solid var(--red)", borderRadius: "10rem", opacity: "1", margin: "0" }} />
         </div>
+        <GamesCarousel games={games} ht={"28rem"}></GamesCarousel>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }
