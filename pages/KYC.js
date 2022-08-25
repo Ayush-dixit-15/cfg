@@ -11,7 +11,9 @@ import styles from '../styles/KYC.module.css';
 import Script from "next/script";
 import Router, { useRouter } from "next/router";
 import Footer from "../components/Footer";
-import axios from 'axios';
+// import { FormData } from 'formdata-node';
+// import fetch, { blobFrom } from 'node-fetch';
+
 
 
 const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -19,7 +21,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const router = useRouter();
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
-    const [camera, setcamera] = useState(false)
+    const [camera, setcamera] = useState(false);
+
     const startCamera = () => {
         setcamera(true);
     }
@@ -59,8 +62,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             setphone(e.target.value);
         }
         else if (e.target.name === "bill") {
-            console.log(e.target.files[0]);
-            setbill(e.target.files[0]);
+            console.log(e.target.files[0].name);
+            setbill(e.target.files[0].name);
         }
     };
     const saveuserid = (items) => {
@@ -75,25 +78,23 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             if (localStorage.getItem("userid")) {
                 setuserid(JSON.parse(localStorage.getItem("userid")));
                 saveuserid(JSON.parse(localStorage.getItem("userid")));
-                if(userid==0)
-                {
+                if (userid == 0) {
                     router.push('/Login');
                 }
-                var checkKyc = kycData.data.filter((item)=>{
+                var checkKyc = kycData.data.filter((item) => {
                     return item.attributes.user.data.id === userid;
                 });
-                if(checkKyc.length!=0)
-                {
+                if (checkKyc.length != 0) {
                     router.push(`/kyc/${checkKyc[0].id}`);
-                    localStorage.setItem("kycid",JSON.stringify(checkKyc[0].id));
+                    localStorage.setItem("kycid", JSON.stringify(checkKyc[0].id));
                 }
             }
             if (localStorage.getItem("kycid")) {
                 setkycid(JSON.parse(localStorage.getItem("kycid")));
                 savekycid(JSON.parse(localStorage.getItem("kycid")));
             }
-            else{
-                localStorage.setItem("kycid",JSON.stringify(kycid));
+            else {
+                localStorage.setItem("kycid", JSON.stringify(kycid));
             }
         } catch (error) {
             console.log(error);
@@ -103,7 +104,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, proof: bill } };
+        // const file = await blobFrom(bill, 'image/png');
+        // const form = new FormData();
+        // form.append('proof', file, bill);
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, proof: bill} };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -113,8 +117,14 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             },
             body: JSON.stringify(sentdata),
         });
+        // const res2 = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
+        //     method: 'post',
+        //     body: form,
+        // });
+
         let response = await res.json();
         console.log(response);
+        console.log(res2);
         // console.log(bill);
         setkycid(response.data.id);
         savekycid(response.data.id);
@@ -128,7 +138,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 crossOrigin="anonymous"
             ></Script>
             <Head>
-                
+
             </Head>
             <Navbar
                 KYC={null}
@@ -274,7 +284,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
-                <Footer/>
+                <Footer />
             </div>
 
 
@@ -298,6 +308,6 @@ export async function getServerSideProps(context) {
     return {
         props: { kycData }, // will be passed to the page component as props
     };
-  }
+}
 
 export default KYC;

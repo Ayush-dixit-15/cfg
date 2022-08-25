@@ -115,6 +115,7 @@ function MyApp({ Component, pageProps }) {
     else {
       newProduct[productSlug] = { qty: 1, price, name, img }
     }
+    router.push(`/Games`);
     setcomboCart(newProduct);
     saveComboCart(newProduct);
   }

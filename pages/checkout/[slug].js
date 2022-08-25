@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from '../../styles/Checkout.module.css';
@@ -15,6 +15,13 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
     const [no, setno] = useState("none");
     const router = useRouter();
     const { slug } = router.query;
+    console.log(product, gameCart, optCart, comboCart);
+    useEffect(() => {
+      if(Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length === 0){
+        router.push('/');
+      }
+    }, [product, gameCart, optCart, comboCart]);
+    
     const applyPromo= () =>{
         if(code.toLowerCase()==='welcome6969'){
             settotal(-500);

@@ -6,9 +6,7 @@ import styles from "../../styles/Console.module.css";
 import SanitizerIcon from '@mui/icons-material/Sanitizer';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import Link from "next/link";
-import Footer from '../../components/Footer';
 import Carousel from 'react-elastic-carousel';
-import { CommentBankOutlined } from "@mui/icons-material";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import controller from '../../public/controller.png';
@@ -128,10 +126,12 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                     <h2>Extra PS4 Controller</h2>
                     <p style={{color: "var(--red)"}}>₹ 100</p>
                     <div className={styles.add_sub}>
-                        <button style={{color: "var(--red)"}}><RemoveIcon onClick={()=>{
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)"}}><RemoveIcon onClick={()=>{
                             removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}/></button>
-                        <span>0</span>
+                        }}/></button>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)"}}><RemoveIcon/></button>}
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
                         <button style={{color: "var(--red)"}} onClick={()=>{
                             addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
                         }}><AddIcon/></button>
