@@ -9,13 +9,13 @@ import Link from 'next/link';
 import Footer from '../../components/Footer';
 
 
-const UserKyc = ({ kycData, product, subTotal }) => {
+const UserKyc = ({ kycData, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
   const { slug } = router.query;
   console.log(kycData);
   return (
     <div>
-      <Navbar product={product} KYC={null} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
+      <Navbar product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} KYC={null} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'}/>
       <div className={styles.userkyc_container}>
         <div className={styles.left}>
           <h1>KYC</h1>

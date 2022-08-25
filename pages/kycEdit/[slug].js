@@ -10,7 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 import Link from "next/link";
 import Footer from '../../components/Footer';
 
-const KycEdit = ({ kycData, product, subTotal }) => {
+const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
 
   const webRef = useRef(null);
   const [selfie, setselfie] = useState("");
@@ -77,7 +77,7 @@ const KycEdit = ({ kycData, product, subTotal }) => {
   }
 
   return (
-    <div><Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} /><div>
+    <div><Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} /><div>
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>
         <h3 style={{ color: "var(--red)", margin: "1.5rem 0" }}>KYC</h3>
         <div style={{ display: "flex", alignItems: "center" }}>

@@ -1,9 +1,9 @@
 import React, {useState,useEffect} from 'react'
 import Link from 'next/link'
-import { BsBagCheckFill } from 'react-icons/bs';
 import { useRouter } from 'next/router';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-import { runFireworks } from '../lib/utils'
+// import { runFireworks } from '../../lib/utils'
 const Success = () => {
    const [product, setProduct] = useState({})
     useEffect(()=>{
@@ -11,7 +11,7 @@ const Success = () => {
             setProduct(JSON.parse(localStorage.getItem("product")));
             saveProduct(JSON.parse(localStorage.getItem("product")));
           }
-        runFireworks();
+        // runFireworks();
     }, []);
     const saveProduct = (myProduct) => {
         localStorage.setItem("product", JSON.stringify(myProduct))
@@ -22,7 +22,7 @@ const Success = () => {
     <div className="success-wrapper">
         <div className="success">
             <p className="icon">
-                <BsBagCheckFill/>
+                <ShoppingBasketIcon/>
             </p>
             <h2>
                 Thank you for your order !

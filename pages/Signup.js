@@ -12,7 +12,7 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import Footer from "../components/Footer";
 
-const Signup = ({ product, subTotal }) => {
+const Signup = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart}) => {
     const router = useRouter();
     const [name, setname] = useState("");
     const [email, setemail] = useState("");
@@ -173,14 +173,13 @@ const Signup = ({ product, subTotal }) => {
             </Head>
             <Script src="/script.js"></Script>
             <Navbar
-                product={product}
+                product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 key={email}
                 KYC={"KYC"}
                 About={"About"}
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={null}
-                subTotal={subTotal}
             />
             <div className={styles.signup_container}>
                 <div className={styles.signup_dialogue}>

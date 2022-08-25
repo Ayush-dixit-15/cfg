@@ -3,12 +3,10 @@ import Footer from '../components/Footer';
 import Navbar from "../components/Navbar";
 import styles from '../styles/Tnc.module.css';
 
-const Tnc = ({ subTotal, product }) => {
+
+const Tnc = ({ subTotal, product, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   return (
-    <div><Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
-<<<<<<< HEAD
-    <Footer/>
-=======
+    <div><Navbar  KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} />
       <div className={styles.tnc_bg}>
         <div className={styles.tnc_body}>
           <h2 style={{ textAlign: "center" }}>TERMS &amp; CONDITIONS </h2>
@@ -200,9 +198,9 @@ const Tnc = ({ subTotal, product }) => {
               services) of the Customer to enable such third-party to provide the service. The Customer hereby authorizes Craving For Gaming to
               share the details of the Customer with such third party</p>
           </div>
->>>>>>> 4670dd3f5f97b3a181d01066b3c502b357cfe6d2
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

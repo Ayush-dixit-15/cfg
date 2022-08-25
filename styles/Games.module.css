@@ -9,6 +9,10 @@
     background-size: cover;
    
 }
+
+.pointer:hover{
+  cursor: pointer;
+}
 .maylike{
     margin-top: 120px;
 }
@@ -47,6 +51,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: all 0.3s ease-in-out;
     border: 1px solid var(--black);
+    height: 31rem;
   }
 
   .gamesCarousel_item img{
@@ -71,6 +76,192 @@
     cursor: pointer;
     transform: translateY(-2rem);
   }
+
+  .games_body{
+    margin: 2rem 6rem;
+  }
+
+  .games_promo{
+    border: 1px dashed green;
+    padding: 1rem;
+    color: green;
+  }
+
+  .topic {
+    margin-top: 4rem;
+}
+
+.topic h1 {
+    color: var(--red);
+    font-weight: 700;
+    margin: 0;
+    font-size: 2rem;
+}
+
+.topic hr {
+    width: 10rem;
+    border-top: 5px solid var(--red);
+    border-radius: 10rem;
+    opacity: 1;
+    margin: 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-template-columns: auto auto auto auto; */
+  grid-gap: 2rem;
+  margin-top: 2rem;
+}
+
+.hero{
+    content: '';
+    background: url('../public/design.png') no-repeat center center/cover;
+    /* position: absolute; */
+    /* opacity: 0.3; */
+    top: 0px;
+    left: 0px;
+    /* width: 100vw; */
+    /* height: 100vh; */
+    /* z-index: -1; */
+    margin-top: 10rem;
+    padding-bottom: 4rem;
+
+}
+
+.hero_item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero_top img{
+  border-radius: 30px;
+  width: 80vw;
+  height: 30rem;
+  object-fit: cover;
+}
+
+.hero_bottom{
+  display: flex;
+  width: 60vw;
+}
+
+.hero_left{
+  margin-right: 10rem;
+}
+
+.hero_left img{
+  height: 17rem;
+  width: 70rem;
+  transform: translateY(-10rem);
+}
+
+.hero_right{
+  margin-top: 2.5rem;
+  color: var(--white);
+}
+
+.hero_right h1{
+  font-size: 5rem;
+}
+
+.hero_right span{
+  display: block;
+  font-size: 2rem;
+  margin: 0.5rem 0;
+}
+
+.hero_right button{
+  background: var(--white);
+  padding: 0.5rem 1rem;
+  color: var(--red);
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hero_right button:hover{
+  cursor: pointer;
+  background: var(--yellow);
+  color: var(--black);
+}
+
+.sorting {
+  display: flex;
+  justify-content: space-between;
+}
+
+.length {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.length hr {
+  border-top: 1px solid var(--gray);
+  opacity: 1;
+  width: 20vw;
+  margin: 0 0.5rem;
+}
+
+.length select {
+  border: 1px solid var(--black);
+  padding: 0.5rem;
+  border-radius: 5px;
+  width: 20vw;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--black);
+  border-radius: 5px;
+}
+
+.search input {
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  width: 25vw;
+}
+
+.game_body{
+  margin: 0 6rem;
+}
+
+@media only screen and (max-width:800px){
+  .hero_top{
+    display: none;
+  }
+  .hero_bottom{
+    /* flex-direction: column; */
+    padding-top: 20rem;
+  }
+
+  .hero_left img{
+    transform: translateY(0);
+    height: 10rem;
+  }
+
+  .hero_left{
+    margin-right: 2rem;
+  }
+
+  .hero_right{
+    margin-top: 0;
+  }
+
+  .hero_right h1{
+    font-size: 1rem;
+  }
+  .hero_right p{
+    font-size: 0.5rem;
+  }
+  .hero_right span{
+    font-size: 1rem;
+  }
+}
   
   @keyframes marquee {
     from { transform: translateX(0); }

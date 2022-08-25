@@ -15,7 +15,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
 
 
-function Home({ products, product, subTotal}) {
+function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart}) {
     const [query, setquery] = useState("");
     const [userid, setuserid] = useState(0);
     useEffect(() => {
@@ -47,14 +47,13 @@ function Home({ products, product, subTotal}) {
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
-            <Script src="/script.js"></Script>
-
-            <Navbar product={product} KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} subTotal={subTotal} />
+            <Script src='./script.js'></Script>
+            <Navbar  KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} />
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
                 <div className={styles.topic}>
-                    <h1>Our best Sellers</h1>
+                    <h1>Our Combos</h1>
                     <span>
                         Sanitised, best quality products at affordable rental
                         prices
@@ -62,11 +61,11 @@ function Home({ products, product, subTotal}) {
                     <hr />
                 </div>
                 <div className={styles.grid}>
-                    {products.data.map((item) => {
+                    {combo.data.map((item) => {
                         return (
                             <div key={item.attributes.slug}>
                                 <Link
-                                    href={`/consoles/${item.attributes.slug}`}
+                                    href={`/combos/${item.attributes.slug}`}
                                 >
                                     <div className={styles.card}>
                                         <img
@@ -78,7 +77,7 @@ function Home({ products, product, subTotal}) {
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                            From ₹{item.attributes.plan1}/day
+                                            From ₹{item.attributes.consolePrice + item.attributes.gamesPrice}/day
                                         </span>
                                     </div>
                                 </Link>
@@ -111,12 +110,6 @@ function Home({ products, product, subTotal}) {
                     <div className={styles.length}>
                         <span>Showing {products.data.length} items</span>
                         <hr />
-                        
-                    <select name="sort" id="sort">
-                        <option value="defualt">Defualt Sorting</option>
-                        <option value="lowtohigh">Price: Low to high</option>
-                        <option value="lowtohigh">Price: High to low</option>
-                    </select>
                     </div>
                     <div className={styles.search}>
                         <input type="text" placeholder="Search for Product Name or Brand" value={query} onChange={(e) => { setquery(e.target.value) }} />
@@ -214,9 +207,16 @@ export async function getServerSideProps(context) {
             headers: headers,
         }
     );
+    let comboData = await fetch(
+        process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/combos?populate=*`,
+        {
+            headers: headers,
+        }
+    );
     let products = await data.json();
+    let combo = await comboData.json();
     return {
-        props: { products }, // will be passed to the page component as props
+        props: { products, combo }, // will be passed to the page component as props
     };
 }
 
