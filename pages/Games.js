@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Link from 'next/link'
@@ -165,6 +166,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         </div>
 
       </div>
+
       <Footer/>
     </div>
   );
