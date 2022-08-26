@@ -188,6 +188,7 @@
         transform: translateX(100rem);
         color: var(--black);
         padding: 4rem 2rem;
+        overflow-y: auto;
     }
     .menuHeader{
         display: flex;
