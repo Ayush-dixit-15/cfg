@@ -300,4 +300,8 @@ margin-top: 160px;
 .topic hr{
     width: 5rem;
 }
+.accordion-button{
+  font-size: 0.75rem;
+
+}
 }

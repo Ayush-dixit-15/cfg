@@ -115,6 +115,7 @@ function MyApp({ Component, pageProps }) {
     else {
       newProduct[productSlug] = { qty: 1, price, name, img }
     }
+    router.push(`/Games`);
     setcomboCart(newProduct);
     saveComboCart(newProduct);
   }
@@ -155,8 +156,8 @@ function MyApp({ Component, pageProps }) {
     if (newProduct[productSlug]["qty"] <= 0) {
       delete newProduct[productSlug]
     }
-    setCart(newProduct);
-    saveCart(newProduct);
+    setProduct(newProduct);
+    saveProduct(newProduct);
   }
   const removeGameCartFromCart = (productSlug, qty, price, name, img) => {
     let newProduct = JSON.parse(JSON.stringify(gameCart));

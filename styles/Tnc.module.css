@@ -13,3 +13,14 @@
     font-weight: 600;
     text-decoration: underline;
 }
+
+@media only screen and (max-width:800px){
+    .tnc_body{
+        margin: 0 2rem;
+        padding: 2rem;
+    }
+
+    .tnc_bg{
+        font-size: 70%;
+    }
+}

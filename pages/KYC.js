@@ -11,7 +11,9 @@ import styles from '../styles/KYC.module.css';
 import Script from "next/script";
 import Router, { useRouter } from "next/router";
 import Footer from "../components/Footer";
-import axios from 'axios';
+// import { FormData } from 'formdata-node';
+// import fetch, { blobFrom } from 'node-fetch';
+
 
 
 const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -19,12 +21,15 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const router = useRouter();
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
-    const [camera, setcamera] = useState(false)
+    const [camera, setcamera] = useState(false);
+
     const startCamera = () => {
         setcamera(true);
     }
     const capture = () => {
         setselfie(webRef.current.getScreenshot());
+        setcamera(false);
+        console.log(selfie);
     }
     const [houseno, sethouseno] = useState("");
     const [area, setarea] = useState("");
@@ -59,8 +64,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             setphone(e.target.value);
         }
         else if (e.target.name === "bill") {
-            console.log(e.target.files[0]);
-            setbill(e.target.files[0]);
+            console.log(e.target.files[0].name);
+            setbill(e.target.files[0].name);
         }
     };
     const saveuserid = (items) => {
@@ -75,25 +80,23 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             if (localStorage.getItem("userid")) {
                 setuserid(JSON.parse(localStorage.getItem("userid")));
                 saveuserid(JSON.parse(localStorage.getItem("userid")));
-                if(userid==0)
-                {
+                if (userid == 0) {
                     router.push('/Login');
                 }
-                var checkKyc = kycData.data.filter((item)=>{
+                var checkKyc = kycData.data.filter((item) => {
                     return item.attributes.user.data.id === userid;
                 });
-                if(checkKyc.length!=0)
-                {
+                if (checkKyc.length != 0) {
                     router.push(`/kyc/${checkKyc[0].id}`);
-                    localStorage.setItem("kycid",JSON.stringify(checkKyc[0].id));
+                    localStorage.setItem("kycid", JSON.stringify(checkKyc[0].id));
                 }
             }
             if (localStorage.getItem("kycid")) {
                 setkycid(JSON.parse(localStorage.getItem("kycid")));
                 savekycid(JSON.parse(localStorage.getItem("kycid")));
             }
-            else{
-                localStorage.setItem("kycid",JSON.stringify(kycid));
+            else {
+                localStorage.setItem("kycid", JSON.stringify(kycid));
             }
         } catch (error) {
             console.log(error);
@@ -103,7 +106,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, proof: bill } };
+        // const file = await blobFrom(bill, 'image/png');
+        // const form = new FormData();
+        // form.append('proof', file, bill);
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid} };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -113,22 +119,27 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             },
             body: JSON.stringify(sentdata),
         });
+        // const res2 = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
+        //     method: 'post',
+        //     body: form,
+        // });
+
         let response = await res.json();
         console.log(response);
+        // console.log(res2);
         // console.log(bill);
         setkycid(response.data.id);
         savekycid(response.data.id);
     }
     return (
         <>
-            <Script src="/script.js"></Script>
             <Script
                 src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
                 crossOrigin="anonymous"
             ></Script>
             <Head>
-                
+
             </Head>
             <Navbar
                 KYC={null}
@@ -147,7 +158,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
-                    <p style={{ margin: "1.5rem 0" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+                    <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+                    <p style={{color: "var(--red)", fontSize: "1.5rem"}}>Error!</p>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">
                     <div className={styles.phone_input}>
@@ -162,13 +174,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             required
                             style={{ padding: "0 0.5rem" }} />
                     </div>
-                    <div style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
+                    <div className={styles.kycAddress} style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
                             <h2 style={{ fontSize: "1.65rem" }}>Address</h2>
                             <span style={{ color: "var(--red)" }}>* Required field</span>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between" }}>
-                            <div style={{ display: "flex", flexDirection: "column", width: "40%" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between" }} className={styles.kycAddress2}>
+                            <div style={{ display: "flex", flexDirection: "column", width: "41%" }} className={styles.kycAddressPart1}>
                                 <label htmlFor="houseno">Flat, House no., Building, Company, Apartment: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={houseno}
@@ -205,7 +217,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
                                 <label htmlFor="bill"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange}></input>
+                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -247,7 +259,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             </div>
                         </div>
                     </div>
-                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }}>
+                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
                         <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <div>
@@ -257,24 +269,24 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             <div style={{ marginLeft: "2rem" }}>
                                 {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
                                 {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
-                                {/* <Image src={selfie} height={100} width={100} /> */}
+                                {!camera && <Image src={selfie} height={100} width={100} />}
                             </div>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange}></input>
+                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                         </div>
                     </div>
-                    <p style={{ margin: "0 6rem" }}>
-                        <input type="checkbox" required />
+                    <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
+                        <input type="checkbox" required style={{marginRight: "1rem"}}/>
                         I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
-                <Footer/>
+                <Footer />
             </div>
 
 
@@ -298,6 +310,6 @@ export async function getServerSideProps(context) {
     return {
         props: { kycData }, // will be passed to the page component as props
     };
-  }
+}
 
 export default KYC;

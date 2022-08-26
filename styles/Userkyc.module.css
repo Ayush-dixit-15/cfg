@@ -32,3 +32,15 @@ transition: all 0.3s ease-in-out;
     background: tomato;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 800px){
+    .userkyc_container{
+        margin: 2rem;
+        display: flex;
+    flex-direction: column-reverse;
+    padding: 2rem;
+    }
+    .editBtn{
+        width: 25vw;
+    }
+}

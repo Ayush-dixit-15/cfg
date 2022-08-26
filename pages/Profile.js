@@ -55,7 +55,7 @@ const Profile = ({ product, subTotal, addProductToCart, removeProductFromCart, c
           <span onClick={()=>logOut()} className={styles.logoutBtn}>Logout <LogoutIcon /></span>
           {pic!="N/A" && <Image src={pic} width={200} height={200} style={{borderRadius: "999px"}}/>}
           {pic==="N/A" && <Image src={avatar} width={200} height={200} style={{borderRadius: "999px"}}/>}
-          <span className={styles.editBtn}>Change Password <EditIcon style={{marginLeft: "0.5rem"}}/></span>
+          <pre>            </pre>
         </div>
         <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>
           <span style={{fontSize: "2.5rem"}}>{name}</span>

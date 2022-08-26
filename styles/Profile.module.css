@@ -46,3 +46,23 @@
     color: var(--black);
     cursor: pointer;
 }
+@media only screen and (max-width: 800px){
+    .profile{
+        margin: 0 2rem;
+    }
+    .profile_info{
+        transform: translateY(-4rem);
+        flex-direction: column-reverse;
+    }
+    .profile_info span span img{
+        height: 5rem !important;
+    }
+    .logoutBtn{
+        margin-top: 1rem;
+        font-size: 0.5rem;
+        display: flex;
+    }
+    .logoutBtn svg{
+        height: 0.5rem;
+    }
+}

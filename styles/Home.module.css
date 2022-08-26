@@ -212,6 +212,7 @@
     .icon{
         font-size: 2rem !important;
     }
-
-
+    .length hr{
+        width: 20vw;
+    }
 }

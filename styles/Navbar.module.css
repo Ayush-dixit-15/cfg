@@ -134,7 +134,17 @@
     display: none;
 }
 
+.qtyBtn{
+    color: var(--red);
+    border-radius: 999px;
+    border: 1px solid var(--red);
+    padding: 0 0.5rem;
+    margin: 0.5rem;
+}
 
+.qtyBtn:hover{
+    cursor: pointer;
+}
 
 
 @media only screen and (max-width: 800px) {
@@ -162,8 +172,9 @@
         z-index: 10;
         background-color: var(--black);
         transition: all 0.3s ease-in-out;
-        transform: translateX(-100rem);
+        /* transform: translateX(-100rem); */
         padding: 2rem 0;
+        opacity: 0.95;
     }
     .phoneCart{
         position: fixed;
@@ -176,6 +187,7 @@
         transition: all 0.3s ease-in-out;
         transform: translateX(100rem);
         color: var(--black);
+        padding: 4rem 2rem;
     }
     .menuHeader{
         display: flex;
