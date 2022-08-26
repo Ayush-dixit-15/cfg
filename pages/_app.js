@@ -156,8 +156,8 @@ function MyApp({ Component, pageProps }) {
     if (newProduct[productSlug]["qty"] <= 0) {
       delete newProduct[productSlug]
     }
-    setCart(newProduct);
-    saveCart(newProduct);
+    setProduct(newProduct);
+    saveProduct(newProduct);
   }
   const removeGameCartFromCart = (productSlug, qty, price, name, img) => {
     let newProduct = JSON.parse(JSON.stringify(gameCart));

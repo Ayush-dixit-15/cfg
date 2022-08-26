@@ -58,6 +58,7 @@
   transition: all 0.3s ease-in-out;
   border: 1px solid var(--black);
   height: 31rem;
+  position: relative;
 }
 
 .gamesCarousel_item img {
@@ -67,6 +68,8 @@
 
 .gamesCarousel_item h2 {
   font-size: 1.5rem;
+  line-height: 1.1;
+    margin-top: 0.5rem;
 }
 
 .gamesCarousel_item p {
@@ -77,6 +80,9 @@
   background: var(--white);
   padding: 0.13rem 1rem;
   border-radius: 30px;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
 }
 
 .gamesCarousel_item:hover {
@@ -313,7 +319,8 @@
 
   .gamesCarousel_item {
     margin: 5rem 0.5rem;
-    height: 19rem !important;
+    height: 15rem !important;
+    position: relative;
   }
 
   .gamesCarousel_item img {
@@ -327,11 +334,14 @@
   }
 
   .gamesCarousel_item p {
-    font-size: 0.45rem;
+    display: none;
   }
 
   .gamesCarousel_item span {
     font-size: 0.75rem;
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
   }
 
   .length {

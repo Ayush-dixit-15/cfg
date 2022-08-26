@@ -9,6 +9,7 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import SendIcon from '@mui/icons-material/Send';
 import Link from "next/link";
 import Footer from '../../components/Footer';
+import Image from 'next/image';
 
 const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
 
@@ -20,6 +21,8 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
   }
   const capture = () => {
     setselfie(webRef.current.getScreenshot());
+    setcamera(false);
+    console.log(selfie);
   }
 
   const [houseno, sethouseno] = useState(kycData.data.attributes.house_no);
@@ -85,7 +88,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
           <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
         </div>
-        <p style={{ margin: "1.5rem 0" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+        <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
       </div>
       <form onSubmit={handleSubmit} method="POST">
         <div className={styles.phone_input}>
@@ -100,13 +103,13 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
             required
             style={{ padding: "0 0.5rem" }} />
         </div>
-        <div style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
+        <div style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
             <h2 style={{ fontSize: "1.65rem" }}>Address</h2>
             <span style={{ color: "var(--red)" }}>* Required field</span>
           </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <div style={{ display: "flex", flexDirection: "column", width: "40%" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }} className={styles.kycAddress2}>
+            <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.kycAddressPart1}>
               <label htmlFor="houseno">Flat, House no., Building, Company, Apartment: <strong style={{ color: "var(--red)" }}>*</strong></label>
               <input
                 value={houseno}
@@ -143,7 +146,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
                 style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
               />
               <label htmlFor="addressProof"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-              <input type="file" id="addressProof" name="addressProof" accept="image/*"></input>
+              <input type="file" id="addressProof" name="addressProof" accept="image/*" style={{border: "none"}}></input>
             </div>
             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
               <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -185,7 +188,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
             </div>
           </div>
         </div>
-        <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }}>
+        <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
           <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
           <div style={{ display: "flex", alignItems: "center" }}>
             <div>
@@ -195,17 +198,17 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
             <div style={{ marginLeft: "2rem" }}>
               {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
               {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
-              {/* <Image src={selfie} height={100} width={100} /> */}
+              {!camera && <Image src={selfie} height={100} width={100} />}
             </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-            <input type="file" id="sign" name="sign" accept="image/*"></input>
+            <input type="file" id="sign" name="sign" accept="image/*" style={{border: "none"}}></input>
           </div>
         </div>
-        <p style={{ margin: "0 6rem" }}>
-          <input type="checkbox" required checked/>
+        <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
+          <input type="checkbox" required checked style={{ marginRight: "1rem" }} />
           I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
@@ -213,7 +216,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
         </div>
       </form>
     </div>
-    <Footer/>
+      <Footer />
     </div>
   )
 }

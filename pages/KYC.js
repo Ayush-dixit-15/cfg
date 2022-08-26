@@ -174,13 +174,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             required
                             style={{ padding: "0 0.5rem" }} />
                     </div>
-                    <div style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
+                    <div className={styles.kycAddress} style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
                             <h2 style={{ fontSize: "1.65rem" }}>Address</h2>
                             <span style={{ color: "var(--red)" }}>* Required field</span>
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between" }}>
-                            <div style={{ display: "flex", flexDirection: "column", width: "40%" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between" }} className={styles.kycAddress2}>
+                            <div style={{ display: "flex", flexDirection: "column", width: "41%" }} className={styles.kycAddressPart1}>
                                 <label htmlFor="houseno">Flat, House no., Building, Company, Apartment: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
                                     value={houseno}
@@ -259,7 +259,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             </div>
                         </div>
                     </div>
-                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }}>
+                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
                         <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             <div>
@@ -278,8 +278,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                         </div>
                     </div>
-                    <p style={{ margin: "0 6rem" }}>
-                        <input type="checkbox" required />
+                    <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
+                        <input type="checkbox" required style={{marginRight: "1rem"}}/>
                         I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>

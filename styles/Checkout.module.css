@@ -99,8 +99,6 @@
     border-radius: 10px;
     color: var(--white);
     transition: all 0.3s ease-in-out;
-    position: relative;
-    z-index: 1;
 }
 
 
@@ -133,4 +131,85 @@
     margin-left: 2rem;
     color: var(--red);
     font-size: 1.5rem;
+}
+
+.qtyBtn{
+    color: var(--red);
+    border-radius: 999px;
+    border: 1px solid var(--red);
+    padding: 0 0.5rem;
+    margin: 0.5rem;
+}
+
+.qtyBtn:hover{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 800px){
+    .checkout_container{
+        margin: 2rem;
+    }
+    .topic h1 {
+        font-size: 1.25rem;
+      }
+    
+      .topic hr {
+        width: 6rem;
+      }
+
+      .topic span{
+        font-size: 0.65rem;
+      }
+      .order_address{
+        flex-direction: column;
+      }
+      .address{
+        width: 100%;
+        flex-direction: column;
+      }
+      .address h2{
+        margin-bottom: 0;
+        margin-top: 1.5rem !important;
+        font-size: 1rem;
+      }
+      .address span, .address p{
+        font-size: 0.75rem;
+      }
+      .address input{
+        padding: 0.25rem;
+    font-size: 0.65rem;
+      }
+      .left{
+        width: 100% !important;
+      }
+      .mid{
+        width: 100% !important;
+      }
+      .checkout_caution svg{
+        height: 1rem;
+      }
+      .right{
+        width: 100% !important;
+      }
+      .right button{
+        padding: 0.55rem 0.65rem !important;
+    font-size: 0.65rem;
+    border-radius: 5px !important;
+      }
+      .order{
+        width: 100%;
+      }
+      .your_cart{
+        width: 100%;
+        padding: 1.5rem 0rem;
+      }
+      .your_cart h2{
+        font-size: 1rem;
+      }
+      .summary_items h3{
+        font-size: 0.75rem;
+      }
+      .summary_items span{
+        font-size: 0.65rem;
+      }
 }

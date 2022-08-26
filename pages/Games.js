@@ -111,7 +111,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </div>
         </div>
-        <GamesCarousel games={games} ht={"30rem"}/>
+        <GamesCarousel games={games} ht={"31rem"}/>
       </div>
       <div className={styles.games_body}>
         <div className={styles.topic}>
