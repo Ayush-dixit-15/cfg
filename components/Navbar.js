@@ -190,7 +190,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
             <div className={styles.phoneNav}>
                 <MenuIcon onClick={() => toggleMenu()} />
                 <Link href="/"><Image src={logo} /></Link>
-                <ShoppingCartIcon onClick={() => toggleCart()} />
+                <div className={styles.cartSize}><ShoppingCartIcon onClick={() => toggleCart()} /><span className={styles.cartSizeInfo}>{Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length}</span></div>
                 <div className={styles.phoneMenu} style={{ transform: `${showmenu}` }}>
                     <div className={styles.menuHeader} >
                         <Link href="/"><Image src={logo} /></Link>
