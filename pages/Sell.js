@@ -92,11 +92,11 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
           required
           style={{ padding: "0.5rem" }}
         />
-        <label htmlFor="model">Console's Model Number<strong style={{ color: "var(--red)" }}>*</strong></label>
+        <label htmlFor="model">Console&apos;s Model Number<strong style={{ color: "var(--red)" }}>*</strong></label>
         <input
           value={model}
           onChange={handleChange}
-          placeholder="Enter Console's Model Number"
+          placeholder="Enter Console Model Number"
           type="text"
           id="model"
           name="model"
