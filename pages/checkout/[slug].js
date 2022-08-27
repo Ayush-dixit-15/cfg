@@ -59,13 +59,13 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                     <h1>Review your order</h1>
                     <hr />
                     <span>
-                        By placing your order, you agree to craving for gaming&apos;s <Link href="/Tnc">terms &#38; conditions.</Link>
+                        By placing your order, you agree to craving for gaming&apos;s <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>terms &#38; conditions.</span></Link>
                     </span>
                 </div>
                 <div className={styles.order_address}>
                     <div className={styles.address}>
                         <div className={styles.left}>
-                            <h2>Shipping Address</h2>
+                            <h2>Shipping Address<Link href={`/kycEdit/${slug}`}><span style={{color: "blue", fontSize: "0.6rem", cursor: "pointer", marginLeft: "0.2rem"}}>Change</span></Link></h2>
                             <span>{details.data.attributes.house_no}, </span>
                             <span>{details.data.attributes.area_street}, </span>
                             <span>{details.data.attributes.city}, </span>

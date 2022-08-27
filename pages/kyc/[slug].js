@@ -7,6 +7,7 @@ import logo from "../../public/logo.png";
 import EditIcon from '@mui/icons-material/Edit';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 
 const UserKyc = ({ kycData, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -30,7 +31,11 @@ const UserKyc = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <p>State: {kycData.data.attributes.state}</p>
           {kycData.data.attributes.landmark != null && <p>Landmark: {kycData.data.attributes.landmark}</p>}
           <p style={{marginBottom: "2rem"}}>Pincode: {kycData.data.attributes.pincode}</p>
+          <div className={styles.actionBtns}>
+          {(subTotal != 0 || comboTotal != 0) && <Link href={`/checkout/${slug}`}><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
+          {(subTotal === 0 && comboTotal === 0) && <Link href="/"><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
           <Link href={`/kycEdit/${slug}`}><span className={styles.editBtn}>Edit<EditIcon/></span></Link>
+          </div>
         </div>
         <div className={styles.right}>
           <Image src={logo} height={150} width={275}/>

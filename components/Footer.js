@@ -32,7 +32,8 @@ const Footer = () => {
                     <Link href="/About">About us</Link>
                     <Link href="/Tnc">Terms & Conditions</Link>
                     <Link href="/Contact">Contact us</Link>
-                    <Link href="/Buy">Buy/Sell</Link>
+                    <Link href="/Buy">Buy a console</Link>
+                    <Link href="/Sell">Sell your console</Link>
                 </div>
                 <div className={styles.right}>
                     <h1>Get in Touch</h1>

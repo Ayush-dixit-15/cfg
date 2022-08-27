@@ -3,6 +3,7 @@
     color: var(--white);
     padding: 5rem 10rem 0rem 10rem;
     font-weight: 400;
+    width: 100%;
 }
 
 .footer_content {

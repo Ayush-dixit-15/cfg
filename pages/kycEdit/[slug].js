@@ -15,7 +15,8 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
 
   const webRef = useRef(null);
   const [selfie, setselfie] = useState("");
-  const [camera, setcamera] = useState(false)
+  const [camera, setcamera] = useState(false);
+  const [prob, setprob] = useState("");
   const startCamera = () => {
     setcamera(true);
   }
@@ -77,6 +78,13 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
     });
     let response = await res.json();
     console.log(response);
+    if (response.error) {
+      console.log(response.error.message);
+      setprob(response.error.message);
+    }
+    else{
+      router.push(`/kyc/${slug}`);
+    }
   }
 
   return (
@@ -89,6 +97,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
         </div>
         <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+        <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
       </div>
       <form onSubmit={handleSubmit} method="POST">
         <div className={styles.phone_input}>
@@ -146,7 +155,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
                 style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
               />
               <label htmlFor="addressProof"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-              <input type="file" id="addressProof" name="addressProof" accept="image/*" style={{border: "none"}}></input>
+              <input type="file" id="addressProof" name="addressProof" accept="image/*" style={{ border: "none" }}></input>
             </div>
             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
               <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -204,15 +213,15 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-            <input type="file" id="sign" name="sign" accept="image/*" style={{border: "none"}}></input>
+            <input type="file" id="sign" name="sign" accept="image/*" style={{ border: "none" }}></input>
           </div>
         </div>
         <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
           <input type="checkbox" required checked style={{ marginRight: "1rem" }} />
-          I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
+          I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming
         </p>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
+          <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
         </div>
       </form>
     </div>

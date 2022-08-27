@@ -8,6 +8,7 @@
   /* color: var(--black); */
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 
@@ -93,6 +94,7 @@ body input{
 .about_p2 h3 {
   text-align: center;
 }
+
 
 @media only screen and (max-width: 1170px) {
   .about_box2 {

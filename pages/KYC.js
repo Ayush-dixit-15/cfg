@@ -22,14 +22,14 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
     const [camera, setcamera] = useState(false);
-
+    const [prob, setprob] = useState("");
+    // console.log(kycData);
     const startCamera = () => {
         setcamera(true);
     }
     const capture = () => {
         setselfie(webRef.current.getScreenshot());
         setcamera(false);
-        console.log(selfie);
     }
     const [houseno, sethouseno] = useState("");
     const [area, setarea] = useState("");
@@ -86,6 +86,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 var checkKyc = kycData.data.filter((item) => {
                     return item.attributes.user.data.id === userid;
                 });
+                console.log(checkKyc);
                 if (checkKyc.length != 0) {
                     router.push(`/kyc/${checkKyc[0].id}`);
                     localStorage.setItem("kycid", JSON.stringify(checkKyc[0].id));
@@ -106,9 +107,6 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // const file = await blobFrom(bill, 'image/png');
-        // const form = new FormData();
-        // form.append('proof', file, bill);
         const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid} };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
@@ -119,17 +117,19 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             },
             body: JSON.stringify(sentdata),
         });
-        // const res2 = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
-        //     method: 'post',
-        //     body: form,
-        // });
-
         let response = await res.json();
         console.log(response);
-        // console.log(res2);
-        // console.log(bill);
-        setkycid(response.data.id);
-        savekycid(response.data.id);
+        if(response.error)
+        {
+            console.log(response.error.message);
+            setprob(response.error.message);
+        }
+        else
+        {
+            setkycid(response.data.id);
+            savekycid(response.data.id);
+            router.push(`/kyc/${response.data.id}`);
+        }
     }
     return (
         <>
@@ -159,7 +159,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
                     <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
-                    <p style={{color: "var(--red)", fontSize: "1.5rem"}}>Error!</p>
+                    <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">
                     <div className={styles.phone_input}>
@@ -262,11 +262,11 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                     <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
                         <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
                         <div style={{ display: "flex", alignItems: "center" }}>
+                            {camera && <div>
+                                {/* {!camera && <div></div>} */}
+                                <Webcam ref={webRef} width={400} height={400} />
+                            </div>}
                             <div>
-                                {!camera && <div></div>}
-                                {camera && <Webcam ref={webRef} width={400} height={400} />}
-                            </div>
-                            <div style={{ marginLeft: "2rem" }}>
                                 {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
                                 {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
                                 {!camera && <Image src={selfie} height={100} width={100} />}
@@ -280,10 +280,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                     </div>
                     <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
                         <input type="checkbox" required style={{marginRight: "1rem"}}/>
-                        I have read the <Link href="/Tnc">Terms & Conditions</Link> of Craving for Gaming
+                        I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.captureBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
+                        <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
                 <Footer />
