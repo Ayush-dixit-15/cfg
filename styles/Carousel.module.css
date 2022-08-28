@@ -5,3 +5,17 @@
 .carousel img{
     border-radius: 30px;
 }
+@media only screen and (max-width:800px){
+    .carousel{
+        margin: 1rem 1rem 0 1rem;
+    }
+    .carousel img{
+        border-radius: 15px;
+    }
+    .carousel_indicators{
+        margin-bottom: 0;
+    }
+    .carousel_indicators button{
+        width: 10px !important;
+    }
+}

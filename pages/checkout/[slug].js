@@ -18,18 +18,17 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
     let gameOrder = "";
     let comboOrder = "";
     let controllerOrder = "";
-    // console.log(product(Object.keys(product)).name);
     for (let i = 0; i < Object.keys(product).length; i++) {
-        consoleOrder = consoleOrder.concat(", ", Object.keys(product)[i].name, Object.keys(product)[i].qty);
+        consoleOrder = consoleOrder.concat(JSON.stringify(product),", ");
     };
     for (let i = 0; i < Object.keys(gameCart).length; i++) {
-        gameOrder = gameOrder.concat(", ", Object.keys(gameCart)[i]);
+        gameOrder = gameOrder.concat(JSON.stringify(gameCart),", ");
     };
     for (let i = 0; i < Object.keys(comboCart).length; i++) {
-        comboOrder = comboOrder.concat(", ", Object.keys(comboCart)[i]);
+        comboOrder = comboOrder.concat(JSON.stringify(comboCart),", ");
     };
     for (let i = 0; i < Object.keys(optCart).length; i++) {
-        controllerOrder = controllerOrder.concat(", ", Object.keys(optCart)[i]);
+        controllerOrder = controllerOrder.concat(JSON.stringify(optCart),", ");
     };
     console.log(gameOrder, consoleOrder, comboOrder, controllerOrder);
     const { slug } = router.query;
@@ -49,6 +48,38 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
             setno("block");
             setyes("none");
             settotal(0);
+        }
+    }
+    const handleSubmit = async () => {
+        const data = { data: [{
+            username: details.data.attributes.user.data.attributes.username, 
+            email: details.data.attributes.user.data.attributes.email,
+            phone: details.data.attributes.user.data.attributes.phone,
+            house_no: details.data.attributes.house_no,
+            area_street: details.data.attributes.area_street,
+            city: details.data.attributes.city,
+            state: details.data.attributes.state,
+            landmark: details.data.attributes.landmark,
+            pincode: details.data.attributes.pincode,
+            console: consoleOrder,
+            combo: comboOrder,
+            games: gameOrder,
+            extra_controller: controllerOrder,
+            total: delivery+subTotal+gameTotal+comboTotal+optTotal+total
+        }]};
+        let res = await fetch("https://sheetdb.io/api/v1/br2amnyb5vzni", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(data),
+        });
+        let response = await res.json();
+        console.log(response);
+        if(response.created === 1)
+        {
+            router.push('/success')
         }
     }
     return (
@@ -96,8 +127,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                         </div>
                     </div>
                     <div className={styles.order}>
-                        <Link href = "/success">
-                        <button>Place Order</button></Link>
+                        <button onClick={handleSubmit}>Place Order</button>
                         <div className={styles.summary}>
                             <h3 style={{marginTop: "1rem"}}>Summary</h3>
                             <div className={styles.summary_items}>
