@@ -7,6 +7,7 @@
     margin-top: 3rem;
 }
 
+
 .sell form{
     display: flex;
     flex-direction: column;
@@ -57,10 +58,9 @@
     position: absolute;
     opacity: 0.5;
     z-index: -1;
-    top: 0;
-    top: 10rem;
-    right: -30rem;
-    transform: rotateZ(-25deg);
+    top: 30rem;
+    right: 5rem;
+    transform: rotateZ(25deg);
 }
 
 .white span span img{

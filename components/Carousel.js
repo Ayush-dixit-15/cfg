@@ -28,7 +28,7 @@ const Carousel = () => {
                 className={`carousel slide ${styles.carousel}`}
                 data-bs-ride="true"
             >
-                <div className="carousel-indicators">
+                <div className={`carousel-indicators ${styles.carousel_indicators}`}>
                     <button
                         type="button"
                         data-bs-target="#carouselExampleIndicators"
