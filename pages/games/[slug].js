@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
@@ -9,6 +9,21 @@ import GamesCarousel from '../../components/GamesCarousel';
 const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
   const { slug } = router.query;
+  const [kycid, setkycid] = useState(0);
+  const savekycid = (items) => {
+    localStorage.setItem("kycid", JSON.stringify(items));
+};
+useEffect(() => {
+  try {
+    if (localStorage.getItem("kycid")) {
+      setkycid(JSON.parse(localStorage.getItem("kycid")));
+      savekycid(JSON.parse(localStorage.getItem("kycid")));
+  }
+  } catch (error) {
+    console.log(error);
+  }
+}, [])
+
 
 
   return (
@@ -39,7 +54,10 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
                   <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={()=>addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url)}>Add to Cart</button>
-                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded">Buy Now</button>
+                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded" onClick={()=>{
+                    addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url);
+                    router.push(`/checkout/${kycid}`);
+                  }}>Buy Now</button>
 
                 </div>
               </div>
