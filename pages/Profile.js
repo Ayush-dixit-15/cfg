@@ -58,7 +58,7 @@ const Profile = ({ product, subTotal, addProductToCart, removeProductFromCart, c
           <pre>            </pre>
         </div>
         <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>
-          <span style={{fontSize: "2.5rem"}}>{name}</span>
+          <span style={{fontSize: "2.5rem", textAlign: "center"}}>{name}</span>
           <span style={{fontSize: "1rem", fontWeight: "100"}}>{email}</span>
         </div>
       </div>

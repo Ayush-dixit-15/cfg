@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from "../../styles/Games.module.css";
@@ -10,19 +10,20 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
   const router = useRouter();
   const { slug } = router.query;
   const [kycid, setkycid] = useState(0);
+  const [top, settop] = useState("-100rem");
   const savekycid = (items) => {
     localStorage.setItem("kycid", JSON.stringify(items));
-};
-useEffect(() => {
-  try {
-    if (localStorage.getItem("kycid")) {
-      setkycid(JSON.parse(localStorage.getItem("kycid")));
-      savekycid(JSON.parse(localStorage.getItem("kycid")));
-  }
-  } catch (error) {
-    console.log(error);
-  }
-}, [])
+  };
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("kycid")) {
+        setkycid(JSON.parse(localStorage.getItem("kycid")));
+        savekycid(JSON.parse(localStorage.getItem("kycid")));
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }, [])
 
 
 
@@ -37,6 +38,13 @@ useEffect(() => {
         Signup={"Signup"}
 
       />
+      <div className={styles.alert} style={{top: `${top}`}} key={top}>
+        <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif"/>
+        <div className={styles.alert_info}>
+          <h2>{game.attributes.gameName}</h2>
+          <span>Added to cart ✅</span>
+        </div>
+      </div>
       <div className="w-full h-full bg-no-repeat bg-cover" style={{
         backgroundImage: `url(${game.attributes.Banner.data.attributes.url})`
       }}>
@@ -51,11 +59,17 @@ useEffect(() => {
                 <h1 className={`text-white text-3xl title-font font-medium mb-1 ${styles.gameTitle}`}>{game.attributes.gameName}</h1>
                 <h2 style={{ color: "var(--red)" }} className="text-sm title-font text-gray-500 tracking-widest text-red-600 font-bold">{game.attributes.consoleType}</h2>
                 <p className={`leading-relaxed text-white ${styles.gameDetails}`}>{game.attributes.details}</p>
-                <div className="flex">
+                <div className="flex" style={{ marginTop: "1.5rem" }}>
                   <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
-                  <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={()=>addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url)}>Add to Cart</button>
-                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded" onClick={()=>{
-                    addGameCartToCart(slug,1,game.attributes.price,game.attributes.gameName,game.attributes.Poster.data.attributes.url);
+                  <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => {
+                    addGameCartToCart(slug, 1, game.attributes.price, game.attributes.gameName, game.attributes.Poster.data.attributes.url);
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 2000);
+                    }}>Add to Cart</button>
+                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded" onClick={() => {
+                    addGameCartToCart(slug, 1, game.attributes.price, game.attributes.gameName, game.attributes.Poster.data.attributes.url);
                     router.push(`/checkout/${kycid}`);
                   }}>Buy Now</button>
 
@@ -66,7 +80,7 @@ useEffect(() => {
         </section>
       </div>
       <div className={styles.game_body}>
-      <div className={styles.topic}>
+        <div className={styles.topic}>
           <h1>More Games</h1>
           <hr />
         </div>

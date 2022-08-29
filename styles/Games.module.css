@@ -69,7 +69,7 @@
 .gamesCarousel_item h2 {
   font-size: 1.5rem;
   line-height: 1.1;
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .gamesCarousel_item p {
@@ -244,14 +244,40 @@
   margin: 0 6rem;
 }
 
+.alert{
+  position: absolute;
+  background: var(--white);
+  display: flex;
+  left: 40%;
+  border-left: 8px solid var(--red);
+  border-right: 8px solid var(--red);
+  transition: all 0.3s ease-in-out;
+  padding: 0 1.5rem;
+}
+
+.alert img{
+  height: 10rem;
+}
+
+.alert_info{
+  padding: 1.5rem 0.5rem;
+}
+
+.alert_info h2{
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 @media only screen and (max-width:800px) {
   .games_body {
     margin: 2rem;
   }
-  .game_body{
+
+  .game_body {
     margin: 2rem;
   }
-  .games_promo{
+
+  .games_promo {
     font-size: 0.5rem;
   }
 
@@ -347,19 +373,36 @@
   .length {
     font-size: 0.5rem;
   }
-  .copy span{
+
+  .copy span {
     font-size: 0.35rem;
   }
-  .poster{
+
+  .poster {
     height: 12rem;
-width: 10rem;
+    width: 10rem;
   }
-  .gameTitle{
+
+  .gameTitle {
     font-size: 1.5rem;
   }
-  .gameDetails{
+
+  .gameDetails {
     font-size: 0.65rem;
     margin-bottom: 2rem;
+  }
+
+  .alert{
+    left: 20%;
+    align-items: center;
+  }
+
+  .alert img{
+    height: 5rem;
+  }
+
+  .alert_info h2{
+    font-size: 1rem;
   }
 }
 
