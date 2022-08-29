@@ -11,6 +11,10 @@
   /* overflow-x: hidden; */
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 
 :root {
   --red: #D90708;

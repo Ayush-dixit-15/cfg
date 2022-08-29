@@ -152,7 +152,7 @@ const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
             savepic("N/A");
             setuserid(response.user.id);
             saveuserid(response.user.id);
-            router.push(`/`);
+            router.push(`/KYC`);
         }
     }
     return (

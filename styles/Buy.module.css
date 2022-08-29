@@ -1,0 +1,69 @@
+.controllers{
+    margin: 2rem;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.controllers img{
+    height: 10rem;
+}
+
+.buy_body{
+    border: 1px dashed var(--red);
+    border-radius: 10px;
+    margin: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.buy_body h1{
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin: -2rem 0;
+}
+
+.buy form{
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 5rem; */
+    padding: 4rem;
+    width: 45vw;
+}
+
+.buy form label{
+    margin-top: 1rem;
+}
+
+.buy form input::-webkit-outer-spin-button,
+.buy form input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+.buy form button{
+    background: var(--red);
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    color: var(--white);
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.buy form button:hover{
+    color: var(--black);
+    background-color: tomato;
+}
+
+@media only screen and (max-width: 800px){
+    .controllers img{
+        height: 4.5rem;
+    }
+    .buy_body{
+        margin: 2rem 1rem;
+    }
+    .buy_body form{
+        width: 90%;
+    }
+}

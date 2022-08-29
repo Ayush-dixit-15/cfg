@@ -130,7 +130,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                                 <img src={product[k].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
                                     <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
-                                <Link href={`/consoles/${k}`} ><h3 style={{fontWeight: "600"}}>{product[k].name}</h3></Link>
+                                <Link href={`/consoles/${k}`} ><h3 style={{fontWeight: "600", cursor: "pointer"}}>{product[k].name}</h3></Link>
                                 <DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearProduct()} />
                                 </div>
                                     <p>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeProductFromCart(k,1)}}>-</span>{product[k].qty}<span className={styles.qtyBtn} onClick={()=>{addProductToCart(k,1,product[k].price,product[k].name,product[k].img)}}>+</span></p>
@@ -143,7 +143,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                                 <img src={gameCart[key].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
-                                <Link href={`/games/${key}`} ><h3  style={{fontWeight: "600"}}>{gameCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearGameCart()} /></div>
+                                <Link href={`/games/${key}`} ><h3  style={{fontWeight: "600", cursor: "pointer"}}>{gameCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearGameCart()} /></div>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeGameCartFromCart(key,1)}}>-</span>{gameCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addGameCartToCart(key,1,gameCart[key].price,gameCart[key].name,gameCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${gameCart[key].price * gameCart[key].qty}`}</span>
                                 </div>
@@ -155,7 +155,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
 
                                 <div style={{ marginLeft: "1rem" }}>
                                 <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
-                                <Link href={`/combos/${key}`} ><h3  style={{fontWeight: "600"}}>{comboCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearComboCart()} /></div>
+                                <Link href={`/combos/${key}`} ><h3  style={{fontWeight: "600", cursor: "pointer"}}>{comboCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearComboCart()} /></div>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeComboCartFromCart(key,1)}}>-</span>{comboCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addComboCartToCart(key,1,comboCart[key].price,comboCart[key].name,comboCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${comboCart[key].price * comboCart[key].qty}`}</span>
                                 </div>
@@ -165,7 +165,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                             return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={optCart[key].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
-                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem", fontWeight: "600" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart()} /></h3>
+                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem", fontWeight: "600", cursor: "pointer" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart()} /></h3>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeOptCartFromCart(key,1)}}>-</span>{optCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addOptCartToCart(key,1,optCart[key].price,optCart[key].name,optCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${optCart[key].price * optCart[key].qty}`}</span>
                                 </div>
@@ -182,8 +182,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                             <span>Subtotal: </span>
                             <span>₹{subTotal + gameTotal + comboTotal + optTotal}</span>
                         </div>
-                        {kycid == 0 && <Link href="/KYC"><button>Checkout</button></Link>}
-                        {kycid != 0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
+                        <Link href="/KYC"><button>Checkout</button></Link>
                     </div>}
                 </div>
             </div>
