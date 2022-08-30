@@ -30,7 +30,7 @@ const Accordion = () => {
                             aria-expanded="true"
                             aria-controls="collapseOne"
                         >
-                            Accordion Item #1
+                            How to rent a console and games?
                         </button>
                     </h2>
                     <div
@@ -40,18 +40,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                            <strong>
-                                This is the first item&apos;s accordion body.
-                            </strong>{" "}
-                            It is shown by default, until the collapse plugin
-                            adds the appropriate classes that we use to style
-                            each element. These classes control the overall
-                            appearance, as well as the showing and hiding via
-                            CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It&apos;s
-                            also worth noting that just about any HTML can go
-                            within the <code>.accordion-body</code>, though the
-                            transition does limit overflow.
+                        Browse to the products tab and add your preffered gaming console and games to your cart. Alternatively you can also choose from various combo packs provided by us.
                         </div>
                     </div>
                 </div>
@@ -65,7 +54,7 @@ const Accordion = () => {
                             aria-expanded="false"
                             aria-controls="collapseTwo"
                         >
-                            Accordion Item #2
+                            What do I need to provide for my KYC?
                         </button>
                     </h2>
                     <div
@@ -75,18 +64,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                            <strong>
-                                This is the second item&apos;s accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classes that we use to style
-                            each element. These classes control the overall
-                            appearance, as well as the showing and hiding via
-                            CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It&apos;s
-                            also worth noting that just about any HTML can go
-                            within the <code>.accordion-body</code>, though the
-                            transition does limit overflow.
+                        For your identification you need to click a photograph of your aadhar card(masked), address proof(ulitilies bill such as gas, electric, water, etc) and your digital signature.
                         </div>
                     </div>
                 </div>
@@ -100,7 +78,7 @@ const Accordion = () => {
                             aria-expanded="false"
                             aria-controls="collapseThree"
                         >
-                            Accordion Item #3
+                            How do I pay for my order?
                         </button>
                     </h2>
                     <div
@@ -110,18 +88,8 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                            <strong>
-                                This is the third item&apos;s accordion body.
-                            </strong>{" "}
-                            It is hidden by default, until the collapse plugin
-                            adds the appropriate classes that we use to style
-                            each element. These classes control the overall
-                            appearance, as well as the showing and hiding via
-                            CSS transitions. You can modify any of this with
-                            custom CSS or overriding our default variables. It&apos;s
-                            also worth noting that just about any HTML can go
-                            within the <code>.accordion-body</code>, though the
-                            transition does limit overflow.
+                        You can pay for your order when it gets delivered at your doorstep!
+Thats right! there is no advanced payment for your order and you can pay when receiving your order using cash or UPI.
                         </div>
                     </div>
                 </div>

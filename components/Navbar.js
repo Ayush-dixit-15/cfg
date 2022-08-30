@@ -15,7 +15,7 @@ import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantity
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import controller from '../public/controller.png';
 
-const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
+const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart, Buy, Sell }) => {
     const [showcart, setshowcart] = useState("translateX(100rem)");
     const [showmenu, setshowmenu] = useState("translateX(-100rem)");
     const toggleCart = () => {
@@ -89,6 +89,12 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                                     <Link href={`/${Contact}`}>{Contact}</Link>
                                 </li>
                             )}
+                            {Buy != null && 
+                                <li><Link href={`/${Buy}`}>{Buy}</Link></li>
+                            }
+                            {Sell != null && 
+                                <li><Link href={`/${Sell}`}>{Sell}</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className={styles.right}>
@@ -176,6 +182,9 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                         <ProductionQuantityLimitsIcon style={{ fontSize: "8rem", color: "var(--red)" }} />
                         <span>Your cart is Empty</span>
                     </div>}
+                    {(subTotal == 0 || comboTotal == 0) && <div>
+                        <p>abcd</p>    
+                    </div>}
                     {(subTotal != 0 || comboTotal != 0) && <div className={styles.checkout}>
                         <hr />
                         <div className={styles.subtotal}>
@@ -212,7 +221,12 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                                     <Link href={`/${Contact}`}>{Contact}</Link>
                                 </li>
                             )}
-                            
+                            {Buy != null && 
+                                <li><Link href={`/${Buy}`}>{Buy}</Link></li>
+                            }
+                            {Sell != null && 
+                                <li><Link href={`/${Sell}`}>{Sell}</Link></li>
+                            }
                         </ul>
                         {email == "" && <ul>
                             {Login != null && (

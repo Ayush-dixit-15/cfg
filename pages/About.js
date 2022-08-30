@@ -14,6 +14,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                 Contact={"Contact"}
                 Login={"Login"}
                 Signup={"Signup"}
+                Buy={'Buy'} Sell={'Sell'}
             />
             <div className="about_box1">
                 <img src="/1523.jpg" alt="Craving For Gaming" />

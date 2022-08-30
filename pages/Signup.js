@@ -179,7 +179,7 @@ const Signup = ({ product, subTotal, addProductToCart, removeProductFromCart, cl
                 About={"About"}
                 Contact={"Contact"}
                 Login={"Login"}
-                Signup={null}
+                Signup={null} Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.signup_container}>
                 <div className={styles.signup_dialogue}>
