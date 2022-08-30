@@ -1,10 +1,10 @@
-import React, {useState,useEffect} from 'react'
-import Link from 'next/link'
+import React, {useState, useEffect} from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 // import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-import { runFireworks } from '../lib/utils'
+import { runFireworks } from '../public/utils'
 const Success = () => {
    const [product, setProduct] = useState({})
     useEffect(()=>{

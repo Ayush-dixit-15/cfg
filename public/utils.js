@@ -25,5 +25,6 @@ export const runFireworks = () =>{
       if (Date.now() < end) {
         requestAnimationFrame(frame);
       }
-    }());
+    }
+    ());
 }
