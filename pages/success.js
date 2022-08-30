@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 // import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
-import { runFireworks } from '../public/utils'
+import { runFireworks } from '/utils';
 const Success = () => {
    const [product, setProduct] = useState({})
     useEffect(()=>{
