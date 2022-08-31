@@ -82,7 +82,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                             </div>
                             <hr />
                             {count != 0 &&<div className={styles.gamesBtn}>
-                                 <p onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>Proceed to buy games</p>
+                                 <p onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>Proceed to Games</p>
                             </div>}
                         </form>
                     </div>

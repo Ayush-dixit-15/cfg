@@ -84,7 +84,7 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
           <h1>More Games</h1>
           <hr />
         </div>
-        <GamesCarousel games={games} ht={"28rem"}></GamesCarousel>
+        <GamesCarousel games={games} ht={"28rem"} addGameCartToCart={addGameCartToCart}></GamesCarousel>
       </div>
       <Footer />
     </div>
