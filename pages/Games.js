@@ -8,11 +8,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
 import carousel2 from "../public/carousel2.png";
 import Image from "next/image";
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 const Games = ({ games, product, subTotal, action, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const [query, setquery] = useState("");
-
+  const [top, settop] = useState("-100rem");
+  const [gameName, setgameName] = useState("");
   return (
 
     <div>
@@ -24,6 +26,13 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         Signup={"Signup"}
         product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'}
       />
+      <div className={styles.alert} style={{ top: `${top}` }} key={top}>
+        <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif" />
+        <div className={styles.alert_info}>
+          <h2>{gameName}</h2>
+          <span>Added to cart ✅</span>
+        </div>
+      </div>
       <div >
         <Image src={carousel2} alt="" />
       </div>
@@ -37,7 +46,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         </div>
         <div className={styles.grid}>
           <Link href={`/games/god-of-war`} >
-            <div className={styles.card} style={{cursor: "pointer"}}>
+            <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./god of war poster.jpg'
                 height={180}
@@ -50,7 +59,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </Link>
           <Link href={`/games/the-last-of-us-part-2`} >
-            <div className={styles.card} style={{cursor: "pointer"}}>
+            <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./the last of us.jpeg'
                 height={180}
@@ -65,7 +74,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </Link>
           <Link href={`/games/uncharted-4`}>
-            <div className={styles.card} style={{cursor: "pointer"}}>
+            <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./uncharted 4 poster.jpg'
                 height={180}
@@ -80,7 +89,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </Link>
           <Link href={`/games/watch-dogs-2`} >
-            <div className={styles.card} style={{cursor: "pointer"}}>
+            <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./watch dogs 2 poster.webp'
                 height={180}
@@ -111,7 +120,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </div>
         </div>
-        <GamesCarousel games={games} ht={"31rem"}/>
+        <GamesCarousel games={games} ht={"31rem"} addGameCartToCart={addGameCartToCart}/>
       </div>
       <div className={styles.games_body}>
         <div className={styles.topic}>
@@ -138,11 +147,23 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             }
           }).map((item) => {
             return (
-              <div key={item.attributes.slug} className={styles.pointer}>
+              <div key={item.attributes.slug} style={{ border: "0.5px solid grey", borderRadius: "10px", padding: "1rem", width: "13rem" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", width: "11rem", marginBottom: "1rem" }}>
+                  <span></span>
+                  <p style={{background: "var(--yellow", padding: "0.35rem 0 0.35rem 0.75rem", borderRadius: "999px"}}>Add to cart<span style={{ border: "0.5px solid black", padding: "0.5rem 0.5rem", borderRadius: "999px", marginLeft: "0.3rem" }} className={styles.addCartBtn} onClick={() => {
+                    setgameName(item.attributes.gameName);
+                    addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} /></span></p>
+                </div>
                 <Link
                   href={`/games/${item.attributes.slug}`}
+
                 >
-                  <div className={styles.card}>
+                  <div className={`${styles.card} ${styles.pointer}`}>
                     <img
                       src={
                         item.attributes.Poster.data.attributes.url
@@ -150,7 +171,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                       height={180}
                       width={180}
                     />
-                    <p>{item.attributes.gameName}</p>
+                    <h2>{item.attributes.gameName}</h2>
                     <span>
                       From ₹{item.attributes.price}/day
                     </span>
@@ -163,7 +184,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
 
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 };

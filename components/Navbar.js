@@ -191,7 +191,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                             <span>Subtotal: </span>
                             <span>₹{subTotal + gameTotal + comboTotal + optTotal}</span>
                         </div>
-                        <Link href="/KYC"><button>Checkout</button></Link>
+                        <Link href="/KYC"><button>Proceed to KYC</button></Link>
                     </div>}
                 </div>
             </div>
@@ -309,8 +309,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                             <span>Subtotal: </span>
                             <span>₹{subTotal + gameTotal + comboTotal + optTotal}</span>
                         </div>
-                        {kycid == 0 && <Link href="/KYC"><button>Checkout</button></Link>}
-                        {kycid != 0 && <Link href={`/checkout/${kycid}`}><button>Checkout</button></Link>}
+                        <Link href="/KYC"><button>Proceed to KYC</button></Link>
                     </div>}
                 </div>
             </div>

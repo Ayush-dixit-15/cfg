@@ -33,7 +33,7 @@ const UserKyc = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <p style={{marginBottom: "2rem"}}>Pincode: {kycData.data.attributes.pincode}</p>
           <div className={styles.actionBtns}>
           {(subTotal != 0 || comboTotal != 0) && <Link href={`/checkout/${slug}`}><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
-          {(subTotal === 0 && comboTotal === 0) && <Link href="/"><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
+          {(subTotal === 0 && comboTotal === 0) && <Link href="/"><span className={styles.continueBtn}>Checkout<ArrowRightIcon/></span></Link>}
           <Link href={`/kycEdit/${slug}`}><span className={styles.editBtn}>Edit<EditIcon/></span></Link>
           </div>
         </div>
