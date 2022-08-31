@@ -48,7 +48,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
             </Head>
             <Script src='./script.js'></Script>
-            <Navbar  KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} />
+            <Navbar  KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'}/>
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
@@ -90,7 +90,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         <span>GET</span>
                         <h1>PlayStation 4</h1>
                         <h3>At just Rs. 1,499 for 7 days</h3>
-                        <Link href="/">
+                        <Link href="/consoles/sony-play-station-4">
                             <button>Shop Now</button>
                         </Link>
                     </div>

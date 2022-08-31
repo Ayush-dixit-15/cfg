@@ -245,7 +245,7 @@
 }
 
 .alert{
-  position: absolute;
+  position: fixed;
   background: var(--white);
   display: flex;
   left: 40%;
@@ -393,7 +393,7 @@
   }
 
   .alert{
-    left: 20%;
+    left: 15%;
     align-items: center;
   }
 

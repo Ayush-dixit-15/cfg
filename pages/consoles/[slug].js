@@ -33,6 +33,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 Login={"Login"}
                 Signup={"Signup"}
                 key={product}
+                Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.landing}>
                 <div className={styles.left}>

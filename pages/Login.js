@@ -171,7 +171,7 @@ const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                 Contact={"Contact"}
                 Login={null}
                 Signup={"Signup"}
-                key={email}
+                key={email} Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.login_container}>
                 <div className={styles.login_dialogue}>

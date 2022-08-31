@@ -148,7 +148,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 Login={"Login"}
                 Signup={"Signup"}
                 product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
-                key={kycid}
+                key={kycid} Buy={'Buy'} Sell={'Sell'}
             />
             <div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>

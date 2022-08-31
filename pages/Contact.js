@@ -20,6 +20,7 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
                 Login={"Login"}
                 Signup={"Signup"}
                 product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
+                Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.contact_box1}>
                 <Image src={contactBanner} alt="" />

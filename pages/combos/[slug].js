@@ -34,6 +34,7 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
                 Login={"Login"}
                 Signup={"Signup"}
                 key={product}
+                Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.landing}>
             <div className={styles.left}>

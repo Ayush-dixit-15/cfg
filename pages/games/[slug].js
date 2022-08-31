@@ -36,7 +36,7 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
         Contact={"Contact"}
         Login={"Login"}
         Signup={"Signup"}
-
+        Buy={'Buy'} Sell={'Sell'}
       />
       <div className={styles.alert} style={{top: `${top}`}} key={top}>
         <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif"/>
@@ -70,7 +70,7 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                     }}>Add to Cart</button>
                   <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded" onClick={() => {
                     addGameCartToCart(slug, 1, game.attributes.price, game.attributes.gameName, game.attributes.Poster.data.attributes.url);
-                    router.push(`/checkout/${kycid}`);
+                    router.push(`/KYC`);
                   }}>Buy Now</button>
 
                 </div>
