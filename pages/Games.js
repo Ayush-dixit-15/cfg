@@ -45,20 +45,35 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
           <hr />
         </div>
         <div className={styles.grid}>
-          <Link href={`/games/god-of-war`} >
-            <div className={styles.card} style={{ cursor: "pointer" }}>
-              <img
-                src='./god of war poster.jpg'
-                height={180}
-                width={180}
-              />
-              <h2>God of war</h2>
-              <span>
-                For ₹500
-              </span>
-            </div>
-          </Link>
-          <Link href={`/games/the-last-of-us-part-2`} >
+          <div className={styles.cardParent}>
+            <Link href={`/games/god-of-war`} >
+              <div className={styles.card} style={{ cursor: "pointer" }}>
+                <img
+                  src='./god of war poster.jpg'
+                  height={180}
+                  width={180}
+                />
+                <h2>God of war</h2>
+                <span>
+                  For ₹500
+                </span>
+              </div>
+            </Link>
+            <p className={styles.addCartBtnPara}>
+                  Add to cart
+                  <span className={styles.addCartBtn} onClick={() => {
+                    setgameName("God of war");
+                    addGameCartToCart("god-of-war", 1, 500, "God of war", "./god of war poster.jpg");
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  </span>
+                </p>
+          </div>
+          <div className={styles.cardParent}>
+            <Link href={`/games/the-last-of-us-part-2`} >
             <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./the last of us.jpeg'
@@ -73,7 +88,21 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
-          <Link href={`/games/uncharted-4`}>
+          <p className={styles.addCartBtnPara}>
+                  Add to cart
+                  <span className={styles.addCartBtn} onClick={() => {
+                    setgameName("The Last of us part 2");
+                    addGameCartToCart("the-last-of-us-part-2", 1, 500, "The Last of us part 2", "./the last of us.jpeg");
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  </span>
+                </p>
+          </div>
+          <div  className={styles.cardParent}>
+            <Link href={`/games/uncharted-4`}>
             <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
                 src='./uncharted 4 poster.jpg'
@@ -88,6 +117,20 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
+          <p className={styles.addCartBtnPara}>
+                  Add to cart
+                  <span className={styles.addCartBtn} onClick={() => {
+                    setgameName("Uncharted 4");
+                    addGameCartToCart("uncharted-4", 1, 500, "Uncharted 4", "./uncharted 4 poster.jpg");
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  </span>
+                </p>
+          </div>
+          <div  className={styles.cardParent}>
           <Link href={`/games/watch-dogs-2`} >
             <div className={styles.card} style={{ cursor: "pointer" }}>
               <img
@@ -101,6 +144,20 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
+          <p className={styles.addCartBtnPara}>
+                  Add to cart
+                  <span className={styles.addCartBtn} onClick={() => {
+                    setgameName("Watch dogs 2");
+                    addGameCartToCart("watch-dogs-2", 1, 500, "Watch dogs 2", "./watch dogs 2 poster.webp");
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  </span>
+                </p>
+          </div>
+          
         </div>
       </div>
       <div className={styles.hero}>
@@ -120,7 +177,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
           </div>
         </div>
-        <GamesCarousel games={games} ht={"31rem"} addGameCartToCart={addGameCartToCart}/>
+        <GamesCarousel games={games} ht={"31rem"} addGameCartToCart={addGameCartToCart} />
       </div>
       <div className={styles.games_body}>
         <div className={styles.topic}>
@@ -147,18 +204,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             }
           }).map((item) => {
             return (
-              <div key={item.attributes.slug} style={{ border: "0.5px solid grey", borderRadius: "10px", padding: "1rem", width: "13rem" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", width: "11rem", marginBottom: "1rem" }}>
-                  <span></span>
-                  <p style={{background: "var(--yellow", padding: "0.35rem 0 0.35rem 0.75rem", borderRadius: "999px"}}>Add to cart<span style={{ border: "0.5px solid black", padding: "0.5rem 0.5rem", borderRadius: "999px", marginLeft: "0.3rem" }} className={styles.addCartBtn} onClick={() => {
-                    setgameName(item.attributes.gameName);
-                    addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} /></span></p>
-                </div>
+              <div key={item.attributes.slug} className={styles.cardParent}>
                 <Link
                   href={`/games/${item.attributes.slug}`}
 
@@ -177,6 +223,18 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                     </span>
                   </div>
                 </Link>
+                <p className={styles.addCartBtnPara}>
+                  Add to cart
+                  <span className={styles.addCartBtn} onClick={() => {
+                    setgameName(item.attributes.gameName);
+                    addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
+                    settop("5rem");
+                    setTimeout(() => {
+                      settop("-100rem");
+                    }, 1300);
+                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  </span>
+                </p>
               </div>
             );
           })}
