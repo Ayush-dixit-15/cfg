@@ -216,7 +216,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     required
                                     style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
-                                <label htmlFor="bill"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
+                                <label htmlFor="bill">
+                                    <p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
+                                    <p>(Electricity Bill/ Water Bill/ Gas Bill)</p>
+                                </label>
                                 <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
@@ -254,8 +257,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="pincode"
                                     autoComplete="pincode"
                                     required
-                                    style={{ padding: "0 0.5rem" }}
+                                    style={{marginBottom: "1.5rem",  padding: "0 0.5rem" }}
                                 />
+                                <label htmlFor="proof">
+                                    <p style={{ margin: "0" }}>Identity Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
+                                    <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
+                                </label>
+                                <input type="file" id="proof" name="proof" accept="image/*" style={{border: "none"}}></input>
                             </div>
                         </div>
                     </div>

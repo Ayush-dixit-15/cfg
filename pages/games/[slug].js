@@ -5,10 +5,12 @@ import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
 import Footer from '../../components/Footer';
 import GamesCarousel from '../../components/GamesCarousel';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
   const { slug } = router.query;
+  const [cartStatus, setcartStatus] = useState("Add to cart");
   const [kycid, setkycid] = useState(0);
   const [top, settop] = useState("-100rem");
   const savekycid = (items) => {
@@ -67,11 +69,9 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                     setTimeout(() => {
                       settop("-100rem");
                     }, 2000);
-                    }}>Add to Cart</button>
-                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded" onClick={() => {
-                    addGameCartToCart(slug, 1, game.attributes.price, game.attributes.gameName, game.attributes.Poster.data.attributes.url);
-                    router.push(`/KYC`);
-                  }}>Buy Now</button>
+                    setcartStatus("Added to cart");
+                    }}>{cartStatus}</button>
+                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded">View Cart</button>
 
                 </div>
               </div>

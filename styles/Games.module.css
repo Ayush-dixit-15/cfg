@@ -85,7 +85,7 @@
   bottom: 8px;
 }
 
-.cartAddBtn{
+.cartAddBtn {
   background: var(--white);
   padding: 0.13rem 1rem;
   border-radius: 30px;
@@ -95,14 +95,14 @@
   transition: all 0.3s ease-in-out;
 }
 
-.cartAddBtn:hover{
+.cartAddBtn:hover {
   color: var(--red);
 }
 
 
 .gamesCarousel_item:hover {
   cursor: pointer;
-  transform: translateY(-2rem);
+  /* transform: translateY(-2rem); */
 }
 
 .games_body {
@@ -259,7 +259,7 @@
   margin: 0 6rem;
 }
 
-.alert{
+.alert {
   position: fixed;
   background: var(--white);
   display: flex;
@@ -271,35 +271,60 @@
   z-index: 99;
 }
 
-.alert img{
+.alert img {
   height: 10rem;
 }
 
-.alert_info{
+.alert_info {
   padding: 1.5rem 0.5rem;
 }
 
-.alert_info h2{
+.alert_info h2 {
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.card h2{
+.card h2 {
   font-size: 1.25rem;
   font-weight: 600;
 }
 
-.addCartBtn{
-  transition: all 0.3s ease-in-out;
-  background: var(--white);
+.addCartBtnPara {
+  background: var(--yellow);
+  display: inline-block;
+  padding: 0.15rem 0 0.15rem 0.35rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
 }
 
-.addCartBtn svg{
+.addCartBtn {
+  transition: all 0.3s ease-in-out;
+  background: var(--white);
+  padding: 0.35rem 0.25rem;
+  margin-left: 0.35rem;
+  border-radius: 999px;
+  border: 0.5px solid var(--black);
+
+}
+
+.addCartBtn svg {
   font-size: 1.25rem;
 }
 
-.addCartBtn:hover{
+.addCartBtn:hover {
   color: var(--red);
+}
+
+.cardParent {
+  border: 0.5px solid grey;
+  border-radius: 10px;
+  padding: 1rem;
+  width: 13rem;
+  height: 24rem;
+  position: relative;
 }
 
 
@@ -427,16 +452,16 @@
     margin-bottom: 2rem;
   }
 
-  .alert{
+  .alert {
     left: 15%;
     align-items: center;
   }
 
-  .alert img{
+  .alert img {
     height: 5rem;
   }
 
-  .alert_info h2{
+  .alert_info h2 {
     font-size: 1rem;
   }
 }

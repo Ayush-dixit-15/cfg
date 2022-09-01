@@ -34,8 +34,8 @@ const GamesCarousel = ({ games, ht, addGameCartToCart }) => {
                 <div>
                   <img src={item.attributes.Poster.data.attributes.url}></img>
                   <h2>{item.attributes.gameName}</h2>
-                  <p style={{ color: "var(--red)" }}>Genre: {item.attributes.genre}</p>
-                  <p style={{ color: "var(--red)" }}>Console: {item.attributes.consoleType}</p>
+                  <p style={{ color: "var(--white)" }}>Genre: {item.attributes.genre}</p>
+                  <p style={{ color: "var(--white)" }}>Console: {item.attributes.consoleType}</p>
                   <p>{item.attributes.details.slice(0, 60)}...</p>
                 </div>
               </Link>
