@@ -99,8 +99,37 @@ body input{
   text-align: center;
 }
 
+.about_info{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 3rem 8rem;
+}
+
+.about_info h2{
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.about_info p{
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.about_info span{
+  font-weight: 600;
+}
+
+.italics{
+  font-style: italic;
+}
+
 
 @media only screen and (max-width: 1170px) {
+  .about_info{
+    margin: 3rem 2rem;
+  }
   .about_box2 {
     flex-direction: column;
   }
@@ -112,6 +141,8 @@ left: 145px; */
     word-wrap: normal;
     transform: translate(0) !important;
     width: 80vw;
+    text-align: center;
+    box-shadow: none;
 
 
   }
@@ -132,6 +163,8 @@ left: 145px; */
     /* top: 260px;
 left: -145px; */
     word-wrap: normal;
+    text-align: center;
+    box-shadow: none;
 
   }
 
