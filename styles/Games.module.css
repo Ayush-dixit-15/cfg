@@ -298,6 +298,7 @@
   position: absolute;
   left: 8px;
   bottom: 8px;
+  cursor: pointer;
 }
 
 .addCartBtn {
@@ -334,7 +335,7 @@
   }
 
   .game_body {
-    margin: 2rem;
+    margin: 0rem;
   }
 
   .games_promo {
@@ -402,7 +403,16 @@
     height: 7rem;
     width: 6rem;
   }
-
+  .card h2{
+    font-size: 1rem;
+  }
+  .card span{
+    font-size: 0.65rem;
+  }
+  .cardParent{
+    width: 9rem;
+    height: 16rem;
+  }
   .gamesCarousel_item {
     margin: 5rem 0.5rem;
     height: 14rem !important;
@@ -463,6 +473,24 @@
 
   .alert_info h2 {
     font-size: 1rem;
+  }
+  .priceBtn{
+    left: 8px;
+    bottom: 8px;
+  }
+  .cartAddBtn{
+    right: 8px;
+    bottom: 8px !important;
+    left: auto !important;
+  }
+  .cartAddBtn svg{
+    font-size: 1rem;
+  }
+  .topic h1{
+    margin: 0 2rem;
+  }
+  .topic hr{
+    margin: 0 2rem;
   }
 }
 

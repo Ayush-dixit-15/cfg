@@ -3,7 +3,7 @@ import Router, { useRouter } from 'next/router';
 import styles from '../../styles/Userkyc.module.css';
 import Navbar from '../../components/Navbar';
 import Image from 'next/image';
-import logo from "../../public/logo.png";
+import blackLogo from "../../public/black logo.png";
 import EditIcon from '@mui/icons-material/Edit';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
@@ -32,13 +32,13 @@ const UserKyc = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           {kycData.data.attributes.landmark != null && <p>Landmark: {kycData.data.attributes.landmark}</p>}
           <p style={{marginBottom: "2rem"}}>Pincode: {kycData.data.attributes.pincode}</p>
           <div className={styles.actionBtns}>
-          {(subTotal != 0 || comboTotal != 0) && <Link href={`/checkout/${slug}`}><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
-          {(subTotal === 0 && comboTotal === 0) && <Link href="/"><span className={styles.continueBtn}>Checkout<ArrowRightIcon/></span></Link>}
+          {(subTotal != 0 || comboTotal != 0) && <Link href={`/checkout/${slug}`}><span className={styles.continueBtn}>Checkout<ArrowRightIcon/></span></Link>}
+          {(subTotal === 0 && comboTotal === 0) && <Link href="/"><span className={styles.continueBtn}>Continue<ArrowRightIcon/></span></Link>}
           <Link href={`/kycEdit/${slug}`}><span className={styles.editBtn}>Edit<EditIcon/></span></Link>
           </div>
         </div>
         <div className={styles.right}>
-          <Image src={logo} height={150} width={275}/>
+          <Image src={blackLogo} height={275} width={275}/>
         </div>
       </div>
       <Footer/>

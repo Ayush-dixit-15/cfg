@@ -15,6 +15,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
   const [query, setquery] = useState("");
   const [top, settop] = useState("-100rem");
   const [gameName, setgameName] = useState("");
+  const [viewCart, setviewCart] = useState("100rem");
   return (
 
     <div>
@@ -41,8 +42,8 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
           <p>Apply Coupon - <strong>WELCOME6969</strong> and get flat Rs. 500 off on games</p>
         </div>
         <div className={styles.topic}>
-          <h1>Our Best Selling Games</h1>
-          <hr />
+          <h1 style={{margin: "0rem"}}>Our Best Selling Games</h1>
+          <hr style={{margin: "0rem"}}/>
         </div>
         <div className={styles.grid}>
           <div className={styles.cardParent}>
@@ -59,16 +60,16 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                 </span>
               </div>
             </Link>
-            <p className={styles.addCartBtnPara}>
-                  Add to cart
-                  <span className={styles.addCartBtn} onClick={() => {
+            <p className={styles.addCartBtnPara} onClick={() => {
                     setgameName("God of war");
                     addGameCartToCart("god-of-war", 1, 500, "God of war", "./god of war poster.jpg");
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  }}>
+                  Add to cart
+                  <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
                   </span>
                 </p>
           </div>
@@ -88,16 +89,16 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
-          <p className={styles.addCartBtnPara}>
-                  Add to cart
-                  <span className={styles.addCartBtn} onClick={() => {
+          <p className={styles.addCartBtnPara} onClick={() => {
                     setgameName("The Last of us part 2");
                     addGameCartToCart("the-last-of-us-part-2", 1, 500, "The Last of us part 2", "./the last of us.jpeg");
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  }}>
+                  Add to cart
+                  <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
                   </span>
                 </p>
           </div>
@@ -117,16 +118,16 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
-          <p className={styles.addCartBtnPara}>
-                  Add to cart
-                  <span className={styles.addCartBtn} onClick={() => {
+          <p className={styles.addCartBtnPara} onClick={() => {
                     setgameName("Uncharted 4");
                     addGameCartToCart("uncharted-4", 1, 500, "Uncharted 4", "./uncharted 4 poster.jpg");
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  }}>
+                  Add to cart
+                  <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
                   </span>
                 </p>
           </div>
@@ -144,16 +145,16 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </div>
           </Link>
-          <p className={styles.addCartBtnPara}>
-                  Add to cart
-                  <span className={styles.addCartBtn} onClick={() => {
+          <p className={styles.addCartBtnPara} onClick={() => {
                     setgameName("Watch dogs 2");
                     addGameCartToCart("watch-dogs-2", 1, 500, "Watch dogs 2", "./watch dogs 2 poster.webp");
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  }}>
+                  Add to cart
+                  <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
                   </span>
                 </p>
           </div>
@@ -181,8 +182,8 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       </div>
       <div className={styles.games_body}>
         <div className={styles.topic}>
-          <h1>All Games</h1>
-          <hr />
+          <h1 style={{margin: "0rem"}}>All Games</h1>
+          <hr style={{margin: "0rem"}}/>
         </div>
         <div className={styles.sorting}>
           <div className={styles.length}>
@@ -223,16 +224,16 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                     </span>
                   </div>
                 </Link>
-                <p className={styles.addCartBtnPara}>
-                  Add to cart
-                  <span className={styles.addCartBtn} onClick={() => {
+                <p className={styles.addCartBtnPara} onClick={() => {
                     setgameName(item.attributes.gameName);
                     addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 1300);
-                  }}><AddShoppingCartIcon className={styles.pointer} />
+                  }}>
+                  Add to cart
+                  <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
                   </span>
                 </p>
               </div>

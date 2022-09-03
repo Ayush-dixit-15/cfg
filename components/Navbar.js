@@ -140,7 +140,7 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                                 <DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearProduct()} />
                                 </div>
                                     <p>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeProductFromCart(k,1)}}>-</span>{product[k].qty}<span className={styles.qtyBtn} onClick={()=>{addProductToCart(k,1,product[k].price,product[k].name,product[k].img)}}>+</span></p>
-                                    <span style={{ color: "var(--red)" }}>₹{`${product[k].price * product[k].qty}`}</span>
+                                    <span style={{ color: "var(--red)" }}>{}₹{`${product[k].price * product[k].qty}`}</span>
                                 </div>
                             </div>
                         })}
@@ -206,6 +206,9 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                     </div>
                     <div className={styles.menuLinks} >
                         <ul>
+                            <li>
+                                <Link href="/">Home</Link>
+                            </li>
                             {KYC != null && (
                                 <li>
                                     <Link href={`/${KYC}`}>{KYC}</Link>

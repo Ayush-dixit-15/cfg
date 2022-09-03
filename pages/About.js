@@ -20,6 +20,13 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                 <img src="/1523.jpg" alt="Craving For Gaming" />
 
             </div>
+            <div className="about_info">
+            <h2>About Craving of Gaming</h2>
+            <p>In 2019, three ordinary  college students discussed their shared love for gaming and came up with the idea that built CFG. In the years to follow, with a lot of research, trial n&#39; error, finally launched Craving For Gaming  to share the love of gaming with everyone, at the comfort of their homes.</p>
+            <p>We believe that gaming is much more than a means of pastime. It is a means of expression of art, music, creativity and freedom. Gaming is a unique way to tell stories while being involved in them in real time.</p>
+            <p className="italics">“So here&#39;s to those of you who share this love with us and those who are willing to try something new. Start a new adventure in your living room.”</p>
+            <span>_Team CFG_</span>
+            </div>
             <div className="about_box2">
                 <img src="/2_20220725_221708_0001 1.png" alt="Craving For Gaming" />
 
@@ -42,7 +49,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                         exercitationem nam libero natus incidunt, dolore consectetur praesentium officiis. Ab beatae impedit,
                         voluptatibus id obcaecati explicabo non tempore dicta, nam natus sit voluptatem quis numquam?</p>
                 </div>
-                <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" />
+                <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" height={250} width={250}/>
             </div>
             <Footer/>
         </div>

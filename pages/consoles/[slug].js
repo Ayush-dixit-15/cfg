@@ -63,22 +63,22 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                         <form action="">
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                                <h3>₹{console.attributes.plan1}</h3>
+                                <h3>3 Days plan: ₹{console.attributes.plan1}</h3>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                                <h3>₹{console.attributes.plan2}</h3>
+                                <h3>5 Days plan: ₹{console.attributes.plan2}</h3>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan" onClick={() => { setcount(3) }} />
-                                <h3>₹{console.attributes.plan3}</h3>
+                                <h3>7 Days plan: ₹{console.attributes.plan3}</h3>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan" onClick={() => { setcount(4) }} />
-                                <h3>₹{console.attributes.plan4}</h3>
+                                <h3>14 Days plan: ₹{console.attributes.plan4}</h3>
                             </div>
                             <hr />
                             {count != 0 &&<div className={styles.gamesBtn}>

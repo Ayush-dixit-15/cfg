@@ -56,7 +56,7 @@ const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
             savepic(userObject.picture);
             setuserid(result.user.id);
             saveuserid(result.user.id);
-            router.push(`/`);
+            router.push(`/KYC`);
         }
     }
 

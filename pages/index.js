@@ -13,6 +13,9 @@ import Script from "next/script";
 import { useState, useEffect } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import Footer from "../components/Footer";
+import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
+import SavingsIcon from '@mui/icons-material/Savings';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 
 function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart}) {
@@ -157,27 +160,24 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 </div>
                 <div className={styles.usp}>
                     <div className={styles.usp_item}>
-                        <VerifiedOutlinedIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
+                        <VolunteerActivismIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec quis enim lacus.
+                        At Craving for Gaming, we understand the love and passion you have for video games and also how sometimes it can get a little “over-budget”.
                         </p>
                     </div>
                     <div className={styles.usp_item}>
-                        <AutoAwesomeOutlinedIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
+                        <SavingsIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec quis enim lacus.
+                        CFG provides gaming consoles on rent at Budget friendly rates along with great combos and games from multiple genres
                         </p>
                     </div>
                     <div className={styles.usp_item}>
-                        <SupportAgentOutlinedIcon
+                        <LocalShippingIcon
                             style={{ fontSize: "4rem" }}
                             className={styles.icon}
                         />
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Donec quis enim lacus.
+                        Consoles and games delivered right at your doorstep.
                         </p>
                     </div>
                 </div>

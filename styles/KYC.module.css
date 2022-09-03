@@ -54,6 +54,9 @@
 }
 
 @media only screen and (max-width: 800px){
+    .phone_input{
+        padding: 2rem 1.5rem;
+    }
     .kycInfo{
         text-align: center;
         margin: 2rem !important;
@@ -63,6 +66,7 @@
     }
     .kycAddress{
         margin: 2rem !important;
+        padding: 1.5rem !important;
     }
     .kycAddress2{
         flex-direction: column;

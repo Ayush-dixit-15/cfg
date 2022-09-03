@@ -85,6 +85,9 @@
     .login_dialogue{
         width: 100%;
         font-size: 70%;
+        position: fixed;
+        height: 100%;
+        z-index: 4;
     }
     .login_dialogue input{
         padding: 0.5rem !important;

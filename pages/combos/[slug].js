@@ -83,7 +83,7 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
                         </div>
                         <hr />
                         {count != 0 &&<div className={styles.gamesBtn}>
-                             <p onClick={() => { addComboCartToCart(slug, 1,(eval(`combo.attributes.consolePrice${count}`)+eval(`combo.attributes.gamePrice${count}`)) , combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>Proceed to buy games</p>
+                             <p onClick={() => { addComboCartToCart(slug, 1,(eval(`combo.attributes.consolePrice${count}`)+eval(`combo.attributes.gamePrice${count}`)) , combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>Proceed to Games</p>
                         </div>}
                     </form>
                 </div>

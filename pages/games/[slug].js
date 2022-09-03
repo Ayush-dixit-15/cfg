@@ -71,7 +71,6 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                     }, 2000);
                     setcartStatus("Added to cart");
                     }}>{cartStatus}</button>
-                  <button className="flex ml-auto text-red-500 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-white-600 rounded">View Cart</button>
 
                 </div>
               </div>
