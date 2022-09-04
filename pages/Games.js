@@ -172,7 +172,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             </div>
             <div className={styles.hero_right}>
               <h1>FIFA 20</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui. Sed et malesuada nunc. Suspendisse sit amet ultrices urna, ac pellentesque arcu. Donec fringilla, nunc ut suscipit consequat, felis erat luctus justo, eu commodo dui dui at nunc. Pellentesque egestas vel erat sit amet condimentum. Curabitur et ante arcu.</p>
+              <p>Yet another installment in the FIFA franchise, FIFA 20 brings story mode where you can play as Alex Hunter, a young ambitious park footballer, and guide him to become the most siccessful football star.</p>
               <span>₹500</span>
               <Link href='/games/fifa-20'><button>Buy Now</button></Link>
             </div>
