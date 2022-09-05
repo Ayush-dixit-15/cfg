@@ -89,7 +89,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
 
   return (
     <div><Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'} /><div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }} className={styles.KYC_body}>
         <h3 style={{ color: "var(--red)", margin: "1.5rem 0" }}>KYC</h3>
         <div style={{ display: "flex", alignItems: "center" }}>
           <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
@@ -99,8 +99,8 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
         <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
         <span key={prob} style={{ color: "var(--red)" }}>{prob}</span>
       </div>
-      <form onSubmit={handleSubmit} method="POST">
-        <div className={styles.phone_input}>
+      <form onSubmit={handleSubmit} method="POST" className={styles.KYC_body}>
+        <div className={styles.phone_input} >
           <label htmlFor="phone">Phone Number: <strong style={{ color: "var(--red)" }}>*</strong></label>
           <input value={phone}
             onChange={handleChange}
@@ -155,7 +155,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
                 style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
               />
               <label htmlFor="addressProof"><p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p><p>(Electricity Bill/ Water Bill/ Gas Bill)</p></label>
-              <input type="file" id="addressProof" name="addressProof" accept="image/*" style={{ border: "none" }}></input>
+              <input type="file" id="addressProof" name="addressProof" accept="image/*" style={{ border: "none", outline: "none" }}></input>
             </div>
             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
               <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -198,7 +198,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
                 <p style={{ margin: "0" }}>Identity Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
                 <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
               </label>
-              <input type="file" id="proof" name="proof" accept="image/*" style={{ border: "none" }}></input>
+              <input type="file" id="proof" name="proof" accept="image/*" style={{ border: "none", outline: "none" }}></input>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@ const KycEdit = ({ kycData, product, subTotal, addProductToCart, removeProductFr
           <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-            <input type="file" id="sign" name="sign" accept="image/*" style={{ border: "none" }}></input>
+            <input type="file" id="sign" name="sign" accept="image/*" style={{ border: "none", outline: "none" }}></input>
           </div>
         </div>
         <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>

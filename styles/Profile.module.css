@@ -65,4 +65,10 @@
     .logoutBtn svg{
         height: 0.5rem;
     }
+    .name{
+        font-size: 1rem !important;
+    }
+    .email{
+        font-size: 0.65rem !important;
+    }
 }

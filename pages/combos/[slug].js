@@ -115,6 +115,14 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
                     <img src={combo.attributes.whatsInTheBoxImage5.data.attributes.url}/>
                     <spn>{combo.attributes.whatsInTheBoxText5}</spn>
                 </div>
+                <div className={styles.what}>
+                    <img src={combo.attributes.whatsInTheBoxImage6.data.attributes.url}/>
+                    <spn>{combo.attributes.whatsInTheBoxText6}</spn>
+                </div>
+                <div className={styles.what}>
+                    <img src={combo.attributes.whatsInTheBoxImage7.data.attributes.url}/>
+                    <spn>{combo.attributes.whatsInTheBoxText7}</spn>
+                </div>
             </Carousel>
             <div className={styles.topic}>
                     <h1>Add these: (Optional)</h1>

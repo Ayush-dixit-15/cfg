@@ -151,7 +151,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 key={kycid} Buy={'Buy'} Sell={'Sell'}
             />
             <div>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }} className={styles.KYC_body}>
                     <h3 style={{ color: "var(--red)", margin: "1.5rem 0" }}>KYC</h3>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />

@@ -9,6 +9,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import { useRouter } from 'next/router';
 import avatar from '../public/avatar.png';
 import Footer from '../components/Footer';
+import { style } from '@mui/system';
 
 const Profile = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
@@ -58,8 +59,8 @@ const Profile = ({ product, subTotal, addProductToCart, removeProductFromCart, c
           <pre>            </pre>
         </div>
         <div style={{display:"flex", flexDirection: "column", alignItems: "center"}}>
-          <span style={{fontSize: "2.5rem", textAlign: "center"}}>{name}</span>
-          <span style={{fontSize: "1rem", fontWeight: "100"}}>{email}</span>
+          <span style={{fontSize: "2.5rem", textAlign: "center"}} className={styles.name}>{name}</span>
+          <span style={{fontSize: "1rem", fontWeight: "100"}} className={styles.email}>{email}</span>
         </div>
       </div>
       <Footer/>

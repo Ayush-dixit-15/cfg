@@ -156,7 +156,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                             return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={product[k].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
-                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "8rem"}}>
                                 <Link href={`/consoles/${k}`} ><h3>{product[k].name}</h3></Link>
                                 <DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearProduct()} />
                                 </div>
@@ -169,7 +169,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                             return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={gameCart[key].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
-                                <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
+                                <div style={{ display: "flex", justifyContent: "space-between", width: "8rem"}}>
                                 <Link href={`/games/${key}`} ><h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>{gameCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearGameCart()} /></div>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeGameCartFromCart(key,1)}}>-</span>{gameCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addGameCartToCart(key,1,gameCart[key].price,gameCart[key].name,gameCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${gameCart[key].price * gameCart[key].qty}`}</span>
@@ -181,7 +181,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                                 <img src={comboCart[key].img} width={100} height={100}></img>
 
                                 <div style={{ marginLeft: "1rem" }}>
-                                <div style={{ display: "flex", justifyContent: "space-between", width: "10rem"}}>
+                                <div style={{ display: "flex", justifyContent: "space-between", width: "8rem"}}>
                                 <Link href={`/combos/${key}`} ><h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>{comboCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearComboCart()} /></div>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeComboCartFromCart(key,1)}}>-</span>{comboCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addComboCartToCart(key,1,comboCart[key].price,comboCart[key].name,comboCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${comboCart[key].price * comboCart[key].qty}`}</span>
@@ -192,7 +192,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                             return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={optCart[key].img} width={100} height={100}></img>
                                 <div style={{ marginLeft: "1rem" }}>
-                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart()} /></h3>
+                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "8rem" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart()} /></h3>
                                     <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={()=>{removeOptCartFromCart(key,1)}}>-</span>{optCart[key].qty}<span className={styles.qtyBtn} onClick={()=>{addOptCartToCart(key,1,optCart[key].price,optCart[key].name,optCart[key].img)}}>+</span></p>
                                     <span style={{ color: "var(--red)" }}>₹{`${optCart[key].price * optCart[key].qty}`}</span>
                                 </div>
