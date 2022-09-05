@@ -40,8 +40,8 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
         Signup={"Signup"}
         Buy={'Buy'} Sell={'Sell'}
       />
-      <div className={styles.alert} style={{top: `${top}`}} key={top}>
-        <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif"/>
+      <div className={styles.alert} style={{ top: `${top}` }} key={top}>
+        <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif" />
         <div className={styles.alert_info}>
           <h2>{game.attributes.gameName}</h2>
           <span>Added to cart ✅</span>
@@ -63,15 +63,19 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                 <p className={`leading-relaxed text-white ${styles.gameDetails}`}>{game.attributes.details}</p>
                 <div className="flex" style={{ marginTop: "1.5rem" }}>
                   <span className="title-font font-medium text-2xl text-white">₹{game.attributes.price}</span>
-                  <button style={{ background: "var(--red)" }} className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={() => {
+                  <button style={{ background: "var(--red)" }} className={`flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded ${styles.addToCart}`} onClick={() => {
                     addGameCartToCart(slug, 1, game.attributes.price, game.attributes.gameName, game.attributes.Poster.data.attributes.url);
                     settop("5rem");
                     setTimeout(() => {
                       settop("-100rem");
                     }, 2000);
                     setcartStatus("Added to cart");
-                    }}>{cartStatus}</button>
-
+                  }}>
+                    <div className={styles.cartAnimate}>
+                      <img src={game.attributes.Poster.data.attributes.url}/>
+                    </div>
+                    {cartStatus}
+                  </button>
                 </div>
               </div>
             </div>

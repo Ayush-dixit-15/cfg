@@ -31,6 +31,10 @@
     display: none;
 }
 
+.KYC_body input{
+    padding: 0.5rem !important;
+}
+
 @keyframes rotate {
     0% {
         transform: rotateZ(0deg);

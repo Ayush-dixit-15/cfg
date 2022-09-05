@@ -28,6 +28,11 @@ body input{
   border-radius: 5px;
 }
 
+body input:focus{
+  outline: 2px solid var(--red);
+  border: none;
+}
+
 
 
 #closeBtn {

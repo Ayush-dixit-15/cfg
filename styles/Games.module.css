@@ -328,6 +328,19 @@
   position: relative;
 }
 
+.addToCart{
+  position: relative;
+}
+
+.cartAnimate{
+  /* animation: toCart 5s linear infinite; */
+  position: absolute;
+}
+
+.cartAnimate img{
+  height: 5rem;
+  opacity: 0.5;
+}
 
 @media only screen and (max-width:800px) {
   .games_body {
@@ -491,6 +504,18 @@
   }
   .topic hr{
     margin: 0 2rem;
+  }
+}
+
+@keyframes toCart {
+  0%{
+    left: 0;
+    bottom: 0;
+  }
+
+  100%{
+    left: 110rem;
+    bottom: 30rem;
   }
 }
 
