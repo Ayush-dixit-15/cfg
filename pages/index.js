@@ -80,7 +80,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                                         />
                                         <h2>{item.attributes.title}</h2>
                                         <span>
-                                            From ₹{item.attributes.consolePrice1 + item.attributes.gamesPrice1}/day
+                                            From ₹{item.attributes.consolePrice1}
                                         </span>
                                     </div>
                                 </Link>

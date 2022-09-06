@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from "../../components/Navbar";
 import styles from '../../styles/Checkout.module.css';
 import Link from 'next/link';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+import GamepadIcon from '@mui/icons-material/Gamepad';
 import Footer from '../../components/Footer';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
@@ -108,14 +108,14 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                         <div className={styles.mid}>
                             <h2>Payment Method</h2>
                             <div className={styles.checkout_caution}>
-                                <InfoOutlinedIcon style={{ color: "var(--red)", marginRight: "0.5rem" }} />
+                                <GamepadIcon style={{ color: "var(--red)", marginRight: "0.5rem" }} />
                                 <p>Currently only pay on delivery is available</p>
                             </div>
                         </div>
                         <div className={styles.right}>
                             <h2>Gift cards, Voucher &#38; Promotional codes</h2>
                             <div className={styles.checkout_caution}>
-                                <InfoOutlinedIcon style={{ color: "var(--red)", marginRight: "0.5rem" }} />
+                                <GamepadIcon style={{ color: "var(--red)", marginRight: "0.5rem" }} />
                                 <p>Use code <strong>Welcome6969</strong> to get flat ₹500 off on games</p>
                             </div>
                             <div style={{marginTop: "2rem"}}>

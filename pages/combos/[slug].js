@@ -64,26 +64,16 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
                     <form action="">
                         <div className={styles.plan_item}>
                             <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                            <h3>₹{combo.attributes.consolePrice1} + {combo.attributes.gamesPrice1}</h3>
+                            <h3>7 Days Plan: ₹{combo.attributes.consolePrice1}</h3>
                         </div>
                         <hr />
                         <div className={styles.plan_item}>
                             <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                            <h3>₹{combo.attributes.consolePrice2} + {combo.attributes.gamePrice2}</h3>
+                            <h3>14 Days Plan: ₹{combo.attributes.consolePrice2}</h3>
                         </div>
                         <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={() => { setcount(3) }} />
-                            <h3>₹{combo.attributes.consolePrice3} + {combo.attributes.gamePrice3}</h3>
-                        </div>
-                        <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={() => { setcount(4) }} />
-                            <h3>₹{combo.attributes.consolePrice4} + {combo.attributes.gamePrice4}</h3>
-                        </div>
-                        <hr />
-                        {count != 0 &&<div className={styles.gamesBtn}>
-                             <p onClick={() => { addComboCartToCart(slug, 1,(eval(`combo.attributes.consolePrice${count}`)+eval(`combo.attributes.gamePrice${count}`)) , combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>Proceed to Games</p>
+                        {count != 0 &&<div className={styles.gamesBtn} onClick={() => { addComboCartToCart(slug, 1,(eval(`combo.attributes.consolePrice${count}`)) , combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>
+                             <p >Proceed to KYC</p>
                         </div>}
                     </form>
                 </div>

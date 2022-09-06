@@ -16,6 +16,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 	const [email, setemail] = useState("");
 	const [year, setyear] = useState();
 	const [model, setmodel] = useState("");
+	const [prob, setprob] = useState("");
 	const handleChange = (e) => {
 		if (e.target.name === "name") {
 			setname(e.target.value);
@@ -33,6 +34,22 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 			setmodel(e.target.value);
 		}
 	}
+	const handleSubmit = async (e) => 
+	{
+		e.preventDefault();
+        const data = { data: {name: name, number: number, email: email, year: year, model: model} };
+		let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/sells`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+            },
+            body: JSON.stringify(data),
+        });
+		let response = await res.json();
+        console.log(response);
+	}
 	return (
 		<div className={styles.sell}>
 				<div className={styles.white}>
@@ -42,8 +59,9 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 				<div className={styles.red}>
 					<Image src={redconsole} />
 				</div>
-				<form>
+				<form onSubmit={handleSubmit} method="POST">
 					<h1>Sell your console</h1>
+					<span style={{color: "var(--red)", margin: "2rem 0 1rem 0"}}>Error!</span>
 					<label htmlFor="name">Full Name<strong style={{ color: "var(--red)" }}>*</strong></label>
 					<input
 						value={name}

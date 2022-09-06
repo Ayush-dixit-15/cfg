@@ -81,8 +81,8 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                                 <h3>14 Days plan: ₹{console.attributes.plan4}</h3>
                             </div>
                             <hr />
-                            {count != 0 &&<div className={styles.gamesBtn}>
-                                 <p onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>Proceed to Games</p>
+                            {count != 0 &&<div className={styles.gamesBtn} onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>
+                                 <p >Proceed to Games</p>
                             </div>}
                         </form>
                     </div>
