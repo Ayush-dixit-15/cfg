@@ -56,9 +56,9 @@
 
 .white{
     position: absolute;
-    opacity: 0.5;
+    opacity: 0.3;
     z-index: -1;
-    top: 30rem;
+    top: 20rem;
     right: 5rem;
     transform: rotateZ(25deg);
 }

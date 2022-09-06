@@ -56,8 +56,8 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 </div>
                 <div className={styles.right}>
                     <h2>{console.attributes.title}</h2>
-                    <h4>Details</h4>
-                    <p>{console.attributes.description}</p>
+                    {/* <h4>Details</h4>
+                    <p>{console.attributes.description}</p> */}
                     <div className={styles.plan}>
                         <h2>Choose your plan</h2>
                         <form action="">

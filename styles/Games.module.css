@@ -177,17 +177,17 @@
 }
 
 .hero_left {
-  margin-right: 10rem;
+  margin-right: 4rem;
 }
 
 .hero_left img {
-  height: 17rem;
+  height: 30rem;
   width: 70rem;
   transform: translateY(-10rem);
 }
 
 .hero_right {
-  margin-top: 2.5rem;
+  /* margin-top: 2.5rem; */
   color: var(--white);
 }
 

@@ -158,7 +158,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
-                    <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus accumsan mauris lacinia erat eleifend fermentum. Morbi a convallis dui.</p>
+                    <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>We take these details to establish legitimacy of customer&apos;s identify and to protect our systems from other risk factors.</p>
                     <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">

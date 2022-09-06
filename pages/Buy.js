@@ -5,6 +5,9 @@ import Head from 'next/head';
 import Footer from '../components/Footer';
 import StoreIcon from '@mui/icons-material/Store';
 import { useRouter } from 'next/router';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import SupportIcon from '@mui/icons-material/Support';
 
 const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const [name, setname] = useState("");
@@ -117,6 +120,26 @@ const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clear
           <button type="submit">Buy<StoreIcon style={{ marginLeft: "1rem" }} /></button>
         </form>
       </div>
+      <div className={styles.why}>
+					<h1>Why Buy from Craving For Gaming?</h1>
+					<div className={styles.whyBenefits}>
+						{/* <div className={styles.benefitsItem}>
+							<span><LocalShippingIcon style={{ fontSize: "4rem", color: "var(--red)" }} /></span>
+							<h3>Sell Across India</h3>
+							<p>Reach over 50 crore+ customers across 27000+ pincodes</p>
+						</div> */}
+						<div className={styles.benefitsItem}>
+							<span><AutoGraphIcon style={{ fontSize: "4rem", color: "var(--red)" }} /></span>
+							<h3 style={{textAlign: "center"}}>30 days warranty on the system</h3>
+							<p style={{textAlign: "center"}}>When you buy pre-owned gaming consoles from CFG, you get a neat serviced system along with a 30 days warranty on the system. And all of this at the best possible price in the market!</p>
+						</div>
+						{/* <div className={styles.benefitsItem}>
+							<span><SupportIcon style={{ fontSize: "4rem", color: "var(--red)" }} /></span>
+							<h3>24x7 Seller Support</h3>
+							<p>Reach over 50 crore+ customers across 27000+ pincodes</p>
+						</div> */}
+					</div>
+				</div>
       <Footer />
     </div>
   )

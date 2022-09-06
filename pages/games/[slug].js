@@ -71,9 +71,9 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                     }, 2000);
                     setcartStatus("Added to cart");
                   }}>
-                    <div className={styles.cartAnimate}>
+                    {/* <div className={styles.cartAnimate}>
                       <img src={game.attributes.Poster.data.attributes.url}/>
-                    </div>
+                    </div> */}
                     {cartStatus}
                   </button>
                 </div>
@@ -100,7 +100,8 @@ export async function getServerSideProps(context) {
   }
   let a = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?filters[slug]=" + context.query.slug + "&populate=*", { headers: headers });
   let game = await a.json();
-  let b = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?populate=*", { headers: headers });
+  let b = await fetch("https://murmuring-brushlands-13987.herokuapp.com/api/games?populate=*&pagination[pageSize]=100"
+  , { headers: headers });
   let games = await b.json();
 
   return {
