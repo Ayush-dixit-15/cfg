@@ -106,7 +106,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 					/>
 					<button type="submit">Request Selling<SellIcon style={{ marginLeft: "1rem" }} /></button>
 				</form>
-				<div className={styles.why}>
+				{/* <div className={styles.why}>
 					<h1>Why sell on Craving For Gaming?</h1>
 					<div className={styles.whyBenefits}>
 						<div className={styles.benefitsItem}>
@@ -125,7 +125,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 							<p>Reach over 50 crore+ customers across 27000+ pincodes</p>
 						</div>
 					</div>
-				</div>
+				</div> */}
 			<Footer />
 		</div>
 	)

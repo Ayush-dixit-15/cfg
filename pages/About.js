@@ -28,19 +28,15 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
             <span>_Team CFG_</span>
             </div>
             <div className="about_box2">
-                <img src="/2_20220725_221708_0001 1.png" alt="Craving For Gaming" />
+            <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" height={250} width={250}/>
 
                 <div className="about_p1">
-                    <h3>MISSION</h3>
-                    <p> ipsum dolor sit amet consectetur adipisicing elit. Neque natus quae, iste magnam recusandae dignissimos
-                        ex harum, commodi minima placeat eligendi facere soluta voluptatem ut possimus quaerat fugiat in tempore
-                        et a earum voluptate corporis! Cumque fuga maxime rerum aut totam nesciunt eligendi veniam quasi
-                        voluptas hic expedita doloremque corporis nemo sequi perspiciatis, eos quidem ipsa soluta libero
-                        aspernatur provident dolorum quisquam deserunt. Architecto, facilis.</p>
+                    <h3 style={{fontWeight: "600", fontSize: "1.25rem", marginBottom: "2rem"}}>OUR MISSION</h3>
+                    <p> We have always been to change a consumer's mindset of not spending hefty amount on buying a console, when one can easily rent and get it home delivered for the time period they wish along with the best titles in market at no additional costs!</p>
                 </div>
 
             </div>
-            <div className="about_box3">
+            {/* <div className="about_box3">
                 <div className="about_p2">
                     <h3>VISION</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos quam unde nemo eum. Quaerat natus, eum
@@ -50,7 +46,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                         voluptatibus id obcaecati explicabo non tempore dicta, nam natus sit voluptatem quis numquam?</p>
                 </div>
                 <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" height={250} width={250}/>
-            </div>
+            </div> */}
             <Footer/>
         </div>
     );
