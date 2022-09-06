@@ -32,7 +32,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
 
                 <div className="about_p1">
                     <h3 style={{fontWeight: "600", fontSize: "1.25rem", marginBottom: "2rem"}}>OUR MISSION</h3>
-                    <p> We have always been to change a consumer's mindset of not spending hefty amount on buying a console, when one can easily rent and get it home delivered for the time period they wish along with the best titles in market at no additional costs!</p>
+                    <p> We have always been to change a consumer&apos;s mindset of not spending hefty amount on buying a console, when one can easily rent and get it home delivered for the time period they wish along with the best titles in market at no additional costs!</p>
                 </div>
 
             </div>
