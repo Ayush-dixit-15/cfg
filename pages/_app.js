@@ -131,21 +131,25 @@ function MyApp({ Component, pageProps }) {
     saveOptCart(newProduct);
   }
 
-  const clearProduct = () => {
-    setProduct({});
-    saveProduct({});
+  const clearProduct = (productSlug) => {
+    delete product[productSlug]; 
+    setProduct(product);
+    saveProduct(product);
   }
-  const clearGameCart = () => {
-    setgameCart({});
-    saveGameCart({});
+  const clearGameCart = (productSlug) => {
+    delete gameCart[productSlug]; 
+    setgameCart(gameCart);
+    saveGameCart(gameCart);
   }
-  const clearComboCart = () => {
-    setcomboCart({});
-    saveComboCart({});
+  const clearComboCart = (productSlug) => {
+    delete comboCart[productSlug];
+    setcomboCart(comboCart);
+    saveComboCart(comboCart);
   }
-  const clearOptCart = () => {
-    setoptCart({});
-    saveOptCart({});
+  const clearOptCart = (productSlug) => {
+    delete optCart[productSlug];
+    setoptCart(optCart);
+    saveOptCart(optCart);
   }
 
   const removeProductFromCart = (productSlug, qty, price, name, img) => {

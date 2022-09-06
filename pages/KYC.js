@@ -41,6 +41,37 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const [userid, setuserid] = useState();
     const [kycid, setkycid] = useState(0);
 
+    const saveuserid = (items) => {
+        localStorage.setItem("userid", JSON.stringify(items));
+    };
+    const savekycid = (items) => {
+        localStorage.setItem("kycid", JSON.stringify(items));
+    };
+    const savehouseno = (items) => {
+        sessionStorage.setItem("houseno", JSON.stringify(items));
+    };
+    const savearea = (items) => {
+        sessionStorage.setItem("area", JSON.stringify(items));
+    };
+    const savelandmark = (items) => {
+        sessionStorage.setItem("landmark", JSON.stringify(items));
+    };
+    const savecity = (items) => {
+        sessionStorage.setItem("city", JSON.stringify(items));
+    };
+    const savestate = (items) => {
+        sessionStorage.setItem("state", JSON.stringify(items));
+    };
+    const savepincode = (items) => {
+        sessionStorage.setItem("pincode", JSON.stringify(items));
+    };
+    const savephone = (items) => {
+        sessionStorage.setItem("phone", JSON.stringify(items));
+    };
+    const saveselfie = (items) => {
+        sessionStorage.setItem("selfie", JSON.stringify(items));
+    };
+
     const handleChange = (e) => {
         if (e.target.name === "houseno") {
             sethouseno(e.target.value);
@@ -68,12 +99,6 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             setbill(e.target.files[0].name);
         }
     };
-    const saveuserid = (items) => {
-        localStorage.setItem("userid", JSON.stringify(items));
-    };
-    const savekycid = (items) => {
-        localStorage.setItem("kycid", JSON.stringify(items));
-    };
 
     useEffect(() => {
         try {
@@ -86,7 +111,6 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 var checkKyc = kycData.data.filter((item) => {
                     return item.attributes.user.data.id === userid;
                 });
-                console.log(checkKyc);
                 if (checkKyc.length != 0) {
                     router.push(`/kyc/${checkKyc[0].id}`);
                     localStorage.setItem("kycid", JSON.stringify(checkKyc[0].id));
@@ -99,6 +123,40 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             else {
                 localStorage.setItem("kycid", JSON.stringify(kycid));
             }
+            if (sessionStorage.getItem("houseno")) {
+                sethouseno(JSON.parse(sessionStorage.getItem("houseno")));
+                savehouseno(JSON.parse(sessionStorage.getItem("houseno")));
+                console.log(JSON.parse(sessionStorage.getItem("houseno")));
+                console.log("heyy");
+            }
+            if (sessionStorage.getItem("area")) {
+                setarea(JSON.parse(sessionStorage.getItem("area")));
+                savearea(JSON.parse(sessionStorage.getItem("area")));
+            }
+            if (sessionStorage.getItem("landmark")) {
+                setlandmark(JSON.parse(sessionStorage.getItem("landmark")));
+                savelandmark(JSON.parse(sessionStorage.getItem("landmark")));
+            }
+            if (sessionStorage.getItem("city")) {
+                setcity(JSON.parse(sessionStorage.getItem("city")));
+                savecity(JSON.parse(sessionStorage.getItem("city")));
+            }
+            if (sessionStorage.getItem("state")) {
+                setstate(JSON.parse(sessionStorage.getItem("state")));
+                savestate(JSON.parse(sessionStorage.getItem("state")));
+            }
+            if (sessionStorage.getItem("pincode")) {
+                setpincode(JSON.parse(sessionStorage.getItem("pincode")));
+                savepincode(JSON.parse(sessionStorage.getItem("pincode")));
+            }
+            if (sessionStorage.getItem("phone")) {
+                setphone(JSON.parse(sessionStorage.getItem("phone")));
+                savephone(JSON.parse(sessionStorage.getItem("phone")));
+            }
+            if (sessionStorage.getItem("selfie")) {
+                setselfie(JSON.parse(sessionStorage.getItem("selfie")));
+                saveselfie(JSON.parse(sessionStorage.getItem("selfie")));
+            }
         } catch (error) {
             console.log(error);
         }
@@ -107,7 +165,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid} };
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid } };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -119,17 +177,26 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
         });
         let response = await res.json();
         console.log(response);
-        if(response.error)
-        {
+        if (response.error) {
             console.log(response.error.message);
             setprob(response.error.message);
         }
-        else
-        {
+        else {
             setkycid(response.data.id);
             savekycid(response.data.id);
             router.push(`/kyc/${response.data.id}`);
         }
+    }
+    const sessionCall = () => {
+        sessionStorage.setItem("houseno", JSON.stringify(houseno));
+        sessionStorage.setItem("area", JSON.stringify(area));
+        sessionStorage.setItem("landmark", JSON.stringify(landmark));
+        sessionStorage.setItem("city", JSON.stringify(city));
+        sessionStorage.setItem("state", JSON.stringify(state));
+        sessionStorage.setItem("pincode", JSON.stringify(pincode));
+        sessionStorage.setItem("phone", JSON.stringify(phone));
+        sessionStorage.setItem("selfie", JSON.stringify(selfie));
+        router.push("/Tnc");
     }
     return (
         <>
@@ -159,7 +226,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                     </div>
                     <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>We take these details to establish legitimacy of customer&apos;s identify and to protect our systems from other risk factors.</p>
-                    <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
+                    <span key={prob} style={{ color: "var(--red)" }}>{prob}</span>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">
                     <div className={styles.phone_input}>
@@ -220,7 +287,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     <p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Electricity Bill/ Water Bill/ Gas Bill)</p>
                                 </label>
-                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
+                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{ border: "none" }}></input>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -257,13 +324,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="pincode"
                                     autoComplete="pincode"
                                     required
-                                    style={{marginBottom: "1.5rem",  padding: "0 0.5rem" }}
+                                    style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
                                 />
                                 <label htmlFor="proof">
                                     <p style={{ margin: "0" }}>Identity Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
                                 </label>
-                                <input type="file" id="proof" name="proof" accept="image/*" style={{border: "none"}}></input>
+                                <input type="file" id="proof" name="proof" accept="image/*" style={{ border: "none" }}></input>
                             </div>
                         </div>
                     </div>
@@ -283,12 +350,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{border: "none"}}></input>
+                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{ border: "none" }}></input>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
-                        <input type="checkbox" required style={{marginRight: "1rem"}}/>
-                        I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming
+                        <input type="checkbox" required style={{ marginRight: "1rem" }} />
+                        {/* I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming */}
+                        I have read the <span style={{ color: "blue", cursor: "pointer" }} onClick={() => sessionCall()}>Terms &#38; Conditions</span> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
@@ -309,7 +377,7 @@ export async function getServerSideProps(context) {
     // console.log(process.env.NEXT_PUBLIC_STRAPI_URL);
     // let url =process.env.NEXT_PUBLIC_STRAPI_URL+"/api/products?populate=*";
     let data = await fetch(
-        process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/kycs?populate=*`,
+        process.env.NEXT_PUBLIC_STRAPI_HOST + `/api/kycs?populate=*&pagination[pageSize]=100`,
         {
             headers: headers,
         }
