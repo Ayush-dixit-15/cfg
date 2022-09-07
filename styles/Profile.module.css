@@ -61,6 +61,7 @@
         margin-top: 1rem;
         font-size: 0.5rem;
         display: flex;
+        align-items: center;
     }
     .logoutBtn svg{
         height: 0.5rem;

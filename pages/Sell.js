@@ -9,6 +9,7 @@ import SellIcon from '@mui/icons-material/Sell';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import SupportIcon from '@mui/icons-material/Support';
+import { Router, useRouter } from 'next/router';
 
 const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
 	const [name, setname] = useState("");
@@ -17,6 +18,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 	const [year, setyear] = useState();
 	const [model, setmodel] = useState("");
 	const [prob, setprob] = useState("");
+	const router = useRouter();
 	const handleChange = (e) => {
 		if (e.target.name === "name") {
 			setname(e.target.value);
@@ -49,6 +51,14 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
         });
 		let response = await res.json();
         console.log(response);
+		if(response.error){
+            console.log(response.error.message);
+            setprob(response.error.message);
+        }
+		else
+		{
+			router.push('/Submitted');
+		}
 	}
 	return (
 		<div className={styles.sell}>
@@ -61,7 +71,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 				</div>
 				<form onSubmit={handleSubmit} method="POST">
 					<h1>Sell your console</h1>
-					<span style={{color: "var(--red)", margin: "2rem 0 1rem 0"}}>Error!</span>
+					<span key={prob} style={{color: "var(--red)", margin: "2rem 0 1rem 0"}}>{prob}</span>
 					<label htmlFor="name">Full Name<strong style={{ color: "var(--red)" }}>*</strong></label>
 					<input
 						value={name}
