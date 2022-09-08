@@ -90,6 +90,30 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             </div>
             <div className={styles.margining}>
             <div className={styles.topic}>
+                    <h1>Add these: (Optional)</h1>
+                    <hr />
+                </div>
+            <div className={styles.optional}>
+                <div className={styles.left}>
+                    <Image src={controller}></Image>
+                </div>
+                <div className={styles.right}>
+                    <h2>Extra PS4 Controller</h2>
+                    <p style={{color: "var(--red)"}}>₹ 100</p>
+                    <div className={styles.add_sub}>
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon onClick={()=>{
+                            removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                        }}/></button>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon/></button>}
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
+                        <button style={{color: "var(--red)", borderLeft: "1px solid var(--red)"}} onClick={()=>{
+                            addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                        }}><AddIcon/></button>
+                    </div>
+                </div>
+            </div>
+            <div className={styles.topic}>
                     <h1>What&apos;s in the Box?</h1>
                     <hr />
                 </div>
@@ -115,30 +139,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                     <span>{console.attributes.whatsInTheBoxText5}</span>
                 </div>
             </Carousel>
-            <div className={styles.topic}>
-                    <h1>Add these: (Optional)</h1>
-                    <hr />
-                </div>
-            <div className={styles.optional}>
-                <div className={styles.left}>
-                    <Image src={controller}></Image>
-                </div>
-                <div className={styles.right}>
-                    <h2>Extra PS4 Controller</h2>
-                    <p style={{color: "var(--red)"}}>₹ 100</p>
-                    <div className={styles.add_sub}>
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon onClick={()=>{
-                            removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}/></button>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon/></button>}
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
-                        <button style={{color: "var(--red)", borderLeft: "1px solid var(--red)"}} onClick={()=>{
-                            addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}><AddIcon/></button>
-                    </div>
-                </div>
-            </div>
+            
             <div className={styles.topic}>
                     <h1>Frequently Asked Questions</h1>
                     <hr />

@@ -40,7 +40,7 @@ const Combo = ({ combo, product, subTotal, addProductToCart, removeProductFromCa
                 <div className={styles.left}>
                     <img src={combo.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>
-                        <img src={combo.attributes.extraImage1.data.attributes.url} alt="" />
+                        <img src={combo.attributes.extraImage1.data.attributes.url} alt="" style={{width: "30%"}}/>
                         <img src={combo.attributes.extraImage2.data.attributes.url} alt="" />
                         <img src={combo.attributes.extraImage3.data.attributes.url} alt="" />
                     </div>
