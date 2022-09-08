@@ -63,13 +63,13 @@ const Combo = ({ combo, product, subTotal, addProductToCart, removeProductFromCa
                         <h2>Choose your plan</h2>
                         <form action="">
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                                <h3>7 Days Plan: ₹{combo.attributes.consolePrice1}</h3>
+                                <input type="radio" name="plan" id="plan1" onClick={() => { setcount(1) }} />
+                                <label htmlFor='plan1' style={{cursor: "pointer"}}><h3>7 Days Plan: ₹{combo.attributes.consolePrice1}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                                <h3>14 Days Plan: ₹{combo.attributes.consolePrice2}</h3>
+                                <input type="radio" name="plan" id="plan2" onClick={() => { setcount(2) }} />
+                                <label htmlFor='plan2' style={{cursor: "pointer"}}><h3>14 Days Plan: ₹{combo.attributes.consolePrice2}</h3></label>
                             </div>
                             <hr />
                             {count != 0 && <div className={styles.gamesBtn} onClick={() => { addComboCartToCart(slug, 1, (eval(`combo.attributes.consolePrice${count}`)), combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>
