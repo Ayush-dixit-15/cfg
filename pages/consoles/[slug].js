@@ -62,23 +62,23 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                         <h2>Choose your plan</h2>
                         <form action="">
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                                <h3>3 Days plan: ₹{console.attributes.plan1}</h3>
+                                <input type="radio" name="plan" id="plan1" onClick={() => { setcount(1) }} />
+                                <label htmlFor="plan1" style={{cursor: "pointer"}}><h3>3 Days plan: ₹{console.attributes.plan1}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                                <h3>5 Days plan: ₹{console.attributes.plan2}</h3>
+                                <input type="radio" name="plan" id="plan2" onClick={() => { setcount(2) }} />
+                                <label htmlFor="plan2" style={{cursor: "pointer"}}><h3>5 Days plan: ₹{console.attributes.plan2}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(3) }} />
-                                <h3>7 Days plan: ₹{console.attributes.plan3}</h3>
+                                <input type="radio" name="plan" id="plan3" onClick={() => { setcount(3) }} />
+                                <label htmlFor="plan3" style={{cursor: "pointer"}}><h3>7 Days plan: ₹{console.attributes.plan3}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(4) }} />
-                                <h3>14 Days plan: ₹{console.attributes.plan4}</h3>
+                                <input type="radio" name="plan" id="plan4" onClick={() => { setcount(4) }} />
+                                <label htmlFor="plan4" style={{cursor: "pointer"}}><h3>14 Days plan: ₹{console.attributes.plan4}</h3></label>
                             </div>
                             <hr />
                             {count != 0 &&<div className={styles.gamesBtn} onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>
@@ -89,6 +89,30 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 </div>
             </div>
             <div className={styles.margining}>
+            <div className={styles.topic}>
+                    <h1>Add these: (Optional)</h1>
+                    <hr />
+                </div>
+            <div className={styles.optional}>
+                <div className={styles.left}>
+                    <Image src={controller}></Image>
+                </div>
+                <div className={styles.right}>
+                    <h2>Extra PS4 Controller</h2>
+                    <p style={{color: "var(--red)"}}>₹ 100</p>
+                    <div className={styles.add_sub}>
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon onClick={()=>{
+                            removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                        }}/></button>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)", borderRight: "1px solid var(--red)"}}><RemoveIcon/></button>}
+                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
+                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
+                        <button style={{color: "var(--red)", borderLeft: "1px solid var(--red)"}} onClick={()=>{
+                            addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                        }}><AddIcon/></button>
+                    </div>
+                </div>
+            </div>
             <div className={styles.topic}>
                     <h1>What&apos;s in the Box?</h1>
                     <hr />
@@ -115,30 +139,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                     <span>{console.attributes.whatsInTheBoxText5}</span>
                 </div>
             </Carousel>
-            <div className={styles.topic}>
-                    <h1>Add these: (Optional)</h1>
-                    <hr />
-                </div>
-            <div className={styles.optional}>
-                <div className={styles.left}>
-                    <Image src={controller}></Image>
-                </div>
-                <div className={styles.right}>
-                    <h2>Extra PS4 Controller</h2>
-                    <p style={{color: "var(--red)"}}>₹ 100</p>
-                    <div className={styles.add_sub}>
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)"}}><RemoveIcon onClick={()=>{
-                            removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}/></button>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)"}}><RemoveIcon/></button>}
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
-                        <button style={{color: "var(--red)"}} onClick={()=>{
-                            addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}><AddIcon/></button>
-                    </div>
-                </div>
-            </div>
+            
             <div className={styles.topic}>
                     <h1>Frequently Asked Questions</h1>
                     <hr />

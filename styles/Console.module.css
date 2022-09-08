@@ -150,8 +150,8 @@
     width: 15px;
     height: 15px;
     border-radius: 15px;
-    top: -2px;
-    left: -1px;
+    top: -4px;
+    left: 0px;
     position: relative;
     /* background-color: #d1d3d1; */
     content: '';
@@ -176,6 +176,11 @@
     display: inline-block;
     visibility: visible;
     /* border: 2px solid white; */
+}
+
+.plan input[type='radio']{
+    border: none;
+    outline: none;
 }
 
 .margining{
@@ -217,16 +222,20 @@
 
 .optional .right .add_sub{
     border: 1px solid var(--red);
-    display: inline;
-    width: 100%;
+    display: inline-block;
+    /* width: 100%; */
     height: 100%;
-    padding: 0.25rem 0;
+    /* padding: 0.25rem 0; */
 }
 
-.optional .right .add_sub button{
+.minus{
+    border-left: 1px solid var(--red) !important;
+}
+
+/* .optional .right .add_sub button{
     border: 1px solid var(--red);
     padding: 0;
-}
+} */
 
 .optional .right .add_sub span{
     margin: 0 1rem;

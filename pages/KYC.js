@@ -219,7 +219,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             />
             <div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }} className={styles.KYC_body}>
-                    <h3 style={{ color: "var(--red)", margin: "1.5rem 0" }}>KYC</h3>
+                    <h3 style={{ color: "var(--red)", margin: "1.5rem 0", fontSize: "2rem" }}>KYC</h3>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
                         <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
@@ -239,7 +239,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             name="phone"
                             autoComplete="phone"
                             required
-                            style={{ padding: "0 0.5rem" }} />
+                            style={{ padding: "0.5rem" }} />
                     </div>
                     <div className={styles.kycAddress} style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
@@ -258,7 +258,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="houseno"
                                     autoComplete="houseno"
                                     required
-                                    style={{ padding: "0 0.5rem" }}
+                                    style={{ padding: "0.5rem" }}
                                 />
                                 <label htmlFor="landmark" style={{ marginTop: "1.5rem" }}>Landmark:</label>
                                 <input
@@ -269,7 +269,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     id="landmark"
                                     name="landmark"
                                     autoComplete="landmark"
-                                    style={{ padding: "0 0.5rem" }}
+                                    style={{ padding: "0.5rem" }}
                                 />
                                 <label htmlFor="state" style={{ marginTop: "1.5rem" }}>State: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
@@ -281,7 +281,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="state"
                                     autoComplete="state"
                                     required
-                                    style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
+                                    style={{ marginBottom: "1.5rem", padding: "0.5rem" }}
                                 />
                                 <label htmlFor="bill">
                                     <p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
@@ -300,7 +300,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="area"
                                     autoComplete="area"
                                     required
-                                    style={{ padding: "0 0.5rem" }}
+                                    style={{ padding: "0.5rem" }}
                                 />
                                 <label htmlFor="city" style={{ marginTop: "1.5rem" }}>Town/City: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
@@ -312,7 +312,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="city"
                                     autoComplete="city"
                                     required
-                                    style={{ padding: "0 0.5rem" }}
+                                    style={{ padding: "0.5rem" }}
                                 />
                                 <label htmlFor="pincode" style={{ marginTop: "1.5rem" }}>Pincode: <strong style={{ color: "var(--red)" }}>*</strong></label>
                                 <input
@@ -324,7 +324,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     name="pincode"
                                     autoComplete="pincode"
                                     required
-                                    style={{ marginBottom: "1.5rem", padding: "0 0.5rem" }}
+                                    style={{ marginBottom: "1.5rem", padding: "0.5rem" }}
                                 />
                                 <label htmlFor="proof">
                                     <p style={{ margin: "0" }}>Identity Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>

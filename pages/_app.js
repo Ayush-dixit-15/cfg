@@ -196,11 +196,29 @@ function MyApp({ Component, pageProps }) {
     setoptCart(newProduct);
     saveOptCart(newProduct);
   }
+//   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"></script>
+// <script>
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-K48YYQ1Z1G');
+// </script>
   return (
     <>
       <Head>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
       </Head>
+      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"/>
+      <Script strategy="lazyOnload" id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-K48YYQ1Z1G');
+        `}
+      </Script>
       <LoadingBar
       color='#FF0000'
       waitingTime={400}

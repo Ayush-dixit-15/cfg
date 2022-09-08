@@ -55,7 +55,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
-                <div className={styles.topic}>
+                <div className={styles.topic} id="combo">
                     <h1>Our Combos</h1>
                     <span>
                         Sanitised, best quality products at affordable rental
@@ -119,7 +119,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         <SearchIcon style={{margin: "0.5rem"}}/>
                     </div>
                 </div>
-                <div className={styles.grid}>
+                <div className={styles.grid}  id="usp">
                     {products.data.filter((val) => {
                         if (query === "") {
                             return val;
@@ -168,8 +168,11 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                     <div className={styles.usp_item}>
                         <SavingsIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
                         <p>
-                        CFG provides gaming consoles on rent at Budget friendly rates along with great combos and games from multiple genres
+                        Budget friendly rates 
                         </p>
+                        {/* <p>
+                        CFG provides gaming consoles on rent at Budget friendly rates along with great combos and games from multiple genres
+                        </p> */}
                     </div>
                     <div className={styles.usp_item}>
                         <LocalShippingIcon
@@ -177,7 +180,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                             className={styles.icon}
                         />
                         <p>
-                        Consoles and games delivered right at your doorstep.
+                        Home Delivery
                         </p>
                     </div>
                 </div>

@@ -5,7 +5,9 @@ import styles from "../../styles/Games.module.css";
 import Link from 'next/link'
 import Footer from '../../components/Footer';
 import GamesCarousel from '../../components/GamesCarousel';
-import VerifiedIcon from '@mui/icons-material/Verified';
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
   const router = useRouter();
@@ -13,6 +15,14 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
   const [cartStatus, setcartStatus] = useState("Add to cart");
   const [kycid, setkycid] = useState(0);
   const [top, settop] = useState("-100rem");
+  const [showcart, setshowcart] = useState("translateX(100rem)");
+  const toggleCart = () => {
+    if (showcart === "translateX(0)") {
+        setshowcart("translateX(100rem)");
+    } else {
+        setshowcart("translateX(0)");
+    }
+}
   const savekycid = (items) => {
     localStorage.setItem("kycid", JSON.stringify(items));
   };
@@ -76,6 +86,142 @@ const Slug = ({ game, product, subTotal, games, addProductToCart, removeProductF
                     </div> */}
                     {cartStatus}
                   </button>
+                  <button onClick={() => toggleCart()} className={`flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded ${styles.addToCart}`}>
+                    View Cart
+                  </button>
+                  <div className={styles.cart} style={{ transform: `${showcart}` }}>
+                    <div className={styles.cart_head}>
+                        <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
+                        <span className={styles.cart_title}>Your Cart</span>
+                        <span className={styles.cart_itemno}>({Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length} items)</span>
+                        {Object.keys(product).map((k) => {
+                            return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={product[k].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/consoles/${k}`} ><h3 style={{ fontWeight: "600", cursor: "pointer" }}>{product[k].name}</h3></Link>
+                                        <DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearProduct(k)} />
+                                    </div>
+                                    <p>Quantity: <span className={styles.qtyBtn} onClick={() => { removeProductFromCart(k, 1) }}>-</span>{product[k].qty}<span className={styles.qtyBtn} onClick={() => { addProductToCart(k, 1, product[k].price, product[k].name, product[k].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>{ }₹{`${product[k].price * product[k].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(gameCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={gameCart[key].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/games/${key}`} ><h3 style={{ fontWeight: "600", cursor: "pointer" }}>{gameCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearGameCart(key)} /></div>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeGameCartFromCart(key, 1) }}>-</span>{gameCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addGameCartToCart(key, 1, gameCart[key].price, gameCart[key].name, gameCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${gameCart[key].price * gameCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(comboCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={comboCart[key].img} width={100} height={100}></img>
+
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/combos/${key}`} ><h3 style={{ fontWeight: "600", cursor: "pointer" }}>{comboCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearComboCart(key)} /></div>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeComboCartFromCart(key, 1) }}>-</span>{comboCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addComboCartToCart(key, 1, comboCart[key].price, comboCart[key].name, comboCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${comboCart[key].price * comboCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(optCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={optCart[key].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem", fontWeight: "600", cursor: "pointer" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart(key)} /></h3>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeOptCartFromCart(key, 1) }}>-</span>{optCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addOptCartToCart(key, 1, optCart[key].price, optCart[key].name, optCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${optCart[key].price * optCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                    </div>
+                    {Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length === 0 && <div className={styles.cartEmpty}>
+                        <ProductionQuantityLimitsIcon style={{ fontSize: "8rem", color: "var(--red)" }} />
+                        <span>Your cart is Empty</span>
+                    </div>}
+                    {(subTotal == 0 || comboTotal == 0) && <div>
+                        {/* <p>abcd</p>     */}
+                    </div>}
+                    {(subTotal != 0 || comboTotal != 0) && <div className={styles.checkout}>
+                        <hr />
+                        <div className={styles.subtotal}>
+                            <span>Subtotal: </span>
+                            <span>₹{subTotal + gameTotal + comboTotal + optTotal}</span>
+                        </div>
+                        <Link href="/KYC"><button>Proceed to KYC</button></Link>
+                    </div>}
+                </div>
+                <div className={styles.phoneCart} style={{ transform: `${showcart}` }}>
+                    <div className={styles.cart_head}>
+                        <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
+                        <span className={styles.cart_title}>Your Cart</span>
+                        <span className={styles.cart_itemno}>({Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length} items)</span>
+                        {Object.keys(product).map((k) => {
+                            return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={product[k].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/consoles/${k}`} ><h3 style={{ fontWeight: "600" }}>{product[k].name}</h3></Link>
+                                        <DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearProduct(k)} />
+                                    </div>
+                                    <p>Quantity: <span className={styles.qtyBtn} onClick={() => { removeProductFromCart(k, 1) }}>-</span>{product[k].qty}<span className={styles.qtyBtn} onClick={() => { addProductToCart(k, 1, product[k].price, product[k].name, product[k].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${product[k].price * product[k].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(gameCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={gameCart[key].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/games/${key}`} ><h3 style={{ fontWeight: "600" }}>{gameCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearGameCart(key)} /></div>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeGameCartFromCart(key, 1) }}>-</span>{gameCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addGameCartToCart(key, 1, gameCart[key].price, gameCart[key].name, gameCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${gameCart[key].price * gameCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(comboCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={comboCart[key].img} width={100} height={100}></img>
+
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <div style={{ display: "flex", justifyContent: "space-between", width: "10rem" }}>
+                                        <Link href={`/combos/${key}`} ><h3 style={{ fontWeight: "600" }}>{comboCart[key].name}</h3></Link><DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearComboCart(key)} /></div>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeComboCartFromCart(key, 1) }}>-</span>{comboCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addComboCartToCart(key, 1, comboCart[key].price, comboCart[key].name, comboCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${comboCart[key].price * comboCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                        {Object.keys(optCart).map((key) => {
+                            return <div key={key} style={{ display: "flex", margin: "1rem 2rem" }}>
+                                <img src={optCart[key].img} width={100} height={100}></img>
+                                <div style={{ marginLeft: "1rem" }}>
+                                    <h3 style={{ display: "flex", justifyContent: "space-between", width: "10rem", fontWeight: "600" }}>{optCart[key].name}<DeleteForeverIcon style={{ color: 'var(--red)' }} onClick={() => clearOptCart(key)} /></h3>
+                                    <p className={styles.cartQtyAmt}>Quantity: <span className={styles.qtyBtn} onClick={() => { removeOptCartFromCart(key, 1) }}>-</span>{optCart[key].qty}<span className={styles.qtyBtn} onClick={() => { addOptCartToCart(key, 1, optCart[key].price, optCart[key].name, optCart[key].img) }}>+</span></p>
+                                    <span style={{ color: "var(--red)" }}>₹{`${optCart[key].price * optCart[key].qty}`}</span>
+                                </div>
+                            </div>
+                        })}
+                    </div>
+                    {Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length === 0 && <div className={styles.cartEmpty}>
+                        <ProductionQuantityLimitsIcon style={{ fontSize: "8rem", color: "var(--red)" }} />
+                        <span>Your cart is Empty</span>
+                    </div>}
+                    {(subTotal != 0 || comboTotal != 0) && <div className={styles.checkout}>
+                        <hr />
+                        <div className={styles.subtotal}>
+                            <span>Subtotal: </span>
+                            <span>₹{subTotal + gameTotal + comboTotal + optTotal}</span>
+                        </div>
+                        <Link href="/KYC"><button>Proceed to KYC</button></Link>
+                    </div>}
+                </div>
                 </div>
               </div>
             </div>

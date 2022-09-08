@@ -15,8 +15,8 @@
    text-align: center;
    position: absolute;
    top: 25%;
-   left: 25%;
-   font-family: 'Yellowtail', cursive;
+   left: 19%;
+   /* font-family: 'Yellowtail', cursive; */
    color: white;
    font-size: 9vw;
    }
@@ -37,11 +37,11 @@
     padding-left: 20px;
     /* padding-right: 100px; */
     padding-bottom: 60px;
-    margin-right: 100px;
+    /* margin-right: 100px; */
     width: 33vw;
    }
    .contact_right{
-       background-color: #f6f6f6;
+       /* background-color: #f6f6f6; */
        display: flex;
     flex-direction: column;
     justify-content: flex-end;

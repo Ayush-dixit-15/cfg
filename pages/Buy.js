@@ -30,10 +30,10 @@ const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clear
       setmodel(e.target.value);
     }
   }
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name: name, number: number, email: email, model: model };
-    let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local`, {
+    const data = { data: {name: name, number: number, email: email, console: model} };
+    let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/buys`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

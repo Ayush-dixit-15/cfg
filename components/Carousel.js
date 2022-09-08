@@ -6,6 +6,7 @@ import carousel2 from "../public/carousel2.png";
 import carousel3 from "../public/carousel3.png";
 import styles from '../styles/Carousel.module.css';
 import Script from "next/script";
+import Link from "next/link";
 
 const Carousel = () => {
     return (
@@ -27,6 +28,7 @@ const Carousel = () => {
                 id="carouselExampleIndicators"
                 className={`carousel slide ${styles.carousel}`}
                 data-bs-ride="true"
+                style={{cursor: "pointer"}}
             >
                 <div className={`carousel-indicators ${styles.carousel_indicators}`}>
                     <button
@@ -50,16 +52,22 @@ const Carousel = () => {
                         aria-label="Slide 3"
                     ></button>
                 </div>
-                <div className={`carousel-inner ${styles.carousel_inner}`}>
+                <div className={`carousel-inner ${styles.carousel_inner}`} style={{cursor: "pointer"}}>
+                    <Link href="/consoles/sony-play-station-4" style={{cursor: "pointer"}}>
                     <div className={`carousel-item active ${styles.carousel_item}`}>
                         <Image src={carousel1} />
                     </div>
+                    </Link>
+                    <Link href="#usp" style={{cursor: "pointer"}}>
                     <div className="carousel-item">
                         <Image src={carousel2} />
                     </div>
+                    </Link>
+                    <Link href="/consoles/sony-play-station-4" style={{cursor: "pointer"}}>
                     <div className="carousel-item">
                         <Image src={carousel3} />
                     </div>
+                    </Link>
                 </div>
                 <button
                     className="carousel-control-prev"

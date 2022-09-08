@@ -3,6 +3,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import styles from '../styles/Submit.module.css';
 
 const Submitted = () => {
+  
   return (
     <div className={styles.submit}>
         <span>
