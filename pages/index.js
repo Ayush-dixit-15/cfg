@@ -55,7 +55,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
             <Carousel />
             {/* <span>{myarr}</span> */}
             <div className={styles.main}>
-                <div className={styles.topic}>
+                <div className={styles.topic} id="combo">
                     <h1>Our Combos</h1>
                     <span>
                         Sanitised, best quality products at affordable rental

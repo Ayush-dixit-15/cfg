@@ -74,6 +74,9 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                             <Image src={logo} className="cursor-pointer" />
                         </Link>
                         <ul>
+                            <li>
+                                <Link href="/#combo">Combos</Link>
+                            </li>
                             {KYC != null && (
                                 <li>
                                     <Link href={`/${KYC}`}>{KYC}</Link>
@@ -208,6 +211,9 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                         <ul>
                             <li>
                                 <Link href="/">Home</Link>
+                            </li>
+                            <li>
+                                <Link href="/#combo">Combos</Link>
                             </li>
                             {KYC != null && (
                                 <li>

@@ -62,23 +62,23 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                         <h2>Choose your plan</h2>
                         <form action="">
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                                <h3>3 Days plan: ₹{console.attributes.plan1}</h3>
+                                <input type="radio" name="plan" id="plan1" onClick={() => { setcount(1) }} />
+                                <label htmlFor="plan1" style={{cursor: "pointer"}}><h3>3 Days plan: ₹{console.attributes.plan1}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                                <h3>5 Days plan: ₹{console.attributes.plan2}</h3>
+                                <input type="radio" name="plan" id="plan2" onClick={() => { setcount(2) }} />
+                                <label htmlFor="plan2" style={{cursor: "pointer"}}><h3>5 Days plan: ₹{console.attributes.plan2}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(3) }} />
-                                <h3>7 Days plan: ₹{console.attributes.plan3}</h3>
+                                <input type="radio" name="plan" id="plan3" onClick={() => { setcount(3) }} />
+                                <label htmlFor="plan3" style={{cursor: "pointer"}}><h3>7 Days plan: ₹{console.attributes.plan3}</h3></label>
                             </div>
                             <hr />
                             <div className={styles.plan_item}>
-                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(4) }} />
-                                <h3>14 Days plan: ₹{console.attributes.plan4}</h3>
+                                <input type="radio" name="plan" id="plan4" onClick={() => { setcount(4) }} />
+                                <label htmlFor="plan4" style={{cursor: "pointer"}}><h3>14 Days plan: ₹{console.attributes.plan4}</h3></label>
                             </div>
                             <hr />
                             {count != 0 &&<div className={styles.gamesBtn} onClick={() => { addProductToCart(slug, 1, eval(`console.attributes.plan${count}`), console.attributes.title, console.attributes.mainImage.data.attributes.url) }}>
