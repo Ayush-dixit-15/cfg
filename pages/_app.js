@@ -210,7 +210,7 @@ function MyApp({ Component, pageProps }) {
         <script src="https://accounts.google.com/gsi/client" async defer></script>
       </Head>
       <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"/>
-      <Script strategy="lazyOnload" >
+      <Script strategy="lazyOnload" id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
