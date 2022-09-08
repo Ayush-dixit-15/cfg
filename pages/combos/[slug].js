@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 import styles from "../../styles/Console.module.css";
@@ -12,9 +12,9 @@ import controller from '../../public/controller.png';
 import Image from "next/image";
 import Accordion from "../../components/Accordion";
 
-const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart}) => {
+const Combo = ({ combo, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     let router = useRouter();
-    const {slug} = router.query;
+    const { slug } = router.query;
     // combo.log(combo);
     const [count, setcount] = useState(0);
     const breakPoint = [
@@ -22,11 +22,11 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
         { width: 800, itemsToShow: 2 },
         { width: 768, itemsToShow: 4 },
         { width: 1200, itemsToShow: 4 }
-      ];
-  return (
-    
-    <div>
-        <Navbar
+    ];
+    return (
+
+        <div>
+            <Navbar
                 product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 KYC={"KYC"}
                 About={"About"}
@@ -37,115 +37,117 @@ const Combo = ({combo,product, subTotal, addProductToCart, removeProductFromCart
                 Buy={'Buy'} Sell={'Sell'}
             />
             <div className={styles.landing}>
-            <div className={styles.left}>
-                <img src={combo.attributes.mainImage.data.attributes.url} alt="" />
-                <div className={styles.extraImage}>
-                    <img src={combo.attributes.extraImage1.data.attributes.url} alt="" />
-                    <img src={combo.attributes.extraImage2.data.attributes.url} alt="" />
-                    <img src={combo.attributes.extraImage3.data.attributes.url} alt="" />
-                </div>
-                <div className={styles.qualities}>
-                    <div className={styles.quality}>
-                        <SanitizerIcon />
-                        <span>Well Sanitized</span>
+                <div className={styles.left}>
+                    <img src={combo.attributes.mainImage.data.attributes.url} alt="" />
+                    <div className={styles.extraImage}>
+                        <img src={combo.attributes.extraImage1.data.attributes.url} alt="" />
+                        <img src={combo.attributes.extraImage2.data.attributes.url} alt="" />
+                        <img src={combo.attributes.extraImage3.data.attributes.url} alt="" />
                     </div>
-                    <div className={styles.quality}>
-                        <VerifiedOutlinedIcon />
-                        <span>Quality Assured</span>
+                    <div className={styles.qualities}>
+                        <div className={styles.quality}>
+                            <SanitizerIcon />
+                            <span>Well Sanitized</span>
+                        </div>
+                        <div className={styles.quality}>
+                            <VerifiedOutlinedIcon />
+                            <span>Quality Assured</span>
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.right}>
+                    <h2>{combo.attributes.title}</h2>
+                    <h4>Details</h4>
+                    <p>{combo.attributes.details}</p>
+                    <div className={styles.plan}>
+                        <h2>Choose your plan</h2>
+                        <form action="">
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
+                                <h3>7 Days Plan: ₹{combo.attributes.consolePrice1}</h3>
+                            </div>
+                            <hr />
+                            <div className={styles.plan_item}>
+                                <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
+                                <h3>14 Days Plan: ₹{combo.attributes.consolePrice2}</h3>
+                            </div>
+                            <hr />
+                            {count != 0 && <div className={styles.gamesBtn} onClick={() => { addComboCartToCart(slug, 1, (eval(`combo.attributes.consolePrice${count}`)), combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>
+                                <p >Proceed to KYC</p>
+                            </div>}
+                        </form>
                     </div>
                 </div>
             </div>
-            <div className={styles.right}>
-                <h2>{combo.attributes.title}</h2>
-                <h4>Details</h4>
-                <p>{combo.attributes.details}</p>
-                <div className={styles.plan}>
-                    <h2>Choose your plan</h2>
-                    <form action="">
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={() => { setcount(1) }} />
-                            <h3>7 Days Plan: ₹{combo.attributes.consolePrice1}</h3>
-                        </div>
-                        <hr />
-                        <div className={styles.plan_item}>
-                            <input type="radio" name="plan" id="plan" onClick={() => { setcount(2) }} />
-                            <h3>14 Days Plan: ₹{combo.attributes.consolePrice2}</h3>
-                        </div>
-                        <hr />
-                        {count != 0 &&<div className={styles.gamesBtn} onClick={() => { addComboCartToCart(slug, 1,(eval(`combo.attributes.consolePrice${count}`)) , combo.attributes.title, combo.attributes.mainImage.data.attributes.url) }}>
-                             <p >Proceed to KYC</p>
-                        </div>}
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div className={styles.margining}>
-            <div className={styles.topic}>
-                    <h1>What&apos;s in the Box?</h1>
-                    <hr />
-                </div>
-            <Carousel breakPoints={breakPoint}>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage1.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText1}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage2.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText2}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage3.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText3}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage4.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText4}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage5.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText5}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage6.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText6}</spn>
-                </div>
-                <div className={styles.what}>
-                    <img src={combo.attributes.whatsInTheBoxImage7.data.attributes.url}/>
-                    <spn>{combo.attributes.whatsInTheBoxText7}</spn>
-                </div>
-            </Carousel>
-            <div className={styles.topic}>
+            <div className={styles.margining}>
+                
+
+                <div className={styles.topic}>
                     <h1>Add these: (Optional)</h1>
                     <hr />
                 </div>
-            <div className={styles.optional}>
-                <div className={styles.left}>
-                    <Image src={controller}></Image>
-                </div>
-                <div className={styles.right}>
-                    <h2>Extra PS4 Controller</h2>
-                    <p style={{color: "var(--red)"}}>₹ 100</p>
-                    <div className={styles.add_sub}>
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <button style={{color: "var(--red)"}}><RemoveIcon onClick={()=>{
-                            removeOptCartFromCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}/></button>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <button style={{color: "var(--red)"}}><RemoveIcon/></button>}
-                        {(optCart.controller!= undefined || optCart.controller!=null) && <span>{`${optCart.controller.qty}`}</span>}
-                        {(optCart.controller=== undefined || optCart.controller===null) && <span>0</span>}
-                        <button style={{color: "var(--red)"}} onClick={()=>{
-                            addOptCartToCart("controller",1,100,"PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
-                        }}><AddIcon/></button>
+                <div className={styles.optional}>
+                    <div className={styles.left}>
+                        <Image src={controller}></Image>
+                    </div>
+                    <div className={styles.right}>
+                        <h2>Extra PS4 Controller</h2>
+                        <p style={{ color: "var(--red)" }}>₹ 100</p>
+                        <div className={styles.add_sub}>
+                            {(optCart.controller != undefined || optCart.controller != null) && <button style={{ color: "var(--red)", borderRight: "1px solid var(--red)" }}><RemoveIcon onClick={() => {
+                                removeOptCartFromCart("controller", 1, 100, "PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                            }} /></button>}
+                            {(optCart.controller === undefined || optCart.controller === null) && <button style={{ color: "var(--red)", borderRight: "1px solid var(--red)" }}><RemoveIcon /></button>}
+                            {(optCart.controller != undefined || optCart.controller != null) && <span>{`${optCart.controller.qty}`}</span>}
+                            {(optCart.controller === undefined || optCart.controller === null) && <span>0</span>}
+                            <button style={{ color: "var(--red)", borderLeft: "1px solid var(--red)" }} onClick={() => {
+                                addOptCartToCart("controller", 1, 100, "PS4 controller", "https://mutterfly.imgix.net/flamingo/addons/Extra%20PS4%20Controller.jpg?w=338.8235294117647&auto=format,compress&q=60")
+                            }}><AddIcon /></button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className={styles.topic}>
+                <div className={styles.topic}>
+                    <h1>What&apos;s in the Box?</h1>
+                    <hr />
+                </div>
+                <Carousel breakPoints={breakPoint}>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage1.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText1}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage2.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText2}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage3.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText3}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage4.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText4}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage5.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText5}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage6.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText6}</spn>
+                    </div>
+                    <div className={styles.what}>
+                        <img src={combo.attributes.whatsInTheBoxImage7.data.attributes.url} />
+                        <spn>{combo.attributes.whatsInTheBoxText7}</spn>
+                    </div>
+                </Carousel>
+                <div className={styles.topic}>
                     <h1>Frequently Asked Questions</h1>
                     <hr />
                 </div>
-            <Accordion/>
+                <Accordion />
             </div>
-        <Footer/></div>
-  )
+            <Footer /></div>
+    )
 }
 
 export async function getServerSideProps(context) {
@@ -153,7 +155,7 @@ export async function getServerSideProps(context) {
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_READ}`,
     };
     let url =
-        process.env.NEXT_PUBLIC_STRAPI_HOST + "/api/combos?filters[slug]=" +context.query.slug +"&populate=*";
+        process.env.NEXT_PUBLIC_STRAPI_HOST + "/api/combos?filters[slug]=" + context.query.slug + "&populate=*";
     let data = await fetch(url, { headers: headers });
     let combo = await data.json();
     return {

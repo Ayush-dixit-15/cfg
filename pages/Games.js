@@ -34,133 +34,17 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
           <span>Added to cart ✅</span>
         </div>
       </div>
-      <div >
+      {/* <div >
         <Image src={carousel2} alt="" />
-      </div>
+      </div> */}
       <div className={styles.games_body}>
         <div className={styles.games_promo}>
           <p>Apply Coupon - <strong>WELCOME6969</strong> and get flat Rs. 500 off on games</p>
         </div>
-        <div className={styles.topic}>
-          <h1 style={{margin: "0rem"}}>Our Best Selling Games</h1>
-          <hr style={{margin: "0rem"}}/>
-        </div>
-        <div className={styles.grid}>
-          <div className={styles.cardParent}>
-            <Link href={`/games/god-of-war`} >
-              <div className={styles.card} style={{ cursor: "pointer" }}>
-                <img
-                  src='./god of war poster.jpg'
-                  height={180}
-                  width={180}
-                />
-                <h2>God of war</h2>
-                <span>
-                  For ₹500
-                </span>
-              </div>
-            </Link>
-            <p className={styles.addCartBtnPara} onClick={() => {
-                    setgameName("God of war");
-                    addGameCartToCart("god-of-war", 1, 500, "God of war", "./god of war poster.jpg");
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}>
-                  Add to cart
-                  <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
-                  </span>
-                </p>
-          </div>
-          <div className={styles.cardParent}>
-            <Link href={`/games/the-last-of-us-part-2`} >
-            <div className={styles.card} style={{ cursor: "pointer" }}>
-              <img
-                src='./the last of us.jpeg'
-                height={180}
-                width={180}
-              />
-              <h2>
-                The Last of us part 2
-              </h2>
-              <span>
-                For ₹500
-              </span>
-            </div>
-          </Link>
-          <p className={styles.addCartBtnPara} onClick={() => {
-                    setgameName("The Last of us part 2");
-                    addGameCartToCart("the-last-of-us-part-2", 1, 500, "The Last of us part 2", "./the last of us.jpeg");
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}>
-                  Add to cart
-                  <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
-                  </span>
-                </p>
-          </div>
-          <div  className={styles.cardParent}>
-            <Link href={`/games/uncharted-4`}>
-            <div className={styles.card} style={{ cursor: "pointer" }}>
-              <img
-                src='./uncharted 4 poster.jpg'
-                height={180}
-                width={180}
-              />
-              <h2>
-                Uncharted 4
-              </h2>
-              <span>
-                For ₹500
-              </span>
-            </div>
-          </Link>
-          <p className={styles.addCartBtnPara} onClick={() => {
-                    setgameName("Uncharted 4");
-                    addGameCartToCart("uncharted-4", 1, 500, "Uncharted 4", "./uncharted 4 poster.jpg");
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}>
-                  Add to cart
-                  <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
-                  </span>
-                </p>
-          </div>
-          <div  className={styles.cardParent}>
-          <Link href={`/games/watch-dogs-2`} >
-            <div className={styles.card} style={{ cursor: "pointer" }}>
-              <img
-                src='./watch dogs 2 poster.webp'
-                height={180}
-                width={180}
-              />
-              <h2>Watch dogs 2</h2>
-              <span>
-                For ₹500
-              </span>
-            </div>
-          </Link>
-          <p className={styles.addCartBtnPara} onClick={() => {
-                    setgameName("Watch dogs 2");
-                    addGameCartToCart("watch-dogs-2", 1, 500, "Watch dogs 2", "./watch dogs 2 poster.webp");
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}>
-                  Add to cart
-                  <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
-                  </span>
-                </p>
-          </div>
-          
-        </div>
+
       </div>
+
+
       <div className={styles.hero}>
         <div className={styles.hero_item}>
           <div className={styles.hero_top}>
@@ -181,9 +65,129 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         <GamesCarousel games={games} ht={"31rem"} addGameCartToCart={addGameCartToCart} />
       </div>
       <div className={styles.games_body}>
+      <div className={styles.topic}>
+        <h1 style={{ margin: "0rem" }}>Our Best Selling Games</h1>
+        <hr style={{ margin: "0rem" }} />
+      </div>
+      <div className={styles.grid}>
+        <div className={styles.cardParent}>
+          <Link href={`/games/god-of-war`} >
+            <div className={styles.card} style={{ cursor: "pointer" }}>
+              <img
+                src='./god of war poster.jpg'
+                height={180}
+                width={180}
+              />
+              <h2>God of war</h2>
+              <span>
+                For ₹500
+              </span>
+            </div>
+          </Link>
+          <p className={styles.addCartBtnPara} onClick={() => {
+            setgameName("God of war");
+            addGameCartToCart("god-of-war", 1, 500, "God of war", "./god of war poster.jpg");
+            settop("5rem");
+            setTimeout(() => {
+              settop("-100rem");
+            }, 1300);
+          }}>
+            Add to cart
+            <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
+            </span>
+          </p>
+        </div>
+        <div className={styles.cardParent}>
+          <Link href={`/games/the-last-of-us-part-2`} >
+            <div className={styles.card} style={{ cursor: "pointer" }}>
+              <img
+                src='./the last of us.jpeg'
+                height={180}
+                width={180}
+              />
+              <h2>
+                The Last of us part 2
+              </h2>
+              <span>
+                For ₹500
+              </span>
+            </div>
+          </Link>
+          <p className={styles.addCartBtnPara} onClick={() => {
+            setgameName("The Last of us part 2");
+            addGameCartToCart("the-last-of-us-part-2", 1, 500, "The Last of us part 2", "./the last of us.jpeg");
+            settop("5rem");
+            setTimeout(() => {
+              settop("-100rem");
+            }, 1300);
+          }}>
+            Add to cart
+            <span className={styles.addCartBtn} ><AddShoppingCartIcon className={styles.pointer} />
+            </span>
+          </p>
+        </div>
+        <div className={styles.cardParent}>
+          <Link href={`/games/uncharted-4`}>
+            <div className={styles.card} style={{ cursor: "pointer" }}>
+              <img
+                src='./uncharted 4 poster.jpg'
+                height={180}
+                width={180}
+              />
+              <h2>
+                Uncharted 4
+              </h2>
+              <span>
+                For ₹500
+              </span>
+            </div>
+          </Link>
+          <p className={styles.addCartBtnPara} onClick={() => {
+            setgameName("Uncharted 4");
+            addGameCartToCart("uncharted-4", 1, 500, "Uncharted 4", "./uncharted 4 poster.jpg");
+            settop("5rem");
+            setTimeout(() => {
+              settop("-100rem");
+            }, 1300);
+          }}>
+            Add to cart
+            <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
+            </span>
+          </p>
+        </div>
+        <div className={styles.cardParent}>
+          <Link href={`/games/watch-dogs-2`} >
+            <div className={styles.card} style={{ cursor: "pointer" }}>
+              <img
+                src='./watch dogs 2 poster.webp'
+                height={180}
+                width={180}
+              />
+              <h2>Watch dogs 2</h2>
+              <span>
+                For ₹500
+              </span>
+            </div>
+          </Link>
+          <p className={styles.addCartBtnPara} onClick={() => {
+            setgameName("Watch dogs 2");
+            addGameCartToCart("watch-dogs-2", 1, 500, "Watch dogs 2", "./watch dogs 2 poster.webp");
+            settop("5rem");
+            setTimeout(() => {
+              settop("-100rem");
+            }, 1300);
+          }}>
+            Add to cart
+            <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
+            </span>
+          </p>
+        </div>
+
+      </div>
+      
         <div className={styles.topic}>
-          <h1 style={{margin: "0rem"}}>All Games</h1>
-          <hr style={{margin: "0rem"}}/>
+          <h1 style={{ margin: "0rem" }}>All Games</h1>
+          <hr style={{ margin: "0rem" }} />
         </div>
         <div className={styles.sorting}>
           <div className={styles.length}>
@@ -225,13 +229,13 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                   </div>
                 </Link>
                 <p className={styles.addCartBtnPara} onClick={() => {
-                    setgameName(item.attributes.gameName);
-                    addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
-                    settop("5rem");
-                    setTimeout(() => {
-                      settop("-100rem");
-                    }, 1300);
-                  }}>
+                  setgameName(item.attributes.gameName);
+                  addGameCartToCart(item.attributes.slug, 1, item.attributes.price, item.attributes.gameName, item.attributes.Poster.data.attributes.url);
+                  settop("5rem");
+                  setTimeout(() => {
+                    settop("-100rem");
+                  }, 1300);
+                }}>
                   Add to cart
                   <span className={styles.addCartBtn}><AddShoppingCartIcon className={styles.pointer} />
                   </span>
