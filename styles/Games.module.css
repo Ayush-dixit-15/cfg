@@ -113,7 +113,7 @@
   border: 1px dashed green;
   padding: 1rem;
   color: green;
-  margin-top: 6rem;
+  margin-top: 3rem;
 }
 
 .topic {
@@ -625,12 +625,14 @@
   .priceBtn {
     left: 8px;
     bottom: 8px;
+    padding: 0.13rem 0.5rem;
   }
 
   .cartAddBtn {
     right: 8px;
     bottom: 8px !important;
     left: auto !important;
+    padding: 0.13rem 0.5rem;
   }
 
   .cartAddBtn svg {

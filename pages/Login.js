@@ -32,7 +32,7 @@ const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
     async function handleCallBackResponse(response) {
         var userObject = jwt_decode(response.credential);
         // console.log(userObject);
-        const data = { identifier: userObject.name, email: userObject.email, password: "googleAuth" };
+        const data = { identifier: userObject.email, email: userObject.email, password: userObject.email };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local`, {
             method: "POST",
             headers: {
@@ -180,11 +180,11 @@ const Login = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
                     <span>Or</span>
                     <span key={prob} style={{color: "var(--red)"}}>{prob}</span>
                     <form onSubmit={handleSubmit} method="POST">
-                        <label htmlFor="entername">Username or E-mail: <strong style={{ color: "var(--red)" }}>*</strong></label>
+                        <label htmlFor="entername">E-mail: <strong style={{ color: "var(--red)" }}>*</strong></label>
                         <input
                             value={entername}
                             onChange={handleChange}
-                            placeholder="Enter your Username or E-mail"
+                            placeholder="Enter your E-mail"
                             type="text"
                             id="entername"
                             name="entername"

@@ -36,7 +36,7 @@ const Signup = ({ product, subTotal, addProductToCart, removeProductFromCart, cl
     async function handleCallBackResponse(response) {
         var userObject = jwt_decode(response.credential);
         console.log(userObject);
-        const data = { username: userObject.name, email: userObject.email, password: "googleAuth" };
+        const data = { username: userObject.name + Math.floor(Math.random() * 1001), email: userObject.email, password: userObject.email };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
             method: "POST",
             headers: {
@@ -134,7 +134,7 @@ const Signup = ({ product, subTotal, addProductToCart, removeProductFromCart, cl
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = { username: entername, email: enteremail, password: enterpassword };
+        const data = { username: entername + Math.floor(Math.random() * 100001), email: enteremail, password: enterpassword };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
             method: "POST",
             headers: {
