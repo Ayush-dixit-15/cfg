@@ -134,7 +134,7 @@ const Signup = ({ product, subTotal, addProductToCart, removeProductFromCart, cl
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = { username: entername + Math.floor(Math.random() * 100001), email: enteremail, password: enterpassword };
+        const data = { username: entername + Math.floor(Math.random() * 1001), email: enteremail, password: enterpassword };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/auth/local/register`, {
             method: "POST",
             headers: {

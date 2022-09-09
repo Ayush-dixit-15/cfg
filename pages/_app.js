@@ -227,7 +227,7 @@ function MyApp({ Component, pageProps }) {
       onLoaderFinished={() => setProgress(0)}
     />
       <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} {...pageProps}/>
-      <a href = "https://wa.me/918287702693" target="_blank">
+      <a href = "https://wa.me/918287702693" target="_blank" rel="noreferrer">
       <WhatsApp
                style={{
                 position:"fixed",
