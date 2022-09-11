@@ -33,7 +33,7 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
 
                     <span><LocalPhoneIcon/>8287702693 </span>
                     <span><EmailIcon/>craving4gaming@gmail.com</span>
-                    <span> <LocationOnIcon/>160, Suraksha Enclave,
+                    <span> <LocationOnIcon className={styles.locationIcon}/>160, Suraksha Enclave,
                         PitamPura, New Delhi-110034</span>
 
                 </div>
@@ -43,7 +43,7 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
                         style={{border:"0"}} allowFullScreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div className={styles.contact_right}>
+                {/* <div className={styles.contact_right}>
                     <h2>Pitch us</h2>
                     <p>
                         hello, <br />
@@ -52,7 +52,7 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
                     </p>
                     <a href="mailto:craving4gaming.help@gmail.com"> <button>Email Us</button> </a>
 
-                </div>
+                </div> */}
             </div>
             <Footer/>
         </div>
