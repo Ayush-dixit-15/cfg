@@ -244,11 +244,11 @@
 @media only screen and (max-width:800px){
     .plan input[type='radio']:checked:after {
         /* top: -2px; */
-        left: 0px;
+        left: -1px;
     }
     .plan input[type='radio']:after {
-        top: 0px;
-        left: 0px;
+        top: -2px;
+        left: -1px;
     }
     .landing{
         flex-direction: column;
