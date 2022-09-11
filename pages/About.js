@@ -8,12 +8,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
     return (
         <div>
             <Head>
-            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
             </Head>
-            <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script id="aos_about">
-                    AOS.init();
-                </Script>
             <Navbar
                 product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 KYC={"KYC"}

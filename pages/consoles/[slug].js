@@ -38,14 +38,9 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 Buy={'Buy'} Sell={'Sell'}
             />
             <Head>
-            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
                 
             </Head>
-            <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script id="aos_console">
-                    AOS.init();
-                </Script>
-            <div className={styles.landing} data-aos="zoom-in-right">
+            <div className={styles.landing} >
                 <div className={styles.left}>
                     <img src={console.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>
@@ -75,17 +70,17 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                                 <input type="radio" name="plan" id="plan1" onClick={() => { setcount(1) }} />
                                 <label htmlFor="plan1" style={{cursor: "pointer"}}><h3>3 Days plan: ₹{console.attributes.plan1}</h3></label>
                             </div>
-                            <hr data-aos="zoom-in-right"/>
+                            <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan2" onClick={() => { setcount(2) }} />
                                 <label htmlFor="plan2" style={{cursor: "pointer"}}><h3>5 Days plan: ₹{console.attributes.plan2}</h3></label>
                             </div>
-                            <hr data-aos="zoom-in-right"/>
+                            <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan3" onClick={() => { setcount(3) }} />
                                 <label htmlFor="plan3" style={{cursor: "pointer"}}><h3>7 Days plan: ₹{console.attributes.plan3}</h3></label>
                             </div>
-                            <hr data-aos="zoom-in-right"/>
+                            <hr />
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan4" onClick={() => { setcount(4) }} />
                                 <label htmlFor="plan4" style={{cursor: "pointer"}}><h3>14 Days plan: ₹{console.attributes.plan4}</h3></label>
@@ -101,7 +96,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             <div className={styles.margining}>
             <div className={styles.topic}>
                     <h1>Add these: (Optional)</h1>
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
             <div className={styles.optional}>
                 <div className={styles.left}>
@@ -125,7 +120,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             </div>
             <div className={styles.topic}>
                     <h1>What&apos;s in the Box?</h1>
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
             <Carousel breakPoints={breakPoint}>
                 <div className={styles.what}>
@@ -152,7 +147,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             
             <div className={styles.topic}>
                     <h1>Frequently Asked Questions</h1>
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
             <Accordion/>
             </div>

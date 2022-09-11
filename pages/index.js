@@ -49,13 +49,8 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 />
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
-                <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
                 
             </Head>
-                <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script id="aos_home">
-                    AOS.init();
-                </Script>
             <Script src='./script.js'></Script>
             <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'} />
             <Carousel />
@@ -67,7 +62,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         Sanitised, best quality products at affordable rental
                         prices
                     </span>
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
                 <div className={styles.grid}>
                     {combo.data.map((item) => {
@@ -94,7 +89,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         );
                     })}
                 </div>
-                <div className={styles.banner} data-aos="zoom-in">
+                <div className={styles.banner} >
                     <div className={styles.left}>
                         <span>GET</span>
                         <h1>PlayStation 4</h1>
@@ -113,7 +108,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                     {/* <span>
                     Sanitised, best quality products at affordable rental prices
                 </span> */}
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
                 <div className={styles.sorting}>
                     <div className={styles.length}>
@@ -162,9 +157,9 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                     {/* <span>
                     Sanitised, best quality products at affordable rental prices
                 </span> */}
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
-                <div className={styles.usp} data-aos="zoom-in-up">
+                <div className={styles.usp} >
                     <div className={styles.usp_item}>
                         <VolunteerActivismIcon style={{ fontSize: "4rem" }} className={styles.icon} />
                         <p>
@@ -195,7 +190,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                     {/* <span>
                     Sanitised, best quality products at affordable rental prices
                 </span> */}
-                    <hr data-aos="zoom-in-right"/>
+                    <hr />
                 </div>
                 <Accordion />
             </div>
