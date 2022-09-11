@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
             <div className={styles.copy}>
             <span>
-                Copyright © 2022 Craving4gaming.com. All rights reserved.
+                Copyright © 2022 cravingforgaming.in. All rights reserved.
             </span>
             </div>
         </div>

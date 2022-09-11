@@ -19,7 +19,7 @@ import Footer from "../components/Footer";
 const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     const router = useRouter();
     const webRef = useRef(null);
-    const [selfie, setselfie] = useState("");
+    const [selfie, setselfie] = useState(null);
     const [camera, setcamera] = useState(false);
     const [prob, setprob] = useState("");
     // console.log(kycData);
@@ -168,7 +168,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid } };
+        const sentdata = { data: { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, signature: sign, selfie: selfie, address_proof: proof, identity_proof_front: front, identity_proof_back: back } };
         let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
             method: "POST",
             headers: {
@@ -289,7 +289,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                 />
                                     <p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Electricity Bill/ Water Bill/ Gas Bill)</p>
-                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>setproof("uploaded")}>Upload file</a>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -330,10 +330,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                 />
                                     <p style={{ margin: "0" }}>Identity Proof: (Front side)<strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
-                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>setfront("uploaded")}>Upload file</a>
                                     <p style={{ marginTop: "1.5rem" }}>Identity Proof: (Back side)<strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
-                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>setback("uploaded")}>Upload file</a>
                             </div>
                         </div>
                     </div>
@@ -347,14 +347,14 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             <div>
                                 {!camera && <p onClick={() => startCamera()} style={{ background: "var(--red)", padding: "0.5rem 1.5rem", color: "var(--white)", borderRadius: "10px", margin: "0" }} className={styles.captureBtn}>Start Capturing</p>}
                                 {camera && <span onClick={() => capture()} style={{ background: "var(--red)", borderRadius: "999px", padding: "0.75rem" }}><CameraAltIcon style={{ color: "var(--white)" }} /></span>}
-                                {!camera && <Image src={selfie} height={100} width={100} />}
+                                {!camera && selfie!=null && <Image src={selfie} height={100} width={100} />}
                             </div>
                         </div>
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
                             <p>This will be used in the rent agreement purpose</p>
-                            <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>{console.log(Date().now)}}>Upload file</a>
+                            <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>setsign("uploaded")}>Upload file</a>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }} className={styles.kycAddress}  >
