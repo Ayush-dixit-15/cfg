@@ -242,6 +242,14 @@
 }
 
 @media only screen and (max-width:800px){
+    .plan input[type='radio']:checked:after {
+        /* top: -2px; */
+        left: 0px;
+    }
+    .plan input[type='radio']:after {
+        top: -2px;
+        left: 0px;
+    }
     .landing{
         flex-direction: column;
         margin: 2rem 2rem;

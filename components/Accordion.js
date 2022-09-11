@@ -18,16 +18,17 @@ const Accordion = () => {
                     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
                     crossOrigin="anonymous"
                 ></link>
+                
             </Head>
             <div className={`accordion ${styles.accordion}`} id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                         <button
-                            className={`accordion-button ${styles.accordionButton1}`}
+                            className={`accordion-button collapsed ${styles.accordionButton1}`}
                             type="button"
                             data-bs-toggle="collapse"
                             data-bs-target="#collapseOne"
-                            aria-expanded="true"
+                            aria-expanded="false"
                             aria-controls="collapseOne"
                         >
                             How to rent a console and games?

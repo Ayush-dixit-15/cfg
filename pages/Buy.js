@@ -57,7 +57,7 @@ const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clear
     <div className={styles.buy}>
       <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}  Buy={null} Sell={'Sell'}/>
       <div className={styles.buy_body}>
-        <div className={styles.controllers}>
+        {/* <div className={styles.controllers}>
           <img src="https://media.giphy.com/media/C772CenNZT8zgb7yle/giphy.gif" style={{ transform: "translateX(9rem)", zIndex: "-3" }} />
           <img src="https://media.giphy.com/media/JHwADB1X8SNLol2qEq/giphy.gif" style={{ transform: "translateX(6rem)", zIndex: "-2" }} />
           <img src="https://media.giphy.com/media/VCM2Wp9VETRdvADr6z/giphy.gif" style={{ transform: "translateX(3rem)", zIndex: "-1" }} />
@@ -65,7 +65,7 @@ const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clear
           <img src="https://media.giphy.com/media/a9PboMus77ocbOiB2T/giphy.gif" style={{ transform: "translateX(-3rem)", zIndex: "-1" }} />
           <img src="https://media.giphy.com/media/PGUJ698JcuBXB8cIDL/giphy.gif" style={{ transform: "translateX(-6rem)", zIndex: "-2" }} />
           <img src="https://media.giphy.com/media/Wv1JZ9FEJs8LUdkBLs/giphy.gif" style={{ transform: "translateX(-9rem)", zIndex: "-3" }} />
-        </div>
+        </div> */}
         <h1>Buy a Console</h1>
         <form onSubmit={handleSubmit} method="POST">
           <span key={prob} style={{ color: "var(--red)", textAlign: "center" }}>{prob}</span>
@@ -117,7 +117,7 @@ const Buy = ({ product, subTotal, addProductToCart, removeProductFromCart, clear
             required
             style={{ padding: "0.5rem" }}
           />
-          <button type="submit">Buy<StoreIcon style={{ marginLeft: "1rem" }} /></button>
+          <button type="submit">Buy</button>
         </form>
       </div>
       <div className={styles.why}>

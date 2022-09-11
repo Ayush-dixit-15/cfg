@@ -12,6 +12,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import controller from '../../public/controller.png';
 import Image from "next/image";
 import Accordion from "../../components/Accordion";
+import Head from "next/head";
+import Script from "next/script";
 
 const Console = ({ console, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     const breakPoint = [
@@ -35,7 +37,10 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 key={product}
                 Buy={'Buy'} Sell={'Sell'}
             />
-            <div className={styles.landing}>
+            <Head>
+                
+            </Head>
+            <div className={styles.landing} >
                 <div className={styles.left}>
                     <img src={console.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>

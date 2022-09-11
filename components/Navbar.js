@@ -70,10 +70,12 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
             <div className={styles.outerNav}>
                 <div className={styles.navbar}>
                     <div className={styles.left}>
-                        <Link href="/">
-                            <Image src={logo} className="cursor-pointer" />
-                        </Link>
                         <ul>
+                        <li style={{marginRight: "1.5rem"}}>
+                            <Link href="/">
+                                <Image src={logo} className="cursor-pointer" />
+                            </Link>
+                        </li>
                             <li>
                                 <Link href="/#combo">Combos</Link>
                             </li>
@@ -131,9 +133,11 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                 </div>
                 <div className={styles.cart} style={{ transform: `${showcart}` }}>
                     <div className={styles.cart_head}>
+                        <div style={{display: "flex", alignItems: "baseline"}}>
                         <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>({Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length} items)</span>
+                        </div>
                         {Object.keys(product).map((k) => {
                             return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={product[k].img} width={100} height={100}></img>
@@ -258,9 +262,11 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
                 </div>
                 <div className={styles.phoneCart} style={{ transform: `${showcart}` }}>
                     <div className={styles.cart_head}>
+                        <div style={{display: "flex", alignItems: "baseline"}}>
                         <ArrowBackIosIcon className={styles.cartIcon} onClick={() => toggleCart()} />
                         <span className={styles.cart_title}>Your Cart</span>
                         <span className={styles.cart_itemno}>({Object.keys(product).length + Object.keys(gameCart).length + Object.keys(comboCart).length + Object.keys(optCart).length} items)</span>
+                        </div>
                         {Object.keys(product).map((k) => {
                             return <div key={k} style={{ display: "flex", margin: "1rem 2rem" }}>
                                 <img src={product[k].img} width={100} height={100}></img>

@@ -37,11 +37,13 @@
 .card {
     transition: all 0.2s ease-in-out;
     margin: 2rem 0;
+    padding: 1rem;
 }
 
 .card:hover {
     transform: translateY(-1rem);
     cursor: pointer;
+    background: rgb(234, 234, 234);
 }
 
 .banner {
@@ -205,7 +207,7 @@
 
     .usp .usp_item p{
         width: 4rem;
-    font-size: 0.5rem;
+    font-size: 0.75rem;
     }
 
     .icon{
