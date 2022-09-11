@@ -70,10 +70,12 @@ const Navbar = ({ KYC, About, Contact, Login, Signup, product, subTotal, addProd
             <div className={styles.outerNav}>
                 <div className={styles.navbar}>
                     <div className={styles.left}>
-                        <Link href="/">
-                            <Image src={logo} className="cursor-pointer" />
-                        </Link>
                         <ul>
+                        <li style={{marginRight: "1.5rem"}}>
+                            <Link href="/">
+                                <Image src={logo} className="cursor-pointer" />
+                            </Link>
+                        </li>
                             <li>
                                 <Link href="/#combo">Combos</Link>
                             </li>
