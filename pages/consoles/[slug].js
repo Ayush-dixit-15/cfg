@@ -12,6 +12,8 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import controller from '../../public/controller.png';
 import Image from "next/image";
 import Accordion from "../../components/Accordion";
+import Head from "next/head";
+import Script from "next/script";
 
 const Console = ({ console, product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     const breakPoint = [
@@ -35,7 +37,15 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                 key={product}
                 Buy={'Buy'} Sell={'Sell'}
             />
-            <div className={styles.landing}>
+            <Head>
+            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            </Head>
+            <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
+                <Script>
+                    AOS.init();
+                </Script>
+            <div className={styles.landing} data-aos="zoom-in-right">
                 <div className={styles.left}>
                     <img src={console.attributes.mainImage.data.attributes.url} alt="" />
                     <div className={styles.extraImage}>
@@ -65,17 +75,17 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
                                 <input type="radio" name="plan" id="plan1" onClick={() => { setcount(1) }} />
                                 <label htmlFor="plan1" style={{cursor: "pointer"}}><h3>3 Days plan: ₹{console.attributes.plan1}</h3></label>
                             </div>
-                            <hr />
+                            <hr data-aos="zoom-in-right"/>
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan2" onClick={() => { setcount(2) }} />
                                 <label htmlFor="plan2" style={{cursor: "pointer"}}><h3>5 Days plan: ₹{console.attributes.plan2}</h3></label>
                             </div>
-                            <hr />
+                            <hr data-aos="zoom-in-right"/>
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan3" onClick={() => { setcount(3) }} />
                                 <label htmlFor="plan3" style={{cursor: "pointer"}}><h3>7 Days plan: ₹{console.attributes.plan3}</h3></label>
                             </div>
-                            <hr />
+                            <hr data-aos="zoom-in-right"/>
                             <div className={styles.plan_item}>
                                 <input type="radio" name="plan" id="plan4" onClick={() => { setcount(4) }} />
                                 <label htmlFor="plan4" style={{cursor: "pointer"}}><h3>14 Days plan: ₹{console.attributes.plan4}</h3></label>
@@ -91,7 +101,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             <div className={styles.margining}>
             <div className={styles.topic}>
                     <h1>Add these: (Optional)</h1>
-                    <hr />
+                    <hr data-aos="zoom-in-right"/>
                 </div>
             <div className={styles.optional}>
                 <div className={styles.left}>
@@ -115,7 +125,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             </div>
             <div className={styles.topic}>
                     <h1>What&apos;s in the Box?</h1>
-                    <hr />
+                    <hr data-aos="zoom-in-right"/>
                 </div>
             <Carousel breakPoints={breakPoint}>
                 <div className={styles.what}>
@@ -142,7 +152,7 @@ const Console = ({ console, product, subTotal, addProductToCart, removeProductFr
             
             <div className={styles.topic}>
                     <h1>Frequently Asked Questions</h1>
-                    <hr />
+                    <hr data-aos="zoom-in-right"/>
                 </div>
             <Accordion/>
             </div>

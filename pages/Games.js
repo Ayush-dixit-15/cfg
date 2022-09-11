@@ -12,6 +12,8 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ProductionQuantityLimitsIcon from '@mui/icons-material/ProductionQuantityLimits';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import Head from "next/head";
+import Script from "next/script";
 
 
 const Games = ({ games, product, subTotal, action, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -38,6 +40,14 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         Signup={"Signup"}
         product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'}
       />
+      <Head>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+      </Head>
+      <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
+      <Script>
+        AOS.init();
+      </Script>
       <div className={styles.alert} style={{ top: `${top}` }} key={top}>
         <img src="https://media.giphy.com/media/FsmT6knIYRxY31VIr1/giphy.gif" />
         <div className={styles.alert_info}>
@@ -189,7 +199,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       </div>
 
 
-      <div className={styles.hero}>
+      <div className={styles.hero} data-aos="zoom-in">
         <div className={styles.hero_item}>
           <div className={styles.hero_top}>
             <img className={styles.hero} src='./cristiano-ronaldo-fifa-17-xx1hcw4aqvwujl0r.jpeg'></img>
@@ -202,7 +212,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               <h1>FIFA 20</h1>
               <p>Yet another installment in the FIFA franchise, FIFA 20 brings story mode where you can play as Alex Hunter, a young ambitious park footballer, and guide him to become the most siccessful football star.</p>
               <span>₹500</span>
-              <div style={{display: "flex"}}>
+              <div style={{ display: "flex" }}>
                 <Link href='/games/fifa-20'><button>Rent Now</button></Link>
                 <button onClick={() => toggleCart()} style={{ marginLeft: "3rem" }}>View Cart</button>
               </div>
@@ -214,10 +224,10 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       <div className={styles.games_body}>
         <div className={styles.topic}>
           <h1 style={{ margin: "0rem" }}>Our Best Selling Games</h1>
-          <hr style={{ margin: "0rem" }} />
+          <hr style={{ margin: "0rem" }} data-aos="zoom-in-right"/>
         </div>
         <div className={styles.grid}>
-          <div className={styles.cardParent}>
+          <div className={styles.cardParent} data-aos="zoom-in-up">
             <Link href={`/games/god-of-war`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
                 <img
@@ -244,7 +254,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
-          <div className={styles.cardParent}>
+          <div className={styles.cardParent} data-aos="zoom-in-up">
             <Link href={`/games/the-last-of-us-part-2`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
                 <img
@@ -273,7 +283,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
-          <div className={styles.cardParent}>
+          <div className={styles.cardParent} data-aos="zoom-in-up">
             <Link href={`/games/uncharted-4`}>
               <div className={styles.card} style={{ cursor: "pointer" }}>
                 <img
@@ -302,7 +312,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
-          <div className={styles.cardParent}>
+          <div className={styles.cardParent} data-aos="zoom-in-up">
             <Link href={`/games/watch-dogs-2`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
                 <img
@@ -334,7 +344,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
 
         <div className={styles.topic}>
           <h1 style={{ margin: "0rem" }}>All Games</h1>
-          <hr style={{ margin: "0rem" }} />
+          <hr style={{ margin: "0rem" }} data-aos="zoom-in-right"/>
         </div>
         <div className={styles.sorting}>
           <div className={styles.length}>
@@ -356,7 +366,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             }
           }).map((item) => {
             return (
-              <div key={item.attributes.slug} className={styles.cardParent}>
+              <div key={item.attributes.slug} className={styles.cardParent} data-aos="zoom-in-up">
                 <Link
                   href={`/games/${item.attributes.slug}`}
 

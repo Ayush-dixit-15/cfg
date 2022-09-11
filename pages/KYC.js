@@ -209,8 +209,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 crossOrigin="anonymous"
             ></Script>
             <Head>
-
+            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             </Head>
+                <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
+                <Script>
+                    AOS.init();
+                </Script>
             <Navbar
                 KYC={null}
                 About={"About"}
@@ -221,18 +226,19 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 key={kycid} Buy={'Buy'} Sell={'Sell'}
             />
             <div>
-                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }} className={styles.KYC_body}>
+                <div style={{ display: "flex", flexDirection: "column", alignItems: "center", margin: "3rem 0" }} className={styles.KYC_body} >
                     <h3 style={{ color: "var(--red)", margin: "1.5rem 0", fontSize: "2rem" }}>KYC</h3>
                     <div style={{ display: "flex", alignItems: "center" }}>
-                        <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
+                        <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} data-aos="fade-right"/>
                         <SportsEsportsIcon style={{ color: "var(--red)", transform: "rotateZ(-45deg)", margin: "0rem 2rem", fontSize: "2.5rem" }} className={styles.consoleIcon} />
-                        <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} />
+                        <hr style={{ borderTop: "4px solid var(--red)", width: "20vw", opacity: "100%", borderRadius: "99px" }} 
+                        data-aos="fade-left"/>
                     </div>
                     <p style={{ margin: "1.5rem 0" }} className={styles.kycInfo}>We take these details to establish legitimacy of customer&apos;s identify and to protect our systems from other risk factors.</p>
                     <span key={prob} style={{ color: "var(--red)" }}>{prob}</span>
                 </div>
                 <form onSubmit={handleSubmit} method="POST">
-                    <div className={styles.phone_input}>
+                    <div className={styles.phone_input} data-aos="zoom-in">
                         <label htmlFor="phone">Phone Number: <strong style={{ color: "var(--red)" }}>*</strong></label>
                         <input value={phone}
                             onChange={handleChange}
@@ -244,7 +250,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             required
                             style={{ padding: "0.5rem" }} />
                     </div>
-                    <div className={styles.kycAddress} style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }}>
+                    <div className={styles.kycAddress} style={{ border: "0.5px solid var(--gray)", margin: "0 6rem", padding: "4rem", borderRadius: "20px" }} data-aos="zoom-in">
                         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "2rem" }}>
                             <h2 style={{ fontSize: "1.65rem" }}>Address</h2>
                             <span style={{ color: "var(--red)" }}>* Required field</span>
@@ -336,7 +342,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             </div>
                         </div>
                     </div>
-                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress}>
+                    <div style={{ border: "0.5px solid var(--gray)", margin: "3rem 6rem", padding: "4rem", borderRadius: "20px" }} className={styles.kycAddress} data-aos="zoom-in">
                         <p><span style={{ fontSize: "1.65rem" }}>Selfie</span><strong style={{ color: "var(--red)" }}> *</strong></p>
                         <div style={{ display: "flex", alignItems: "center" }}>
                             {camera && <div>
@@ -356,13 +362,13 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                             <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>{console.log(Date().now)}}>Upload file</a>
                         </div>
                     </div>
-                    <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>
+                    <p style={{ margin: "0 6rem" }} className={styles.kycAddress}  data-aos="zoom-in">
                         <input type="checkbox" required style={{ marginRight: "1rem" }} />
                         {/* I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming */}
                         I have read the <span style={{ color: "blue", cursor: "pointer" }} onClick={() => sessionCall()}>Terms &#38; Conditions</span> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>
-                        <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn}>Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
+                        <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn} data-aos="zoom-in">Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>
                     </div>
                 </form>
                 <Footer />

@@ -210,6 +210,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
+        
       </Head>
       <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G" />
       <Script strategy="lazyOnload" id="google-analytics">

@@ -2,11 +2,19 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Script from "next/script";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 const About = ({ product, subTotal, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
     return (
         <div>
-            <Script src="/script.js"></Script>
+            <Head>
+            <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+            </Head>
+            <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
+                <Script>
+                    AOS.init();
+                </Script>
             <Navbar
                 product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart}
                 KYC={"KYC"}
@@ -28,7 +36,7 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
             <span>_Team CFG_</span>
             </div>
             <div className="about_box2">
-            <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" height={250} width={250}/>
+            <img src="/3_20220725_221708_0002 1.png" alt="Craving For Gaming" height={250} width={250} />
 
                 <div className="about_p1">
                     <h3 style={{fontWeight: "600", fontSize: "1.25rem", marginBottom: "2rem"}}>OUR MISSION</h3>

@@ -18,8 +18,14 @@ const Accordion = () => {
                     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
                     crossOrigin="anonymous"
                 ></link>
+                <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             </Head>
-            <div className={`accordion ${styles.accordion}`} id="accordionExample">
+                <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
+                <Script>
+                    AOS.init();
+                </Script>
+            <div className={`accordion ${styles.accordion}`} id="accordionExample" data-aos="zoom-out-down">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                         <button
