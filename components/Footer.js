@@ -20,12 +20,12 @@ const Footer = () => {
                     <span>
                         <a href="https://www.instagram.com/craving4gaming/" target="_blank" rel="noreferrer"><InstagramIcon style={{color: 'white'}}/></a>
                     </span>
-                    {/* <span>
+                    <span>
                         <a href="https://www.facebook.com/" target="_blank" rel="noreferrer"><FacebookIcon style={{color: 'white'}}/></a>
                     </span>
                     <span>
                         <a href="https://in.linkedin.com/" target="_blank" rel="noreferrer"><LinkedInIcon style={{color: 'white'}}/></a>
-                    </span> */}
+                    </span>
                     </div>
                 </div>
                 <div className={styles.middle}>
