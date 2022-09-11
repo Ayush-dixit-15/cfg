@@ -27,6 +27,7 @@
 
 .login_dialogue h3{
     margin-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
 .login_dialogue span{
@@ -37,6 +38,10 @@
     display: flex;
     flex-direction: column;
     width: 70%;
+}
+
+.login_dialogue form input{
+    padding: 0.5rem !important;
 }
 
 .login_dialogue form label{

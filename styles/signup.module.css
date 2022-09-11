@@ -28,6 +28,7 @@
 
 .signup_dialogue h3 {
     margin-bottom: 2rem;
+    font-size: 1.5rem;
 }
 
 .signup_dialogue_input {
@@ -41,6 +42,10 @@
 .signup_dialogue_input form {
     display: flex;
     flex-direction: column;
+}
+
+.signup_dialogue_input form input{
+    padding: 0.5rem !important;
 }
 
 .signup_dialogue_input form button {
