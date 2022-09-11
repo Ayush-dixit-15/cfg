@@ -33,9 +33,7 @@ body input:focus{
   border: none;
 }
 
-.whatsapp{
-  background-color: #000;
-}
+
 
 #closeBtn {
   transition: all 0.5s ease-in-out;
@@ -337,6 +335,13 @@ margin-top: 160px;
   transform: scale(1.1,1.1);
 }
 @media only screen and (max-width:800px){
+  .whatsapp svg{
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+
   .topic{
     margin: 0;
 }
