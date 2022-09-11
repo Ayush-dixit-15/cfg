@@ -210,10 +210,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
             ></Script>
             <Head>
             <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                
             </Head>
                 <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script>
+                <Script id="aos_KYC">
                     AOS.init();
                 </Script>
             <Navbar

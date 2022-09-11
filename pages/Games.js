@@ -42,10 +42,9 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       />
       <Head>
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
       </Head>
       <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-      <Script>
+      <Script id="aos_games">
         AOS.init();
       </Script>
       <div className={styles.alert} style={{ top: `${top}` }} key={top}>

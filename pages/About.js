@@ -9,10 +9,9 @@ const About = ({ product, subTotal, addProductToCart, removeProductFromCart, cle
         <div>
             <Head>
             <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-            <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
             </Head>
             <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script>
+                <Script id="aos_about">
                     AOS.init();
                 </Script>
             <Navbar

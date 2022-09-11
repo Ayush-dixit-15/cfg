@@ -50,10 +50,10 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
                 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                
             </Head>
                 <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script>
+                <Script id="aos_home">
                     AOS.init();
                 </Script>
             <Script src='./script.js'></Script>

@@ -19,10 +19,10 @@ const Accordion = () => {
                     crossOrigin="anonymous"
                 ></link>
                 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-                <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+                
             </Head>
                 <Script src="https://unpkg.com/aos@next/dist/aos.js"></Script>
-                <Script>
+                <Script id="aos_accordion">
                     AOS.init();
                 </Script>
             <div className={`accordion ${styles.accordion}`} id="accordionExample" data-aos="zoom-out-down">
