@@ -17,7 +17,6 @@ import Footer from "../components/Footer";
 
 
 const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
-    const [bill, setbill] = useState(null);
     const router = useRouter();
     const webRef = useRef(null);
     const [selfie, setselfie] = useState("");
@@ -40,6 +39,10 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const [phone, setphone] = useState();
     const [userid, setuserid] = useState();
     const [kycid, setkycid] = useState(0);
+    const [proof, setproof] = useState(null);
+    const [front, setfront] = useState(null);
+    const [back, setback] = useState(null);
+    const [sign, setsign] = useState(null);
 
     const saveuserid = (items) => {
         localStorage.setItem("userid", JSON.stringify(items));
@@ -106,7 +109,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                 setuserid(JSON.parse(localStorage.getItem("userid")));
                 saveuserid(JSON.parse(localStorage.getItem("userid")));
                 if (userid == 0) {
-                    router.push('/Login');
+                    router.push('/Signup');
                 }
                 var checkKyc = kycData.data.filter((item) => {
                     return item.attributes.user.data.id === userid;
@@ -283,11 +286,9 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     required
                                     style={{ marginBottom: "1.5rem", padding: "0.5rem" }}
                                 />
-                                <label htmlFor="bill">
                                     <p style={{ margin: "0" }}>Address Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Electricity Bill/ Water Bill/ Gas Bill)</p>
-                                </label>
-                                <input type="file" id="bill" name="bill" accept="image/*" onChange={handleChange} style={{ border: "none" }}></input>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
                             </div>
                             <div style={{ display: "flex", flexDirection: "column", width: "40%" }} className={styles.inputs}>
                                 <label htmlFor="area">Area, Street, Sector, Village: <strong style={{ color: "var(--red)" }}>*</strong></label>
@@ -326,11 +327,12 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                                     required
                                     style={{ marginBottom: "1.5rem", padding: "0.5rem" }}
                                 />
-                                <label htmlFor="proof">
-                                    <p style={{ margin: "0" }}>Identity Proof: <strong style={{ color: "var(--red)" }}>*</strong></p>
+                                    <p style={{ margin: "0" }}>Identity Proof: (Front side)<strong style={{ color: "var(--red)" }}>*</strong></p>
                                     <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
-                                </label>
-                                <input type="file" id="proof" name="proof" accept="image/*" style={{ border: "none" }}></input>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
+                                    <p style={{ marginTop: "1.5rem" }}>Identity Proof: (Back side)<strong style={{ color: "var(--red)" }}>*</strong></p>
+                                    <p>(Aadhar Card/ Driving Lisence/ Passport)</p>
+                                <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload}>Upload file</a>
                             </div>
                         </div>
                     </div>
@@ -350,7 +352,8 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <input type="file" id="sign" name="sign" accept="image/*" onChange={handleChange} style={{ border: "none" }}></input>
+                            <p>This will be used in the rent agreement purpose</p>
+                            <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={()=>{console.log(Date().now)}}>Upload file</a>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }} className={styles.kycAddress}>

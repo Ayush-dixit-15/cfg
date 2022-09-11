@@ -65,7 +65,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
             combo: comboOrder,
             games: gameOrder,
             extra_controller: controllerOrder,
-            total: delivery+subTotal+gameTotal+comboTotal+optTotal+total
+            total: delivery+subTotal+gameTotal+comboTotal+optTotal+total+500
         }]};
         let res = await fetch("https://sheetdb.io/api/v1/br2amnyb5vzni", {
             method: "POST",
@@ -135,6 +135,10 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                                 <span>₹{subTotal+gameTotal+comboTotal+optTotal}</span>
                             </div>
                             <div className={styles.summary_items}>
+                                <span>Security Deposit:</span>
+                                <span>₹500</span>
+                            </div>
+                            <div className={styles.summary_items}>
                                 <span>Delivery:</span>
                                 <span>₹{delivery}</span>
                             </div>
@@ -144,7 +148,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                             </div>
                             <div className={styles.summary_items} style={{color: "var(--red)"}}>
                                 <h3>Order total:</h3>
-                                <h3>₹{delivery+subTotal+gameTotal+comboTotal+optTotal+total}</h3>
+                                <h3>₹{delivery+subTotal+gameTotal+comboTotal+optTotal+total+500}</h3>
                             </div>
                             <hr/>
                         </div>

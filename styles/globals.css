@@ -33,7 +33,9 @@ body input:focus{
   border: none;
 }
 
-
+.whatsapp{
+  background-color: #000;
+}
 
 #closeBtn {
   transition: all 0.5s ease-in-out;
