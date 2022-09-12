@@ -79,8 +79,9 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                                         delay: .4
                                     }
                                 }
-                            }}>
-                                <div key={item.attributes.slug}>
+                            }}
+                            key={item.attributes.slug}>
+                                <div >
                                     <Link
                                         href={`/combos/${item.attributes.slug}`}
                                     >
@@ -158,8 +159,9 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                                         delay: .4
                                     }
                                 }
-                            }}>
-                            <div key={item.attributes.slug}>
+                            }}
+                            key={item.attributes.slug}>
+                            <div >
                                 <Link
                                     href={`/consoles/${item.attributes.slug}`}
                                 >

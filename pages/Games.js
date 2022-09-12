@@ -441,8 +441,8 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                         delay: .3
                     }
                 }
-            }}>
-              <div key={item.attributes.slug} className={styles.cardParent}   >
+            }} key={item.attributes.slug}>
+              <div className={styles.cardParent}   >
                 <Link
                   href={`/games/${item.attributes.slug}`}
 
