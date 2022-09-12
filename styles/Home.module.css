@@ -173,6 +173,10 @@
         width: 5rem;
     }
 
+    .card{
+        width: 10rem;
+    }
+
     .card img {
         height: 9rem;
         width: 9rem;
