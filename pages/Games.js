@@ -23,6 +23,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
   const [gameName, setgameName] = useState("");
   const [viewCart, setviewCart] = useState("100rem");
   const [showcart, setshowcart] = useState("translateX(100rem)");
+  const [size, setsize] = useState(0);
   const toggleCart = () => {
     if (showcart === "translateX(0)") {
       setshowcart("translateX(100rem)");
@@ -30,6 +31,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       setshowcart("translateX(0)");
     }
   }
+  console.log(Object.keys(comboCart).length);
   return (
 
     <div>
@@ -186,11 +188,11 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
       {/* <div >
         <Image src={carousel2} alt="" />
       </div> */}
+      
       <div className={styles.games_body}>
-        <div className={styles.games_promo}>
-          <p>Apply Coupon - <strong>WELCOME6969</strong> and get flat Rs. 500 off on games</p>
-        </div>
-
+        {Object.keys(comboCart).length==0 && <div className={styles.games_promo}>
+          <p>Apply Coupon - <strong>WELCOMECFG</strong> and get flat Rs. 500 off on games</p>
+        </div>}
       </div>
 
       <motion.div initial="hidden" whileInView="visible" variants={{
@@ -411,7 +413,17 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         </div>
         <div className={styles.sorting}>
           <div className={styles.length}>
-            <span>Showing {games.data.length} items</span>
+            <span>Showing&nbsp;
+              {query === "" && games.data.length} 
+            {query!="" && games.data.filter((val) => {
+            if (query === "") {
+              return val;
+            }
+            else if (val.attributes.gameName.toLowerCase().includes(query.toLocaleLowerCase())) {
+              return val;
+            }
+          }).length}
+              &nbsp;items</span>
             <hr />
           </div>
           <div className={styles.search}>

@@ -31,8 +31,8 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
                 <div className={styles.contact_middle}>
                     <h2>Meet us</h2>
 
-                    <span><LocalPhoneIcon/>8287702693 </span>
-                    <span><EmailIcon/>craving4gaming@gmail.com</span>
+                    <a href="tel:8287702693"><span><LocalPhoneIcon/>8287702693 </span></a>
+                    <a href="mailto:craving4gaming.help@gmail.com"><span><EmailIcon/>craving4gaming@gmail.com</span></a>
                     <span> <LocationOnIcon className={styles.locationIcon}/>160, Suraksha Enclave,
                         PitamPura, New Delhi-110034</span>
 

@@ -17,6 +17,7 @@ import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import { motion } from 'framer-motion';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 
 function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) {
@@ -206,9 +207,9 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                             }}>
                 <div className={styles.usp} >
                     <div className={styles.usp_item}>
-                        <VolunteerActivismIcon style={{ fontSize: "4rem" }} className={styles.icon} />
+                        <VerifiedIcon style={{ fontSize: "4rem" }} className={styles.icon} />
                         <p>
-                            At Craving for Gaming, we understand the love and passion you have for video games and also how sometimes it can get a little “over-budget”.
+                        Quality assurance
                         </p>
                     </div>
                     <div className={styles.usp_item}>

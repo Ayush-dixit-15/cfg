@@ -27,6 +27,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
     const [front, setfront] = useState();
     const [back, setback] = useState();
     const [sign, setsign] = useState();
+    const [temp, settemp] = useState();
     // console.log(kycData);
     const startCamera = () => {
         setcamera(true);
@@ -166,7 +167,7 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
         }
     }, [userid, kycid])
 
-
+    console.log(userid);
     const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -174,15 +175,20 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
         formData.append('files', front[0]);
         formData.append('files', back[0]);
         formData.append('files', sign[0]);
-        axios.post(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/upload`, formData).then((response) => {
-            const sentdata = { house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, user: userid, signature: "yes", selfie: selfie, address_proof: "yes", identity_proof_front: "yes", identity_proof_back: "yes", proof2: response.data[0].id };
-            axios.post(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, { data: sentdata }).then((response) => {
-                //handle success
-                console.log(response);
-            }).catch((error) => {
-                //handle error
-                console.log(error);
-            })
+        axios.post(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/upload`, formData).then(async (response) => {
+            // settemp(response.data[0].id)
+            const sentdata = { data: {house_no: houseno, area_street: area, city: city, state: state, pincode: pincode, landmark: landmark, phone: phone, signature: "yes", selfie: selfie, address_proof: "yes", identity_proof_front: "yes", identity_proof_back: "yes", proof2: response.data[0].id, user: 42} };
+            let res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_HOST}/api/kycs`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
+                        "Authorization": `Bearer ${process.env.NEXT_PUBLIC_READ}`
+                    },
+                    body: JSON.stringify(sentdata),
+                });
+                let res2 = await res.json();
+                console.log(res2);
         }).catch((error) => {
             //handle error
             console.log(error);
@@ -230,7 +236,6 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
         sessionStorage.setItem("pincode", JSON.stringify(pincode));
         sessionStorage.setItem("phone", JSON.stringify(phone));
         sessionStorage.setItem("selfie", JSON.stringify(selfie));
-        router.push("/Tnc");
     }
     return (
         <>
@@ -401,14 +406,15 @@ const KYC = ({ product, subTotal, kycData, addProductToCart, removeProductFromCa
                         <div style={{ display: "flex", flexDirection: "column", marginTop: "3rem" }}>
 
                             <label htmlFor="sign">Signature: <strong style={{ color: "var(--red)" }}>*</strong></label>
-                            <p>This will be used in the rent agreement purpose</p>
+                            <p>(for rent agreement purposes)</p>
                             <a href="https://drive.google.com/drive/folders/1viOmowLk5NHCO8K0g4j_77o50vWOo9HG?usp=sharing" target="_blank" rel="noreferrer" className={styles.upload} onClick={() => setsign("uploaded")}>Upload file</a>
                         </div>
                     </div>
                     <p style={{ margin: "0 6rem" }} className={styles.kycAddress}  >
                         <input type="checkbox" required style={{ marginRight: "1rem" }} />
                         {/* I have read the <Link href="/Tnc"><span style={{color: "blue", cursor: "pointer"}}>Terms &#38; Conditions</span></Link> of Craving for Gaming */}
-                        I have read the <span style={{ color: "blue", cursor: "pointer" }} onClick={() => sessionCall()}>Terms &#38; Conditions</span> of Craving for Gaming
+                        I have read the <span style={{ color: "blue", cursor: "pointer" }} onClick={() => sessionCall()}>
+                            <a href="/Tnc" target="_blank">Terms &#38; Conditions</a></span> of Craving for Gaming
                     </p>
                     <div style={{ display: "flex", justifyContent: "center" }}>
                         <button type="submit" style={{ padding: "0.5rem 20rem", background: "var(--red)", border: "none", color: "white", borderRadius: "10px", margin: "3rem 0" }} className={styles.submitBtn} >Submit <SendIcon style={{ marginLeft: "1rem" }} /></button>

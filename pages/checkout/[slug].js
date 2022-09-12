@@ -39,7 +39,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
     }, [product, gameCart, optCart, comboCart]);
     
     const applyPromo= () =>{
-        if(code.toLowerCase()==='welcome6969'){
+        if(code.toLowerCase()==='welcomecfg'){
             settotal(-500);
             setyes("flex");
             setno("none");
@@ -65,7 +65,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
             combo: comboOrder,
             games: gameOrder,
             extra_controller: controllerOrder,
-            total: delivery+subTotal+gameTotal+comboTotal+optTotal+total+500
+            total: delivery+subTotal+gameTotal+comboTotal+optTotal+total+1000
         }]};
         let res = await fetch("https://sheetdb.io/api/v1/br2amnyb5vzni", {
             method: "POST",
@@ -116,7 +116,7 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                             <h2>Gift cards, Voucher &#38; Promotional codes</h2>
                             <div className={styles.checkout_caution}>
                                 <GamepadIcon style={{ color: "var(--red)", marginRight: "0.5rem" }} />
-                                <p>Use code <strong>Welcome6969</strong> to get flat ₹500 off on games</p>
+                                <p>Use code <strong>WELCOMECFG</strong> to get flat ₹500 off on games</p>
                             </div>
                             <div style={{marginTop: "2rem"}}>
                             <p style={{color:"var(--red)", display: `${no}`}}>This code isn&apos;t available right now</p>
@@ -135,8 +135,8 @@ const Checkout = ({ product, subTotal, addProductToCart, removeProductFromCart, 
                                 <span>₹{subTotal+gameTotal+comboTotal+optTotal}</span>
                             </div>
                             <div className={styles.summary_items}>
-                                <span>Security Deposit:</span>
-                                <span>₹500</span>
+                                <span>Security Deposit:<br/>(refundable)</span>
+                                <span>₹1000</span>
                             </div>
                             <div className={styles.summary_items}>
                                 <span>Delivery:</span>

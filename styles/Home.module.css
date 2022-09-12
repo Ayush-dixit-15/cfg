@@ -38,6 +38,7 @@
     transition: all 0.2s ease-in-out;
     margin: 2rem 0;
     padding: 1rem;
+    width: 15rem;
 }
 
 .card:hover {

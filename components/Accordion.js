@@ -31,7 +31,7 @@ const Accordion = () => {
                             aria-expanded="false"
                             aria-controls="collapseOne"
                         >
-                            How to rent a console and games?
+                            Is home delivery free?
                         </button>
                     </h2>
                     <div
@@ -41,7 +41,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                        Browse to the products tab and add your preffered gaming console and games to your cart. Alternatively you can also choose from various combo packs provided by us.
+                        The home delivery will be extended free of cost if location is lying within 8 KM radius from Pitampura/Uttam Nagar.
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ const Accordion = () => {
                             aria-expanded="false"
                             aria-controls="collapseTwo"
                         >
-                            What do I need to provide for my KYC?
+                            What will be the security deposit for renting the console?
                         </button>
                     </h2>
                     <div
@@ -65,7 +65,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                        For your identification you need to click a photograph of your aadhar card(masked), address proof(ulitilies bill such as gas, electric, water, etc) and your digital signature.
+                        As security deposit is a main concern for many, we've kept it lowest at just ₹1000 which is completely refunded after the console is returned.
                         </div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ const Accordion = () => {
                             aria-expanded="false"
                             aria-controls="collapseThree"
                         >
-                            How do I pay for my order?
+                            What to do after placing an order successfully?
                         </button>
                     </h2>
                     <div
@@ -89,8 +89,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                        You can pay for your order when it gets delivered at your doorstep!
-Thats right! there is no advanced payment for your order and you can pay when receiving your order using cash or UPI.
+                        Congrats on successfully placing an order with us. We know you're as much excited to have the console at the earliest as much as we are in sending it out to you. Our executive will get in touch with you to ask for the date of delivery after scrutinizing the KYC. Any concern relating to order can be shared with the executive.
                         </div>
                     </div>
                 </div>
