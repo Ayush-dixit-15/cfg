@@ -16,6 +16,7 @@ import Footer from "../components/Footer";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { motion } from 'framer-motion';
 
 
 function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) {
@@ -49,7 +50,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 />
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
-                
+
             </Head>
             <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'} />
             <Carousel />
@@ -66,42 +67,58 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 <div className={styles.grid}>
                     {combo.data.map((item) => {
                         return (
-                            <div key={item.attributes.slug}>
-                                <Link
-                                    href={`/combos/${item.attributes.slug}`}
-                                >
-                                    <div className={styles.card}>
-                                        <img
-                                            src={
-                                                item.attributes.mainImage.data.attributes.url
-                                            }
-                                            height={180}
-                                            width={180}
-                                        />
-                                        <h2>{item.attributes.title}</h2>
-                                        <span>
-                                            From ₹{item.attributes.consolePrice1}
-                                        </span>
-                                    </div>
-                                </Link>
-                            </div>
+                            <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}>
+                                <div key={item.attributes.slug}>
+                                    <Link
+                                        href={`/combos/${item.attributes.slug}`}
+                                    >
+                                        <div className={styles.card}>
+                                            <img
+                                                src={
+                                                    item.attributes.mainImage.data.attributes.url
+                                                }
+                                                height={180}
+                                                width={180}
+                                            />
+                                            <h2>{item.attributes.title}</h2>
+                                            <span>
+                                                From ₹{item.attributes.consolePrice1}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </motion.div>
                         );
                     })}
                 </div>
-                <div className={styles.banner} >
-                    <div className={styles.left}>
-                        <span>GET</span>
-                        <h1>PlayStation 4</h1>
-                        <h3>At just Rs. 1,499 for 7 days</h3>
-                        <Link href="/consoles/sony-play-station-4">
-                            <button>Shop Now</button>
-                        </Link>
+                
+                    <div className={styles.banner} >
+                        <div className={styles.left}>
+                            <span>GET</span>
+                            <h1>PlayStation 4</h1>
+                            <h3>At just Rs. 1,499 for 7 days</h3>
+                            <Link href="/consoles/sony-play-station-4">
+                                <button>Shop Now</button>
+                            </Link>
+                        </div>
+                        <div className={styles.right}>
+                            {" "}
+                            <Image src={console} height={400} width={400} />
+                        </div>
                     </div>
-                    <div className={styles.right}>
-                        {" "}
-                        <Image src={console} height={400} width={400} />
-                    </div>
-                </div>
+                
                 <div className={styles.topic}>
                     <h1>All consoles</h1>
                     {/* <span>
@@ -129,6 +146,19 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         }
                     }).map((item) => {
                         return (
+                            <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}>
                             <div key={item.attributes.slug}>
                                 <Link
                                     href={`/consoles/${item.attributes.slug}`}
@@ -148,6 +178,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                                     </div>
                                 </Link>
                             </div>
+                            </motion.div>
                         );
                     })}
                 </div>
@@ -158,6 +189,19 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 </span> */}
                     <hr />
                 </div>
+                <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}>
                 <div className={styles.usp} >
                     <div className={styles.usp_item}>
                         <VolunteerActivismIcon style={{ fontSize: "4rem" }} className={styles.icon} />
@@ -184,6 +228,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         </p>
                     </div>
                 </div>
+                </motion.div>
                 <div className={styles.topic}>
                     <h1>Some Frequently Asked Questions </h1>
                     {/* <span>

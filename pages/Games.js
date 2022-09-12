@@ -14,6 +14,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Head from "next/head";
 import Script from "next/script";
+import {motion} from 'framer-motion';
 
 
 const Games = ({ games, product, subTotal, action, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) => {
@@ -34,7 +35,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
     <div>
       <Navbar
         KYC={"KYC"}
-        About={" About"}
+        About={"About"}
         Contact={"Contact"}
         Login={"Login"}
         Signup={"Signup"}
@@ -192,7 +193,19 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
 
       </div>
 
-
+      <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
       <div className={styles.hero} >
         <div className={styles.hero_item}>
           <div className={styles.hero_top}>
@@ -215,12 +228,26 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
         </div>
         <GamesCarousel games={games} ht={"31rem"} addGameCartToCart={addGameCartToCart} />
       </div>
+      </motion.div>
       <div className={styles.games_body}>
         <div className={styles.topic}>
           <h1 style={{ margin: "0rem" }}>Our Best Selling Games</h1>
           <hr style={{ margin: "0rem" }}  />
         </div>
         <div className={styles.grid}>
+        <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
           <div className={styles.cardParent}   >
             <Link href={`/games/god-of-war`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
@@ -248,6 +275,20 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
           <div className={styles.cardParent}   >
             <Link href={`/games/the-last-of-us-part-2`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
@@ -277,6 +318,20 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
           <div className={styles.cardParent}   >
             <Link href={`/games/uncharted-4`}>
               <div className={styles.card} style={{ cursor: "pointer" }}>
@@ -306,6 +361,20 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
+          </motion.div>
+          <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
           <div className={styles.cardParent}   >
             <Link href={`/games/watch-dogs-2`} >
               <div className={styles.card} style={{ cursor: "pointer" }}>
@@ -333,7 +402,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
               </span>
             </p>
           </div>
-
+          </motion.div>
         </div>
 
         <div className={styles.topic}>
@@ -360,6 +429,19 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
             }
           }).map((item) => {
             return (
+              <motion.div initial="hidden" whileInView="visible" variants={{
+                hidden: {
+                    scale: .8,
+                    opacity: 0
+                },
+                visible: {
+                    scale: 1,
+                    opacity: 1,
+                    transition: {
+                        delay: .3
+                    }
+                }
+            }}>
               <div key={item.attributes.slug} className={styles.cardParent}   >
                 <Link
                   href={`/games/${item.attributes.slug}`}
@@ -392,6 +474,7 @@ const Games = ({ games, product, subTotal, action, addProductToCart, removeProdu
                   </span>
                 </p>
               </div>
+              </motion.div>
             );
           })}
         </div>

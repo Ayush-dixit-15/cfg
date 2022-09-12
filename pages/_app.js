@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import LoadingBar from 'react-top-loading-bar';
 import WhatsApp from "@mui/icons-material/WhatsApp";
+import {motion} from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   const [product, setProduct] = useState({});
@@ -228,7 +229,18 @@ function MyApp({ Component, pageProps }) {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
+      <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial:{
+          opacity: 0,
+          scale: .8
+        },
+        pageAnimate:{
+          opacity: 1,
+          scale: 1
+        }
+      }}>
       <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} {...pageProps} />
+      </motion.div>
       <a href="https://wa.me/918287702693" target="_blank" rel="noreferrer" className="whatsapp">
           <WhatsApp
             style={{
