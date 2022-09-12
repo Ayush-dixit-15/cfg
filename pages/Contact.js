@@ -24,7 +24,7 @@ const Contact = ({ product, subTotal, addProductToCart, removeProductFromCart, c
             />
             <div className={styles.contact_box1}>
                 <Image src={contactBanner} alt="" />
-                <h1>Let&#39;s have a talk</h1>
+                {/* <h1>Let&#39;s have a talk</h1> */}
             </div>
 
             <div className={styles.contact_box2}>

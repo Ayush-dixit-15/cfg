@@ -65,7 +65,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                        As security deposit is a main concern for many, we've kept it lowest at just ₹1000 which is completely refunded after the console is returned.
+                        As security deposit is a main concern for many, we&apos;ve kept it lowest at just ₹1000 which is completely refunded after the console is returned.
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ const Accordion = () => {
                         data-bs-parent="#accordionExample"
                     >
                         <div className="accordion-body">
-                        Congrats on successfully placing an order with us. We know you're as much excited to have the console at the earliest as much as we are in sending it out to you. Our executive will get in touch with you to ask for the date of delivery after scrutinizing the KYC. Any concern relating to order can be shared with the executive.
+                        Congrats on successfully placing an order with us. We know you&apos;re as much excited to have the console at the earliest as much as we are in sending it out to you. Our executive will get in touch with you to ask for the date of delivery after scrutinizing the KYC. Any concern relating to order can be shared with the executive.
                         </div>
                     </div>
                 </div>
