@@ -16,10 +16,11 @@ import Footer from "../components/Footer";
 import VolunteerActivismIcon from '@mui/icons-material/VolunteerActivism';
 import SavingsIcon from '@mui/icons-material/Savings';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import { motion } from 'framer-motion';
+import VerifiedIcon from '@mui/icons-material/Verified';
 
 
-
-function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart}) {
+function Home({ products, product, subTotal, combo, addProductToCart, removeProductFromCart, clearProduct, gameCart, gameTotal, comboCart, comboTotal, optCart, optTotal, addGameCartToCart, removeGameCartFromCart, clearGameCart, addOptCartToCart, removeOptCartFromCart, clearOptCart, addComboCartToCart, removeComboCartFromCart, clearComboCart }) {
     const [query, setquery] = useState("");
     const [userid, setuserid] = useState(0);
     useEffect(() => {
@@ -41,7 +42,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
     };
 
     return (
-        <div>
+        <div >
             <Head>
                 <title>Craving for gaming</title>
                 <meta
@@ -50,12 +51,12 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 />
                 <link rel="icon" href="/favicon.ico" />
                 <script src="https://accounts.google.com/gsi/client" async defer></script>
+
             </Head>
-            <Script src='./script.js'></Script>
-            <Navbar  KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'}/>
+            <Navbar KYC={'KYC'} About={'About'} Contact={'Contact'} Login={'Login'} Signup={'Signup'} product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} Buy={'Buy'} Sell={'Sell'} />
             <Carousel />
             {/* <span>{myarr}</span> */}
-            <div className={styles.main}>
+            <div className={styles.main} >
                 <div className={styles.topic} id="combo">
                     <h1>Our Combos</h1>
                     <span>
@@ -67,42 +68,59 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 <div className={styles.grid}>
                     {combo.data.map((item) => {
                         return (
-                            <div key={item.attributes.slug}>
-                                <Link
-                                    href={`/combos/${item.attributes.slug}`}
-                                >
-                                    <div className={styles.card}>
-                                        <img
-                                            src={
-                                                item.attributes.mainImage.data.attributes.url
-                                            }
-                                            height={180}
-                                            width={180}
-                                        />
-                                        <h2>{item.attributes.title}</h2>
-                                        <span>
-                                            From ₹{item.attributes.consolePrice1}
-                                        </span>
-                                    </div>
-                                </Link>
-                            </div>
+                            <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}
+                            key={item.attributes.slug}>
+                                <div >
+                                    <Link
+                                        href={`/combos/${item.attributes.slug}`}
+                                    >
+                                        <div className={styles.card}>
+                                            <img
+                                                src={
+                                                    item.attributes.mainImage.data.attributes.url
+                                                }
+                                                height={180}
+                                                width={180}
+                                            />
+                                            <h2>{item.attributes.title}</h2>
+                                            <span>
+                                                From ₹{item.attributes.consolePrice1}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </div>
+                            </motion.div>
                         );
                     })}
                 </div>
-                <div className={styles.banner}>
-                    <div className={styles.left}>
-                        <span>GET</span>
-                        <h1>PlayStation 4</h1>
-                        <h3>At just Rs. 1,499 for 7 days</h3>
-                        <Link href="/consoles/sony-play-station-4">
-                            <button>Shop Now</button>
-                        </Link>
+                
+                    <div className={styles.banner} >
+                        <div className={styles.left}>
+                            <span>GET</span>
+                            <h1>PlayStation 4</h1>
+                            <h3>At just Rs. 1,499 for 7 days</h3>
+                            <Link href="/consoles/sony-play-station-4">
+                                <button>Shop Now</button>
+                            </Link>
+                        </div>
+                        <div className={styles.right}>
+                            {" "}
+                            <Image src={console} height={400} width={400} />
+                        </div>
                     </div>
-                    <div className={styles.right}>
-                        {" "}
-                        <Image src={console} height={400} width={400} />
-                    </div>
-                </div>
+                
                 <div className={styles.topic}>
                     <h1>All consoles</h1>
                     {/* <span>
@@ -117,10 +135,10 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                     </div>
                     <div className={styles.search}>
                         <input type="text" placeholder="Search for Product Name or Brand" value={query} onChange={(e) => { setquery(e.target.value) }} />
-                        <SearchIcon style={{margin: "0.5rem"}}/>
+                        <SearchIcon style={{ margin: "0.5rem" }} />
                     </div>
                 </div>
-                <div className={styles.grid}  id="usp">
+                <div className={styles.grid} id="usp">
                     {products.data.filter((val) => {
                         if (query === "") {
                             return val;
@@ -130,7 +148,21 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                         }
                     }).map((item) => {
                         return (
-                            <div key={item.attributes.slug}>
+                            <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}
+                            key={item.attributes.slug}>
+                            <div >
                                 <Link
                                     href={`/consoles/${item.attributes.slug}`}
                                 >
@@ -149,6 +181,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                                     </div>
                                 </Link>
                             </div>
+                            </motion.div>
                         );
                     })}
                 </div>
@@ -159,17 +192,30 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 </span> */}
                     <hr />
                 </div>
-                <div className={styles.usp}>
+                <motion.div initial="hidden" whileInView="visible" variants={{
+                                hidden: {
+                                    scale: .8,
+                                    opacity: 0
+                                },
+                                visible: {
+                                    scale: 1,
+                                    opacity: 1,
+                                    transition: {
+                                        delay: .4
+                                    }
+                                }
+                            }}>
+                <div className={styles.usp} >
                     <div className={styles.usp_item}>
-                        <VolunteerActivismIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
+                        <VerifiedIcon style={{ fontSize: "4rem" }} className={styles.icon} />
                         <p>
-                        At Craving for Gaming, we understand the love and passion you have for video games and also how sometimes it can get a little “over-budget”.
+                        Quality assurance
                         </p>
                     </div>
                     <div className={styles.usp_item}>
-                        <SavingsIcon style={{ fontSize: "4rem" }} className={styles.icon}/>
+                        <SavingsIcon style={{ fontSize: "4rem" }} className={styles.icon} />
                         <p>
-                        Budget friendly rates 
+                            Budget friendly rates
                         </p>
                         {/* <p>
                         CFG provides gaming consoles on rent at Budget friendly rates along with great combos and games from multiple genres
@@ -181,10 +227,11 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                             className={styles.icon}
                         />
                         <p>
-                        Home Delivery
+                            Home Delivery
                         </p>
                     </div>
                 </div>
+                </motion.div>
                 <div className={styles.topic}>
                     <h1>Some Frequently Asked Questions </h1>
                     {/* <span>
@@ -194,7 +241,7 @@ function Home({ products, product, subTotal, combo, addProductToCart, removeProd
                 </div>
                 <Accordion />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 }

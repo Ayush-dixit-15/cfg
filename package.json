@@ -17,6 +17,7 @@
     "bootstrap": "^5.2.0",
     "canvas-confetti": "^1.5.1",
     "formdata-node": "^5.0.0",
+    "framer-motion": "^7.3.2",
     "jwt-decode": "^3.1.2",
     "next": "12.2.3",
     "node-fetch": "^3.2.10",

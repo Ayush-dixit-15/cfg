@@ -35,6 +35,22 @@
     padding: 0.5rem !important;
 }
 
+.upload{
+    background: rgb(241, 241, 241);
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--black);
+    transition: all 0.3s ease-in-out;
+    font-size: 0.85rem;
+    width: 7rem;
+    text-align: center;
+    margin: 0.3rem 0;
+}
+
+.upload:hover{
+    background: rgb(209, 209, 209);
+}
+
 @keyframes rotate {
     0% {
         transform: rotateZ(0deg);

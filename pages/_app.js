@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Script from "next/script";
 import LoadingBar from 'react-top-loading-bar';
 import WhatsApp from "@mui/icons-material/WhatsApp";
+import {motion} from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
   const [product, setProduct] = useState({});
@@ -18,12 +19,13 @@ function MyApp({ Component, pageProps }) {
   const [optTotal, setoptTotal] = useState(0);
   const [progress, setProgress] = useState(0);
   const router = useRouter();
-  useEffect(() => {router.events.on('routeChangeStart', ()=>{
-    setProgress(40)
-  })
-  router.events.on('routeChangeComplete', ()=>{
-    setProgress(100)
-  })
+  useEffect(() => {
+    router.events.on('routeChangeStart', () => {
+      setProgress(40)
+    })
+    router.events.on('routeChangeComplete', () => {
+      setProgress(100)
+    })
     try {
       if (localStorage.getItem("product")) {
         setProduct(JSON.parse(localStorage.getItem("product")));
@@ -84,7 +86,7 @@ function MyApp({ Component, pageProps }) {
     setoptTotal(subt);
   }
 
-  
+
   const addProductToCart = (productSlug, qty, price, name, img) => {
     let newProduct = product;
     if (productSlug in product) {
@@ -116,7 +118,7 @@ function MyApp({ Component, pageProps }) {
     else {
       newProduct[productSlug] = { qty: 1, price, name, img }
     }
-    router.push(`/KYC`);
+    router.push(`/Games`);
     setcomboCart(newProduct);
     saveComboCart(newProduct);
   }
@@ -133,12 +135,12 @@ function MyApp({ Component, pageProps }) {
   }
 
   const clearProduct = (productSlug) => {
-    delete product[productSlug]; 
+    delete product[productSlug];
     setProduct(product);
     saveProduct(product);
   }
   const clearGameCart = (productSlug) => {
-    delete gameCart[productSlug]; 
+    delete gameCart[productSlug];
     setgameCart(gameCart);
     saveGameCart(gameCart);
   }
@@ -197,20 +199,21 @@ function MyApp({ Component, pageProps }) {
     setoptCart(newProduct);
     saveOptCart(newProduct);
   }
-//   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"></script>
-// <script>
+  //   <script async src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"></script>
+  // <script>
   // window.dataLayer = window.dataLayer || [];
   // function gtag(){dataLayer.push(arguments);}
   // gtag('js', new Date());
 
   // gtag('config', 'G-K48YYQ1Z1G');
-// </script>
+  // </script>
   return (
     <>
       <Head>
         <script src="https://accounts.google.com/gsi/client" async defer></script>
+        
       </Head>
-      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G"/>
+      <Script strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-K48YYQ1Z1G" />
       <Script strategy="lazyOnload" id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];
@@ -221,22 +224,37 @@ function MyApp({ Component, pageProps }) {
         `}
       </Script>
       <LoadingBar
-      color='#FF0000'
-      waitingTime={400}
-      progress={progress}
-      onLoaderFinished={() => setProgress(0)}
-    />
-      <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} {...pageProps}/>
-      <a href = "https://wa.me/918287702693" target="_blank">
-      <WhatsApp
-               style={{
-                position:"fixed",
-                bottom:"40px",
-                right:"0px",
-                height:"5rem",
-                width:"8rem",
+        color='#FF0000'
+        waitingTime={400}
+        progress={progress}
+        onLoaderFinished={() => setProgress(0)}
+      />
+      <motion.div key={router.route} initial="pageInitial" animate="pageAnimate" variants={{
+        pageInitial:{
+          opacity: 0,
+          scale: .8
+        },
+        pageAnimate:{
+          opacity: 1,
+          scale: 1
+        }
+      }}>
+      <Component product={product} addProductToCart={addProductToCart} removeProductFromCart={removeProductFromCart} clearProduct={clearProduct} subTotal={subTotal} gameCart={gameCart} gameTotal={gameTotal} comboCart={comboCart} comboTotal={comboTotal} optCart={optCart} optTotal={optTotal} addGameCartToCart={addGameCartToCart} removeGameCartFromCart={removeGameCartFromCart} clearGameCart={clearGameCart} addOptCartToCart={addOptCartToCart} removeOptCartFromCart={removeOptCartFromCart} clearOptCart={clearOptCart} addComboCartToCart={addComboCartToCart} removeComboCartFromCart={removeComboCartFromCart} clearComboCart={clearComboCart} {...pageProps} />
+      </motion.div>
+      <a href="https://wa.me/918287702693" target="_blank" rel="noreferrer" className="whatsapp">
+          <WhatsApp
+            style={{
+              position: "fixed",
+              bottom: "40px",
+              right: "40px",
+              height: "4rem",
+              width: "4rem",
+              background: "#25D366",
+              color: "white",
+              borderRadius: "999px",
+              padding: "0.5rem"
             }}
-        className="cursor-pointer" color="success" />
+          />
       </a>
     </>
   );

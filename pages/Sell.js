@@ -70,7 +70,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 					<Image src={redconsole} />
 				</div>
 				<form onSubmit={handleSubmit} method="POST">
-					<h1>Sell your console</h1>
+					<h1 style={{fontWeight: "600"}}>Sell your console</h1>
 					<span key={prob} style={{color: "var(--red)", margin: "2rem 0 1rem 0"}}>{prob}</span>
 					<label htmlFor="name">Full Name<strong style={{ color: "var(--red)" }}>*</strong></label>
 					<input
@@ -132,7 +132,7 @@ const Sell = ({ product, subTotal, addProductToCart, removeProductFromCart, clea
 						required
 						style={{ padding: "0.5rem" }}
 					/>
-					<button type="submit">Request Selling<SellIcon style={{ marginLeft: "1rem" }} /></button>
+					<button type="submit">Request Selling</button>
 				</form>
 				{/* <div className={styles.why}>
 					<h1>Why sell on Craving For Gaming?</h1>
